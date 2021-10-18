@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ThemeProvider } from "styled-components";
 import { GlobalStyles } from "./GlobalStyles";
-import { lightTheme, darkTheme } from "./Themes"
+import { lightTheme, darkTheme } from "./Themes";
 
 const App = () => {
 
