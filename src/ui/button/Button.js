@@ -3,9 +3,20 @@ import CustomizedButton from "./ButtonStyle";
 const Button = ({
     children,
     style,
-    className}) => {
+    className,
+    disabled,
+    type}) => {
 
-    return <CustomizedButton style={style} className={className}>{children}</CustomizedButton>
+    return (
+        <CustomizedButton 
+            style={style} 
+            className={className}
+            disabled={disabled}
+            htmlType={type}
+        >
+            {children}
+        </CustomizedButton>
+    );
 
 }
 

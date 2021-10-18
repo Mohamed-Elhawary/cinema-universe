@@ -1,4 +1,5 @@
 import {Component} from 'react';
+import PreLoader from 'ui/loaders/preloader/PreLoader';
 
 const LazyLoadComponent = (importedLazyLoadComp) => {
     
@@ -20,7 +21,7 @@ const LazyLoadComponent = (importedLazyLoadComp) => {
         
             const C = this.state.component;
         
-            return C ? <C {...this.props} /> : null
+            return C ? <C {...this.props} /> : <PreLoader />
         
         }
     

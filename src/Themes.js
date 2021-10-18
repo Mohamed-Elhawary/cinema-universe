@@ -32,7 +32,13 @@ export const lightTheme = {
     loader_color_1: color_5,
     loader_color_2: color_7,
 
-    error_color: color_11
+    error_color: color_11,
+
+    form_bg: color_7,
+    form_border: color_10,
+
+    text_color_1: color_3,
+    text_color_2: color_11
 }
 
 export const darkTheme = {
@@ -56,5 +62,11 @@ export const darkTheme = {
     loader_color_1: color_5,
     loader_color_2: color_7,
 
-    error_color: color_11
+    error_color: color_11,
+
+    form_bg: color_2,
+    form_border: color_7,
+
+    text_color_1: color_7,
+    text_color_2: color_11
 }

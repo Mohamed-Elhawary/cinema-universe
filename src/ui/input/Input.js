@@ -1,8 +1,8 @@
 import CustomizedInput from "./InputStyle";
 
-const Input = ({placeholder}) => {
+const Input = ({placeholder, className}) => {
 
-    return <CustomizedInput placeholder={placeholder}/>
+    return <CustomizedInput placeholder={placeholder} className={className} />
 
 }
 
