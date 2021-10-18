@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { ThemeProvider } from "styled-components";
+import { ProvideAuth } from 'utils/use-auth';
 import { GlobalStyles } from "./GlobalStyles";
 import { lightTheme, darkTheme } from "./Themes";
 
@@ -12,15 +13,11 @@ const App = () => {
 	return (
 		<ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
 			<GlobalStyles />
-			<div className="App">
-				<button onClick={themeToggler}>Switch Theme</button>
-
-				<section>
-                  <h2 className="section-title">Head 2</h2>
-                  <div>This is Div</div>
-                  <hr />
-                </section>
-			</div>
+			<ProvideAuth>
+				<div className="App">
+							
+				</div>
+			</ProvideAuth>
 		</ThemeProvider>
 	);	
 }
