@@ -11,6 +11,7 @@ const logger = (store) => (next) => (action) => {
     console.groupEnd();
 
     return nextState;
+    
 }
   
 export default logger;

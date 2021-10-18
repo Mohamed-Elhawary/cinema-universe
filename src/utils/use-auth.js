@@ -9,11 +9,13 @@ export function ProvideAuth({children}) {
     const auth = useProvideAuth();
   
     return <authContext.Provider value={auth}>{children}</authContext.Provider>;
+
 }
 
 export const useAuth = () => {
 
     return useContext(authContext);
+
 };
 
 function useProvideAuth() {
@@ -36,6 +38,7 @@ function useProvideAuth() {
         callback({status: "Successed", statusCode: 200});
 
     }, 300);
+
 };
 
 
@@ -46,6 +49,7 @@ const logout = (callback) => {
     setUser(null);
 
     callback();
+    
 };
 
 
@@ -79,4 +83,5 @@ useEffect(() => {
         login,
         logout
     };
+
 }
