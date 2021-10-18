@@ -5,7 +5,7 @@ const CustomizedError = styled.span`
         position: absolute;
         bottom: -20px;
     };
-    .centered {
+    &.centered {
         display: block;
         margin: 12px auto;
     };

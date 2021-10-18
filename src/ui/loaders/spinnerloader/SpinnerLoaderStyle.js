@@ -7,11 +7,11 @@ const CustomizedSpinnerLoader = styled.div`
     transform: translate(50%);
     width: 20px;
     height: 20px;
-    .dark div {
+    &.dark div {
         border: 3px solid ${({ theme }) => theme.loader_color_1};
         border-color:  ${({ theme }) => theme.loader_color_1} transparent transparent transparent;
     };
-    .light div {
+    &.light div {
         border: 3px solid ${({ theme }) => theme.loader_color_2};
         border-color:  ${({ theme }) => theme.loader_color_2} transparent transparent transparent;
     };    

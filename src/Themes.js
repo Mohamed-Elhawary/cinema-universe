@@ -37,8 +37,11 @@ export const lightTheme = {
     form_bg: color_7,
     form_border: color_10,
 
-    text_color_1: color_3,
-    text_color_2: color_11
+    text_color: color_3,
+
+    navbar_bg: color_9,
+    navbar_border: color_10, 
+    navbar_toggler_bg: color_7
 }
 
 export const darkTheme = {
@@ -49,7 +52,7 @@ export const darkTheme = {
     button_bg_1: color_5,
     button_hover_bg_1: color_6,
     button_bg_2: color_3,
-    button_bg_hover_2: color_4,
+    button_hover_bg_2: color_4,
     button_border: color_7,
 
     input_color: color_7,
@@ -67,6 +70,9 @@ export const darkTheme = {
     form_bg: color_2,
     form_border: color_7,
 
-    text_color_1: color_7,
-    text_color_2: color_11
+    text_color: color_7,
+
+    navbar_bg: color_2,
+    navbar_border: color_7,
+    navbar_toggler_bg: color_7
 }

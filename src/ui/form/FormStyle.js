@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {Form} from "antd";
+import { Form } from "antd";
 
 export default styled(Form)`
     background-color: ${({ theme }) => theme.form_bg};

@@ -1,13 +1,14 @@
 import React, { useState } from "react";
+import { BrowserRouter } from "react-router-dom"
 import { ThemeProvider } from "styled-components";
 import { ProvideAuth } from 'utils/use-auth';
 import { GlobalStyles } from "./GlobalStyles";
 import { lightTheme, darkTheme } from "./Themes";
-import Logo from "ui/logo/Logo";
+import Navbar from "components/navbar/Navbar";
 
 const App = () => {
 
-	const [theme, setTheme] = useState('dark');
+	const [theme, setTheme] = useState('light');
   	
 	const themeToggler = () => theme === 'light' ? setTheme('dark') : setTheme('light');
 
@@ -15,9 +16,11 @@ const App = () => {
 		<ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
 			<GlobalStyles />
 			<ProvideAuth>
-				<div className="App">
-					<Logo />
-				</div>
+				<BrowserRouter>
+					<div className="App">
+						<Navbar />
+					</div>
+				</BrowserRouter>
 			</ProvideAuth>
 		</ThemeProvider>
 	);	
