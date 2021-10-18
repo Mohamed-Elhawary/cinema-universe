@@ -6,10 +6,10 @@ const CustomizedLogo = styled.h3`
         font-weight: bold;
     };
     span:nth-child(1), svg {
-        color: ${({ theme }) => theme.text_color_1};
+        color: ${({ theme }) => theme.text_color};
     };
     span:nth-child(2) {
-        color: ${({ theme }) => theme.text_color_2};
+        color: ${({ theme }) => theme.error_color};
     };
     svg {
         animation: rotating 2s linear infinite;
