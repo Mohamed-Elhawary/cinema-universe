@@ -1,22 +1,60 @@
-/*
-    Colors DB:-
-    ------------
-
-    color_1: '#001E3C',
-    color_2: '#071A2F',
-    color_3: '#132F4C',
-    color_4: '#173A5E',
-    color_5: '#0070E0',
-    color_6: '#0059B2',
-    color_7: '#AAB4BE',
-    color_8: '#fff'
-*/
+//Colors DB:-
+let color_1  = '#001E3C',
+    color_2  = '#071A2F',
+    color_3  = '#132F4C',
+    color_4  = '#173A5E',
+    color_5  = '#0070E0',
+    color_6  = '#0059B2',
+    color_7  = '#F3F6F9',
+    color_8  = '#EAEEF3',
+    color_9  = '#fff',
+    color_10 = '#46505A',
+    color_11 = '#f44336'
 
 export const lightTheme = {
-    body_bg: "#fff",
+    body_bg: color_9,
 
+    button_color_1: color_7,
+    button_color_2: color_10,
+    button_bg_1: color_5,
+    button_hover_bg_1: color_6,
+    button_bg_2: color_7,
+    button_hover_bg_2: color_8,
+    button_border: color_10,
+
+    input_color: color_10,
+    input_placeholder: color_10,
+    input_bg: color_7,
+    input_hover_bg: color_8,
+    input_border: color_6,
+    input_hover_border: color_5,
+
+    loader_color_1: color_5,
+    loader_color_2: color_7,
+
+    error_color: color_11
 }
 
 export const darkTheme = {
-    body_bg: '#001E3C'
+    body_bg: color_1,
+
+    button_color_1: color_7,
+    button_color_2: color_7,
+    button_bg_1: color_5,
+    button_hover_bg_1: color_6,
+    button_bg_2: color_3,
+    button_bg_hover_2: color_4,
+    button_border: color_7,
+
+    input_color: color_7,
+    input_placeholder: color_7,
+    input_bg: color_3,
+    input_hover_bg: color_4,
+    input_border: color_6,
+    input_hover_border: color_5,
+
+    loader_color_1: color_5,
+    loader_color_2: color_7,
+
+    error_color: color_11
 }

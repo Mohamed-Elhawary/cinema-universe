@@ -15,7 +15,6 @@ const App = () => {
 			<GlobalStyles />
 			<ProvideAuth>
 				<div className="App">
-							
 				</div>
 			</ProvideAuth>
 		</ThemeProvider>
