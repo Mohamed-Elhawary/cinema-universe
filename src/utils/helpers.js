@@ -7,11 +7,13 @@ export const getCookies = () => {
     let password = Cookies.get("password") || null;
        
     return {userName, password};
+
 }
 
 export const removeCookies = () => {
-    
+
     Cookies.remove("userName");
 
     Cookies.remove("password");
+    
 }

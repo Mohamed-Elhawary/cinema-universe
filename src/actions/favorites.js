@@ -6,6 +6,7 @@ export function receiveFavorites(favorites) {
         type: RECEIVE_FAVORITES,
         payload: {favorites}
     }
+
 }
 
 export function addFavorite(favorite) {
@@ -14,6 +15,7 @@ export function addFavorite(favorite) {
         type: ADD_FAVORITE,
         payload: {favorite}
     }
+
 }
 
 export function removeFavorite(favoriteID) {
@@ -22,4 +24,5 @@ export function removeFavorite(favoriteID) {
         type: REMOVE_FAVORITE,
         payload: {favoriteID}
     }
+    
 }

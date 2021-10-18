@@ -6,9 +6,7 @@ const axios_instance = axios.create({
 });
 
 axios_instance.interceptors.response.use(response => {
-    
-    console.log("response", response);
-    
+        
     return response;
     
     }, error => {
@@ -16,6 +14,7 @@ axios_instance.interceptors.response.use(response => {
     console.log("error", error);
     
     return Promise.reject(error);
+
 });
 
 export default axios_instance;
