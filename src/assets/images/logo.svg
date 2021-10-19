@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="128px" height="61px" viewBox="0 0 128 61" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Landing-Page---We-Were-Soldiers" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Log-In" transform="translate(-135.000000, -18.000000)">
+            <g id="Group" transform="translate(135.000000, 20.000000)">
+                <text id="Cinema-App" font-family="Roboto-Black, Roboto" font-size="20" font-weight="700" line-spacing="25" letter-spacing="0.95" fill="#FFFFFF">
+                    <tspan x="0" y="35">CINEMA APP</tspan>
+                </text>
+                <path d="M46.372549,56.5 L83.627451,56.5" id="Line" stroke="#FFCC33" stroke-width="4" stroke-linecap="square"></path>
+                <path d="M46.372549,0.5 L83.627451,0.5" id="Line-Copy" stroke="#FFCC33" stroke-width="4" stroke-linecap="square"></path>
+            </g>
+        </g>
+    </g>
+</svg>
