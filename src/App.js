@@ -6,6 +6,7 @@ import Cookies from 'js-cookie';
 import { ProvideAuth } from 'utils/use-auth';
 import { switchTheme } from "actions";
 import { Layout } from "layout";
+import { Routes } from "routes";
 import { GlobalStyles } from "./GlobalStyles";
 import { lightTheme, darkTheme } from "./Themes";
 
@@ -23,7 +24,7 @@ const App = ({theme, setTheme}) => {
 				<BrowserRouter>
 					<div className="App">
 						<Layout>
-							This is the App will be here
+							<Routes />
 						</Layout>
 					</div>
 				</BrowserRouter>
