@@ -4,12 +4,7 @@ import { useHistory } from "react-router-dom";
 import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 import { useLoginStates } from "hooks";
 import { useAuth } from "utils/use-auth";
-import Form from "ui/form/Form";
-import Input from "ui/input/Input";
-import Button from "ui/button/Button";
-import SpinnerLoader from "ui/loaders/spinnerloader/SpinnerLoader";
-import PreLoader from "ui/loaders/preloader/PreLoader";
-import Error from "ui/error/Error";
+import { Form, Input, Button, SpinnerLoader, PreLoader, Error } from "ui";
 import CustomizedLogin from "./LoginStyle";
 
 const Login = () => {
