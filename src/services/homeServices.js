@@ -16,7 +16,7 @@ export const fetchingHomeData = (callback) => {
     const requestThree = axios.get(topRatedURL);
 
     Promise.all([requestOne, requestTwo, requestThree]).then(data => {
-        
+        console.log(data)
 		callback({status: "Successed", statusCode: 200, data: {
             nowPlaying: data[0],
 			popular: data[1],
