@@ -1,8 +1,23 @@
 import CustomizedInput from "./InputStyle";
 
-const Input = ({placeholder, className}) => {
+const Input = ({
+    type,
+    className,
+    placeholder,
+    value,
+    onChange,
+    onKeyUpCapture }) => {
 
-    return <CustomizedInput placeholder={placeholder} className={className} />
+    return (
+        <CustomizedInput 
+            type={type}
+            className={className} 
+            placeholder={placeholder} 
+            value={value}
+            onChange={onChange}
+            onKeyUpCapture={onKeyUpCapture}
+        />
+    );
 
 }
 

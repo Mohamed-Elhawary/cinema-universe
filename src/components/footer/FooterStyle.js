@@ -5,9 +5,6 @@ const CustomizedFooter = styled.footer`
     color: ${({ theme }) => theme.text_color};
     border-top: 1px solid ${({ theme }) => theme.footer_border};
     padding: 25px 0;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
     text-align: center;
     .author a {
         color: ${({ theme }) => theme.error_color}!important;

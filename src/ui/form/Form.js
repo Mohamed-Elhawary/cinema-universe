@@ -1,8 +1,8 @@
 import CustomizedForm from "./FormStyle";
 
-const Form = ({children}) => {
+const Form = ({onSubmitCapture, children}) => {
 
-    return <CustomizedForm>{children}</CustomizedForm>
+    return <CustomizedForm onSubmitCapture={onSubmitCapture}>{children}</CustomizedForm>
 
 }
 

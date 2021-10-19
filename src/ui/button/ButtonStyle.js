@@ -24,5 +24,8 @@ export default styled(Button)`
         min-width: initial;
         width: 30px;
         height: 30px;
+    };
+    &:disabled {
+        background-color: ${({ theme }) => theme.button_hover_bg_2}!important;
     }
 `;

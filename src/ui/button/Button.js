@@ -1,17 +1,17 @@
 import CustomizedButton from "./ButtonStyle";
 
 const Button = ({
-    children,
+    type,
     className,
     disabled,
-    type,
+    children,
     onClick}) => {
 
     return (
         <CustomizedButton 
+            htmlType={type}
             className={className}
             disabled={disabled}
-            htmlType={type}
             onClick={onClick}
         >
             {children}
