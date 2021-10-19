@@ -9,7 +9,8 @@ const CustomizedError = styled.span`
         display: block;
         margin: 12px auto;
     };
-    color: ${({ theme }) => theme.error_color};
+    display: block;
+    color: ${({ theme }) => theme.error_color}!important;
     font-size: 11px;
     font-style: italic;
 `;

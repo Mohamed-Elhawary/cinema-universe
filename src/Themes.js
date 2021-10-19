@@ -20,6 +20,7 @@ export const lightTheme = {
     button_hover_bg_1: color_6,
     button_bg_2: color_7,
     button_hover_bg_2: color_8,
+    button_bg_3: color_10,
     button_border: color_10,
 
     input_color: color_10,
@@ -42,6 +43,7 @@ export const lightTheme = {
     navbar_bg: color_9,
     navbar_border: color_10, 
     navbar_toggler_bg: color_7,
+    navbar_dropdown_item_color: color_3,
 
     footer_bg: color_9,
     footer_border: color_10, 
@@ -56,6 +58,7 @@ export const darkTheme = {
     button_hover_bg_1: color_6,
     button_bg_2: color_3,
     button_hover_bg_2: color_4,
+    button_bg_3: color_10,
     button_border: color_7,
 
     input_color: color_7,
@@ -78,6 +81,7 @@ export const darkTheme = {
     navbar_bg: color_2,
     navbar_border: color_7,
     navbar_toggler_bg: color_7,
+    navbar_dropdown_item_color: color_3,
 
     footer_bg: color_2,
     footer_border: color_7,
