@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { fetchingHomeData } from "services";
+import Slider from "ui/slider/Slider";
 
 const Home = () => {
     
@@ -27,7 +28,7 @@ const Home = () => {
 
     return (
         <div className="home-view view">
-
+            
         </div>
     );
 
