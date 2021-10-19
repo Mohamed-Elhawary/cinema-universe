@@ -1,13 +1,7 @@
 import axios from "utils/axios-instance";
-import { API_KEY } from "consts";
+import { nowPlayingURL, popularURL, topRatedURL } from "config";
 
 export const fetchingHomeData = (callback) => {
-
-    let nowPlayingURL = `now_playing?api_key=${API_KEY}&language=en-US&page=1`;
-
-    let popularURL = `popular?api_key=${API_KEY}&language=en-US&page=1`;
-
-    let topRatedURL = `top_rated?api_key=${API_KEY}&language=en-US&page=1`;
 
     const requestOne = axios.get(nowPlayingURL);
     
