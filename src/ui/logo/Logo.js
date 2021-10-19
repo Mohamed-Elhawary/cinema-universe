@@ -1,7 +1,7 @@
 import { RiMovie2Fill } from "react-icons/ri";
 import CustomizedLogo from "./LogoStyle";
 
-const Logo = ({className}) => {
+const Logo = ({ className }) => {
     
     return (
         <CustomizedLogo className={className}>

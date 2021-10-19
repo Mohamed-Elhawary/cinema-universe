@@ -6,7 +6,7 @@ const Input = ({
     placeholder,
     value,
     onChange,
-    onKeyUpCapture }) => {
+    onKeyUpCapture}) => {
 
     return (
         <CustomizedInput 

@@ -4,7 +4,7 @@ import { getCookies, removeCookies } from "./helpers";
 
 const authContext = createContext();
 
-export function ProvideAuth({children}) {
+export function ProvideAuth({ children }) {
   
     const auth = useProvideAuth();
   

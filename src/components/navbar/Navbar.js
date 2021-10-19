@@ -63,6 +63,6 @@ const Navbar = ({theme, setTheme}) => {
 
 const mapStateToProps = ({theme}) => ({theme: theme.theme});
   
-const mapDispatchToProps = (dispatch) => ({setTheme: (theme) => dispatch(switchTheme(theme))});
+const mapDispatchToProps = dispatch => ({setTheme: theme => dispatch(switchTheme(theme))});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Navbar);
