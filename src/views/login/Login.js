@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Redirect } from "react-router";
 import { useHistory } from "react-router-dom";
 import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
+import { useLoginStates } from "db/loginStates";
 import { useAuth } from "utils/use-auth";
 import Form from "ui/form/Form";
 import Input from "ui/input/Input";
@@ -12,18 +13,23 @@ import Error from "ui/error/Error";
 import CustomizedLogin from "./LoginStyle";
 
 const Login = () => {
-    
-    const [showLoginLoader, setShowLoginLoader] = useState(false);
-    
-    const [userName, setUserName] = useState({state: "notDirty", value: ""});
-    
-    const [password, setPassword] = useState({state: "notDirty", value: ""});
 
-    const [seePassword, setSeePassword] = useState(false);
+    const loginStates = useLoginStates();
 
-    const [userNameError, setUserNameError] = useState(false);
-
-    const [passwordError, setPasswordError] = useState(false);
+    const {
+        showLoginLoader,
+        setShowLoginLoader,
+        userName,
+        setUserName,
+        password,
+        setPassword,
+        seePassword,
+        setSeePassword,
+        userNameError,
+        setUserNameError,
+        passwordError,
+        setPasswordError
+    } = loginStates;
 
     let history = useHistory();
 
