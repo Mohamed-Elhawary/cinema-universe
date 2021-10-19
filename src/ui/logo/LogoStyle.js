@@ -14,6 +14,12 @@ const CustomizedLogo = styled.h3`
     svg {
         animation: rotating 2s linear infinite;
     };
+    &.mini {
+        display: inline-block;
+        span {
+            font-size: 14px;
+        }
+    };
     @-webkit-keyframes rotating {
         from {
             -webkit-transform: rotate(0deg);
