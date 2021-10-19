@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import { fetchingHomeData } from "services";
-import Slider from "ui/slider/Slider";
+import { NowPlayingSlider, PopularSlider, TopRatedSlider } from "components";
 
 const Home = () => {
     
-    const [nowPlaying, setNowPlaying] = useState([]);
-    const [popular, setPopular] = useState([]);
-    const [topRated, setTopRated] = useState([]);
+    const [nowPlayingMovies, setNowPlayingMovies] = useState([]);
+
+    const [popularMovies, setPopularMovies] = useState([]);
+
+    const [topRatedMovies, setTopRatedMovies] = useState([]);
 
     useEffect(() => {
         
@@ -14,11 +16,11 @@ const Home = () => {
 
             if(response.statusCode === 200) {
 
-                setNowPlaying(response.data.nowPlaying);
+                setNowPlayingMovies(response.data.nowPlaying);
             
-                setPopular(response.data.popular);
+                setPopularMovies(response.data.popular);
             
-                setTopRated(response.data.topRated);
+                setTopRatedMovies(response.data.topRated);
             
             }
 
@@ -28,7 +30,9 @@ const Home = () => {
 
     return (
         <div className="home-view view">
-            
+            <NowPlayingSlider nowPlayingMovies={nowPlayingMovies} />
+            <PopularSlider popularMovies={popularMovies} />
+            <TopRatedSlider topRatedMovies={topRatedMovies} />
         </div>
     );
 
