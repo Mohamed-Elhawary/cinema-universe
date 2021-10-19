@@ -11,7 +11,7 @@ import Button from "ui/button/Button";
 import Input from "ui/input/Input";
 import CustomizedNavbar from './NavbarStyle';
 
-const NavComp = ({theme, setTheme}) => {
+const Navbar = ({theme, setTheme}) => {
 
     let auth = useAuth();
 
@@ -65,4 +65,4 @@ const mapStateToProps = ({theme}) => ({theme: theme.theme});
   
 const mapDispatchToProps = (dispatch) => ({setTheme: (theme) => dispatch(switchTheme(theme))});
 
-export default connect(mapStateToProps, mapDispatchToProps)(NavComp);
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar);

@@ -8,6 +8,7 @@ import { switchTheme } from "actions";
 import { GlobalStyles } from "./GlobalStyles";
 import { lightTheme, darkTheme } from "./Themes";
 import Navbar from "components/navbar/Navbar";
+import Footer from "components/footer/Footer";
 
 const App = ({theme, setTheme}) => {
 
@@ -23,6 +24,7 @@ const App = ({theme, setTheme}) => {
 				<BrowserRouter>
 					<div className="App">
 						<Navbar />
+						<Footer />
 					</div>
 				</BrowserRouter>
 			</ProvideAuth>
