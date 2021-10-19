@@ -2,7 +2,7 @@ import { RECEIVE_FAVORITES, ADD_FAVORITE, REMOVE_FAVORITE } from "types";
 
 export default function favoritesReducer(favorites = [], action) {
     
-    const {type, payload} = action;
+    const { type, payload } = action;
 
     switch (type) {
 

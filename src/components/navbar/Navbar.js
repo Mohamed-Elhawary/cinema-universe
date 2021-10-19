@@ -1,24 +1,45 @@
-import { Link, useHistory } from 'react-router-dom';
 import { Fragment } from 'react';
+import { Link, useHistory } from 'react-router-dom';
+import { connect } from 'react-redux';
 import { Dropdown, Nav, NavDropdown, Container } from 'react-bootstrap';
 import { BsFillMoonFill, BsFillSunFill } from "react-icons/bs";
+import Cookies from 'js-cookie';
 import { useAuth } from 'utils/use-auth';
+import { switchTheme } from "actions";
 import Logo from 'ui/logo/Logo';
 import Button from "ui/button/Button";
 import Input from "ui/input/Input";
 import CustomizedNavbar from './NavbarStyle';
 
-const NavComp = (props) => {
+const NavComp = ({theme, setTheme}) => {
 
     let auth = useAuth();
 
     let history = useHistory();
 
+    const switchThemeButtonCliked = () => {
+
+        if(theme === "dark") {
+
+            Cookies.set("theme", "light");
+
+            setTheme("light");
+
+        } else {
+
+            Cookies.set("theme", "dark");
+
+            setTheme("dark");
+            
+        }
+
+    }
+
     return (
       	<CustomizedNavbar expand="lg" fixed="top">
 			<Container>
 				<CustomizedNavbar.Brand><Link to="/"><Logo /></Link></CustomizedNavbar.Brand>
-                {!auth.user && <Button className="dark mini"><BsFillMoonFill className="mb-1" /></Button>}
+                {!auth.user && <Button className="dark mini" onClick={switchThemeButtonCliked}>{theme === "dark" ? <BsFillSunFill className="mb-1" /> : <BsFillMoonFill className="mb-1" />}</Button>}
 				{auth.user && (
                     <Fragment>
                         <CustomizedNavbar.Toggle aria-controls="basic-navbar-nav" />
@@ -29,7 +50,7 @@ const NavComp = (props) => {
                                         Signout
                                     </Dropdown.Item>
                                 </NavDropdown>
-                                <Button className="dark mini mr-lg-3 mt-lg-1 my-2"><BsFillMoonFill className="mb-1" /></Button>
+                                <Button className="dark mini mr-lg-3 mt-lg-1 my-2" onClick={switchThemeButtonCliked}>{theme === "dark" ? <BsFillSunFill className="mb-1" /> : <BsFillMoonFill className="mb-1" />}</Button>
                                 <Input placeholder="Search for Movie" className="mb-2 mb-lg-0" />
                             </Nav>
                         </CustomizedNavbar.Collapse>
@@ -40,4 +61,8 @@ const NavComp = (props) => {
     );
 }
 
-export default NavComp;
+const mapStateToProps = ({theme}) => ({theme: theme.theme});
+  
+const mapDispatchToProps = (dispatch) => ({setTheme: (theme) => dispatch(switchTheme(theme))});
+
+export default connect(mapStateToProps, mapDispatchToProps)(NavComp);

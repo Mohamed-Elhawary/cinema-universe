@@ -1,16 +1,20 @@
-import React, { useState } from "react";
-import { BrowserRouter } from "react-router-dom"
+import React, { useEffect } from "react";
+import { BrowserRouter } from "react-router-dom";
+import { connect } from 'react-redux';
 import { ThemeProvider } from "styled-components";
+import Cookies from 'js-cookie';
 import { ProvideAuth } from 'utils/use-auth';
+import { switchTheme } from "actions";
 import { GlobalStyles } from "./GlobalStyles";
 import { lightTheme, darkTheme } from "./Themes";
 import Navbar from "components/navbar/Navbar";
 
-const App = () => {
+const App = ({theme, setTheme}) => {
 
-	const [theme, setTheme] = useState('light');
-  	
-	const themeToggler = () => theme === 'light' ? setTheme('dark') : setTheme('light');
+	useEffect(() => {
+		let storedTheme = Cookies.get("theme");
+		if(storedTheme) setTheme(storedTheme);
+	}, []);
 
 	return (
 		<ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
@@ -26,4 +30,8 @@ const App = () => {
 	);	
 }
 
-export default App;
+const mapStateToProps = ({theme}) => ({theme: theme.theme});
+  
+const mapDispatchToProps = (dispatch) => ({setTheme: (theme) => dispatch(switchTheme(theme))});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

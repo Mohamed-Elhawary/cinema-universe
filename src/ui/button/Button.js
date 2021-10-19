@@ -4,13 +4,15 @@ const Button = ({
     children,
     className,
     disabled,
-    type}) => {
+    type,
+    onClick}) => {
 
     return (
         <CustomizedButton 
             className={className}
             disabled={disabled}
             htmlType={type}
+            onClick={onClick}
         >
             {children}
         </CustomizedButton>
