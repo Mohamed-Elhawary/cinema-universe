@@ -1,5 +1,6 @@
 import star from "assets/images/star-filled.svg";
 import heart from "assets/images/heart.svg";
+import heartFilled from "assets/images/heart-filled.svg";
 import CustomizedMovie from "./MovieStyle";
 
 const Movie = ({
@@ -16,9 +17,9 @@ const Movie = ({
             <div className="position-relative movie-box">
                 <img src={posterSrc} alt="poster" />
                 <div className="overlay">
-                    <span className="favorite">{heart}</span>
+                    <img className="favorite" src={isFav ? heartFilled : heart} alt="heart" />
                     <div className="info">
-                        <span className="rate">{star} {rate}</span>
+                        <span className="rate"><img src={star} alt="star"/> {rate}</span>
                         <p className="overview">{overview}</p>
                     </div>
                 </div>
