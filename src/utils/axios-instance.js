@@ -1,8 +1,8 @@
 import axios from 'axios';
-import { URL } from 'consts';
+import { BASE_URL } from 'consts';
 
 const axios_instance = axios.create({
-    baseURL: URL
+    baseURL: BASE_URL
 });
 
 axios_instance.interceptors.response.use(response => {
