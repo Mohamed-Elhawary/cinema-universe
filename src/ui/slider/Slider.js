@@ -4,15 +4,15 @@ import CustomizedSlider from "./SliderStyle";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const Slider = ({isPosterSlider, children}) => {
+const Slider = ({isLandscapeSlider, children}) => {
 
     const settings = {
-		arrows: !isPosterSlider,
-		autoplay: isPosterSlider,
-		pauseOnHover: isPosterSlider,
+		arrows: !isLandscapeSlider,
+		autoplay: isLandscapeSlider,
+		pauseOnHover: isLandscapeSlider,
 		centerMode: true,
 		centerPadding: "120px",
-        slidesToShow: isPosterSlider ? 1 : 5,
+        slidesToShow: isLandscapeSlider ? 1 : 5,
         slidesToScroll: 1,
         dots: false,
         infinite: true,
@@ -28,21 +28,21 @@ const Slider = ({isPosterSlider, children}) => {
             {
 				breakpoint: 1190,
 				settings: {
-					slidesToShow: isPosterSlider ? 1 : 4,
+					slidesToShow: isLandscapeSlider ? 1 : 4,
 					centerPadding: "90px",
 				}
             },
 			{
 				breakpoint: 991,
 				settings: {
-					slidesToShow: isPosterSlider ? 1 : 3,
+					slidesToShow: isLandscapeSlider ? 1 : 3,
 					centerPadding: "80px",
 				}
             },
             {
 				breakpoint: 767,
 				settings: {
-					slidesToShow: isPosterSlider ? 1 : 2,
+					slidesToShow: isLandscapeSlider ? 1 : 2,
 					centerPadding: "70px",
 				}
             },
