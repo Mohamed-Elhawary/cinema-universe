@@ -6,9 +6,7 @@ import { BsFillMoonFill, BsFillSunFill } from "react-icons/bs";
 import Cookies from 'js-cookie';
 import { useAuth } from 'utils/use-auth';
 import { switchTheme } from "actions";
-import Logo from 'ui/logo/Logo';
-import Button from "ui/button/Button";
-import Input from "ui/input/Input";
+import { Logo, Button, Input } from 'ui';
 import CustomizedNavbar from './NavbarStyle';
 
 const Navbar = ({theme, setTheme}) => {

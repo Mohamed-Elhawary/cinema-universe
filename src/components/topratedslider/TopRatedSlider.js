@@ -1,4 +1,4 @@
-import Slider from "ui/slider/Slider";
+import { Slider } from "ui";
 
 const TopRatedSlider = ({topRatedMovies}) => {
     

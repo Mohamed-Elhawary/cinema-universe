@@ -1,7 +1,7 @@
 import { Redirect } from 'react-router';
 import { Route } from 'react-router-dom';
-import {useAuth} from 'utils/use-auth';
-import PreLoader from 'ui/loaders/preloader/PreLoader';
+import { useAuth } from 'utils/use-auth';
+import { PreLoader } from 'ui';
 
 const PrivateRoute = ({...rest}) => {
 
