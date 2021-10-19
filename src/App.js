@@ -5,10 +5,9 @@ import { ThemeProvider } from "styled-components";
 import Cookies from 'js-cookie';
 import { ProvideAuth } from 'utils/use-auth';
 import { switchTheme } from "actions";
+import { Layout } from "layout";
 import { GlobalStyles } from "./GlobalStyles";
 import { lightTheme, darkTheme } from "./Themes";
-import Navbar from "components/navbar/Navbar";
-import Footer from "components/footer/Footer";
 
 const App = ({theme, setTheme}) => {
 
@@ -23,8 +22,9 @@ const App = ({theme, setTheme}) => {
 			<ProvideAuth>
 				<BrowserRouter>
 					<div className="App">
-						<Navbar />
-						<Footer />
+						<Layout>
+							This is the App will be here
+						</Layout>
 					</div>
 				</BrowserRouter>
 			</ProvideAuth>
