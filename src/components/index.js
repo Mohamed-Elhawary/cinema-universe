@@ -4,6 +4,7 @@ import NowPlayingSlider from "./nowplayingslider/NowPlayingSlider";
 import PopularSlider from "./popularslider/PopularSlider";
 import TopRatedSlider from "./topratedslider/TopRatedSlider";
 import RecentRatedSlider from "./recentratedslider/RecentRatedSlider";
+import MovieModalSlider from "./moviemodalslider/MovieModalSlider";
 import Movie from "./movie/Movie";
 import LandscapeMovie from "./landscapemovie/LandscapeMovie";
 import MovieModal from "./moviemodal/MovieModal";
@@ -15,6 +16,7 @@ export {
     PopularSlider,
     TopRatedSlider,
     RecentRatedSlider,
+    MovieModalSlider,
     Movie,
     LandscapeMovie,
     MovieModal
