@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext, createContext } from "react";
 import Cookies from 'js-cookie';
-import { getCookies, removeCookies } from "utils";
+import { getCookies, removeCookies, checkAuth } from "utils";
 
 const authContext = createContext();
 
@@ -61,7 +61,7 @@ useEffect(() => {
 
     setTimeout(() => {
 
-        if (cookies['userName'] && cookies['password']) setUser(cookies['userName']);
+        if (checkAuth()) setUser(cookies['userName']);
         
         else {
 
