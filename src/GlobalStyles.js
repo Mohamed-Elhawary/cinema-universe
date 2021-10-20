@@ -11,5 +11,9 @@ export const GlobalStyles = createGlobalStyle`
         padding-top: 70px;
         margin-top: 30px;
         height: 100vh;
+    };
+    .slider-title {
+        color: ${({ theme }) => theme.text_color};
+        font-weight: bold;
     }
 `;
