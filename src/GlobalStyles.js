@@ -10,7 +10,8 @@ export const GlobalStyles = createGlobalStyle`
     .view {
         padding-top: 70px;
         margin-top: 30px;
-        height: 100vh;
+        margin-bottom: 30px;
+        min-height: 100vh;
     };
     .slider-title {
         color: ${({ theme }) => theme.text_color};
@@ -26,5 +27,5 @@ export const GlobalStyles = createGlobalStyle`
         background-color: rgba(68, 68, 68, .5);
         opacity: 0;
         transition: all .3s;
-    }
+    };
 `;
