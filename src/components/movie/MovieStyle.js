@@ -24,9 +24,9 @@ const CustomizedMovie = styled.div`
         position: absolute;
         right: 10px;
         top: 10px;
-        transition: all .3s;
-        &:hover, &.filled {
+        &:hover svg, svg.filled {
             color: #FFCC33;
+            transition: all .3s;
         };
     }
     h6.title {

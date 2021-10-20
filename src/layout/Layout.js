@@ -1,7 +1,7 @@
 import { Fragment } from 'react';
 import { Navbar, Footer } from 'components';
 
-const Layout = ({children}) => {
+const Layout = ({ children }) => {
     
     return (
         <Fragment>

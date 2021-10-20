@@ -10,11 +10,14 @@ import { Routes } from "routes";
 import { GlobalStyles } from "./GlobalStyles";
 import { lightTheme, darkTheme } from "./Themes";
 
-const App = ({theme, setTheme}) => {
+const App = ({ theme, setTheme }) => {
 
 	useEffect(() => {
+
 		let storedTheme = Cookies.get("theme");
+
 		if(storedTheme) setTheme(storedTheme);
+
 	}, []);
 
 	return (
@@ -31,9 +34,10 @@ const App = ({theme, setTheme}) => {
 			</ProvideAuth>
 		</ThemeProvider>
 	);	
+	
 }
 
-const mapStateToProps = ({theme}) => ({theme: theme.theme});
+const mapStateToProps = ({ theme }) => ({theme: theme.theme});
   
 const mapDispatchToProps = dispatch => ({setTheme: theme => dispatch(switchTheme(theme))});
 

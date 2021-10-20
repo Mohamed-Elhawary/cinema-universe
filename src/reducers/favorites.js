@@ -1,6 +1,6 @@
 import { RECEIVE_FAVORITES, ADD_FAVORITE, REMOVE_FAVORITE } from "types";
 
-export default function favoritesReducer(favorites = [], action) {
+export default function favoritesReducer(favorites = {favorites: []}, action) {
     
     const { type, payload } = action;
 
@@ -14,16 +14,16 @@ export default function favoritesReducer(favorites = [], action) {
         
         case ADD_FAVORITE:
 
-            const {favorite} = payload; 
+            const { favorite } = payload; 
             
             return {
                 ...favorites,
-                favorites: favorites.concat(favorite)
+                favorites: favorites.favorites.concat(favorite)
             }
         
         case REMOVE_FAVORITE: 
 
-            const {favoriteID} = payload;
+            const { favoriteID } = payload;
             
             return {
                 ...favorites,

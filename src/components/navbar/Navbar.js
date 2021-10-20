@@ -9,7 +9,7 @@ import { switchTheme } from "actions";
 import { Logo, Button, Input } from 'ui';
 import CustomizedNavbar from './NavbarStyle';
 
-const Navbar = ({theme, setTheme}) => {
+const Navbar = ({ theme, setTheme }) => {
 
     let auth = useAuth();
 
@@ -59,7 +59,7 @@ const Navbar = ({theme, setTheme}) => {
     );
 }
 
-const mapStateToProps = ({theme}) => ({theme: theme.theme});
+const mapStateToProps = ({ theme }) => ({theme: theme.theme});
   
 const mapDispatchToProps = dispatch => ({setTheme: theme => dispatch(switchTheme(theme))});
 
