@@ -1,4 +1,4 @@
-import CustomizedError from "./ErrorStyle";
+import { CustomizedError } from "styles";
 
 const Error = ({ className, children }) => {
 

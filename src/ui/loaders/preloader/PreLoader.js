@@ -1,8 +1,8 @@
-import CustomizedPeLoader from "./PreLoaderStyle";
+import { CustomizedPreLoader } from "styles";
 
 const PreLoader = () => {
 
-    return <CustomizedPeLoader />;
+    return <CustomizedPreLoader />;
     
 }
 

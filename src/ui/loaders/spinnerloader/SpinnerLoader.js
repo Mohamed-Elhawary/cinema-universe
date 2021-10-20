@@ -1,4 +1,4 @@
-import CustomizedSpinnerLoader from "./SpinnerLoaderStyle";
+import { CustomizedSpinnerLoader } from "styles";
 
 const PreLoader = ({ spinnerColor, style }) => {
 
