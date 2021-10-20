@@ -6,7 +6,7 @@ import { checkAuth } from "utils";
 import { useAuth } from "hooks";
 import { receiveFavorites } from "actions";
 import { fetchingHomeData } from "services";
-import { NowPlayingSlider, PopularSlider, TopRatedSlider, RecentRatedSlider } from "components";
+import { NowPlayingSlider, PopularSlider, TopRatedSlider, RecentRatedSlider, MovieModal } from "components";
 
 const Home = ({ setFavorites }) => {
     
