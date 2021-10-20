@@ -27,14 +27,14 @@ const Movie = ({
         
             deleteFavorite(movieID);
         
-           Cookies.set("favorites", JSON.stringify(JSON.parse(storedFavorites).filter(fav => fav.id !== movieID)));
+            Cookies.set("favorites", JSON.stringify(JSON.parse(storedFavorites).filter(fav => fav.id !== movieID)));
         
         } else {
 
             setFavorite({title: movieTitle, id: movieID});
 
             if(storedFavorites) Cookies.set("favorites", JSON.stringify(JSON.parse(storedFavorites).concat({title: movieTitle, id: movieID})));
-            else Cookies.set("favorites", JSON.stringify([{ title: movieTitle, id: movieID }]));
+            else Cookies.set("favorites", JSON.stringify([{title: movieTitle, id: movieID}]));
 
         }
 

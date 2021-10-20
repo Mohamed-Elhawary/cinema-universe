@@ -1,6 +1,6 @@
 import {
     img_300,
-    img_500,
+    img_780,
     unavailablePoster,
     unavailableLandscape,
     nowPlayingURL,
@@ -10,7 +10,7 @@ import {
 
 export {
     img_300,
-    img_500,
+    img_780,
     unavailablePoster,
     unavailableLandscape,
     nowPlayingURL,
