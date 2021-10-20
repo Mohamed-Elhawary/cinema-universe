@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { Container, Col } from "react-bootstrap";
-import { checkFavorite } from "utils/helpers";
+import { checkFavorite } from "utils";
 import { Slider } from "ui";
 import { Movie } from "components";
 

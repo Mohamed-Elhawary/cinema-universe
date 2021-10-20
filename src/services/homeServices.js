@@ -1,4 +1,4 @@
-import axios from "utils/axios-instance";
+import { axios } from "utils";
 import { nowPlayingURL, popularURL, topRatedURL, recentRatedURL } from "config";
 
 export const fetchingHomeData = (callback) => {

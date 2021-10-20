@@ -1,5 +1,5 @@
 import { API_KEY } from "consts";
-import { getCurrentDate, getMonthAgoDate } from "utils/helpers";
+import { getCurrentDate, getMonthAgoDate } from "utils";
 
 // image sizes for TMDB
 export const img_300 = "https://image.tmdb.org/t/p/w300";
