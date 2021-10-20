@@ -2,7 +2,7 @@ import { API_KEY } from "consts";
 
 // image sizes for TMDB
 export const img_300 = "https://image.tmdb.org/t/p/w300";
-export const img_500 = "https://image.tmdb.org/t/p/w500";
+export const img_780 = "https://image.tmdb.org/t/p/w780";
 
 /* Placeholders */
 // unavailable poster 
