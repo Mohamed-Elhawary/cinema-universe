@@ -6,7 +6,7 @@ import { Movie } from "components";
 const PopularSlider = ({popularMovies}) => {
     
     return (
-        <div>
+        <div className="mb-5">
             <Container>
                 <h5 className="slider-title mb-4">Popular Movies</h5>
             </Container>

@@ -10,7 +10,6 @@ export const GlobalStyles = createGlobalStyle`
     .view {
         padding-top: 70px;
         margin-top: 30px;
-        margin-bottom: 30px;
         min-height: 100vh;
     };
     .slider-title {
@@ -28,4 +27,8 @@ export const GlobalStyles = createGlobalStyle`
         opacity: 0;
         transition: all .3s;
     };
+    .overlay.landscape {
+        top: initial;
+        bottom: 0;
+    }
 `;
