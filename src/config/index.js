@@ -5,7 +5,8 @@ import {
     unavailableLandscape,
     nowPlayingURL,
     popularURL,
-    topRatedURL
+    topRatedURL,
+    recentRatedURL
 } from "./config";
 
 export {
@@ -15,5 +16,6 @@ export {
     unavailableLandscape,
     nowPlayingURL,
     popularURL,
-    topRatedURL
+    topRatedURL,
+    recentRatedURL
 }

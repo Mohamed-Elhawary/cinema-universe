@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Cookies from "js-cookie";
 import { receiveFavorites } from "actions";
 import { fetchingHomeData } from "services";
-import { NowPlayingSlider, PopularSlider, TopRatedSlider } from "components";
+import { NowPlayingSlider, PopularSlider, TopRatedSlider, RecentRatedSlider } from "components";
 
 const Home = ({ setFavorites }) => {
     
@@ -12,6 +12,8 @@ const Home = ({ setFavorites }) => {
     const [popularMovies, setPopularMovies] = useState([]);
 
     const [topRatedMovies, setTopRatedMovies] = useState([]);
+
+    const [recentRatedMovies, setRecentRatedMovies] = useState([]);
 
     useEffect(() => {
         
@@ -24,7 +26,9 @@ const Home = ({ setFavorites }) => {
                 setPopularMovies(response.data.popular);
             
                 setTopRatedMovies(response.data.topRated);
-            
+
+                setRecentRatedMovies(response.data.recentRated);
+
             }
 
         });
@@ -44,6 +48,7 @@ const Home = ({ setFavorites }) => {
             <NowPlayingSlider nowPlayingMovies={nowPlayingMovies} />
             <PopularSlider popularMovies={popularMovies} />
             <TopRatedSlider topRatedMovies={topRatedMovies} />
+            <RecentRatedSlider recentRatedMovies={recentRatedMovies} />
         </div>
     );
 

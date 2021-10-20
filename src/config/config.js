@@ -1,4 +1,5 @@
 import { API_KEY } from "consts";
+import { getCurrentDate, getMonthAgoDate } from "utils/helpers";
 
 // image sizes for TMDB
 export const img_300 = "https://image.tmdb.org/t/p/w300";
@@ -13,8 +14,10 @@ export const unavailableLandscape = "https://user-images.githubusercontent.com/1
 
 
 // App URL Requests
-export const nowPlayingURL = `now_playing?api_key=${API_KEY}&language=en-US&page=1`;
+export const nowPlayingURL = `movie/now_playing?api_key=${API_KEY}&language=en-US&page=1`;
 
-export const popularURL    = `popular?api_key=${API_KEY}&language=en-US&page=1`;
+export const popularURL    = `movie/popular?api_key=${API_KEY}&language=en-US&page=1`;
 
-export const topRatedURL   = `top_rated?api_key=${API_KEY}&language=en-US&page=1`;
+export const topRatedURL   = `movie/top_rated?api_key=${API_KEY}&language=en-US&page=1`;
+
+export const recentRatedURL = `discover/movie?api_key=${API_KEY}&release_date.gte=${getMonthAgoDate()}&release_date.lte=${getCurrentDate()}&sort_by=popularity.desc`;
