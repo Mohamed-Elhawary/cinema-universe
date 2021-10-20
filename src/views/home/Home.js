@@ -46,9 +46,9 @@ const Home = ({ setFavorites }) => {
 
             auth.logout(() => history.replace("/login"));
             
-        }        
+        } 
 
-    }, []);
+    }, []); // eslint-disable-line
 
     useEffect(() => {
 
@@ -56,7 +56,7 @@ const Home = ({ setFavorites }) => {
 
         if(storedFavorites) setFavorites(JSON.parse(storedFavorites));
         
-    }, []);
+    }, []); // eslint-disable-line
 
     return (
         <div className="home-view view">
