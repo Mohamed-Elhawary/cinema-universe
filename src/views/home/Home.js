@@ -64,6 +64,7 @@ const Home = ({ setFavorites }) => {
             <PopularSlider popularMovies={popularMovies} />
             <TopRatedSlider topRatedMovies={topRatedMovies} />
             <RecentRatedSlider recentRatedMovies={recentRatedMovies} />
+            <MovieModal />
         </div>
     );
 

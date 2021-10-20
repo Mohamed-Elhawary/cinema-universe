@@ -11,6 +11,6 @@ export function openMovieModal(id) {
 
 export function closeMovieModal() {
 
-    return { type: CLOSE_MOVIE_MODAL }
+    return {type: CLOSE_MOVIE_MODAL}
 
 }
