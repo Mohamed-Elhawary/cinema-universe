@@ -6,6 +6,7 @@ import TopRatedSlider from "./topratedslider/TopRatedSlider";
 import RecentRatedSlider from "./recentratedslider/RecentRatedSlider";
 import Movie from "./movie/Movie";
 import LandscapeMovie from "./landscapemovie/LandscapeMovie";
+import MovieModal from "./moviemodal/MovieModal";
 
 export { 
     Navbar,
@@ -15,5 +16,6 @@ export {
     TopRatedSlider,
     RecentRatedSlider,
     Movie,
-    LandscapeMovie
+    LandscapeMovie,
+    MovieModal
 };
