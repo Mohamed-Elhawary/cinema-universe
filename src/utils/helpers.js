@@ -15,14 +15,14 @@ export const removeCookies = () => {
     Cookies.remove("userName");
 
     Cookies.remove("password");
+
+    Cookies.remove("favorites");
     
 }
 
-export const checkFavorite = (id) => {
+export const checkFavorite = (favorites, id) => {
 
-    let favorites = Cookies.get("favorite") || [];
-
-    if(favorites.length > 0) favorites.some(fav => fav.id === id);
+    if(favorites.length > 0) return favorites.some(fav => fav.id === id);
     else return false;
 
 }

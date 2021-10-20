@@ -3,7 +3,7 @@ import { Route } from 'react-router-dom';
 import { useAuth } from 'utils/use-auth';
 import { PreLoader } from 'ui';
 
-const PrivateRoute = ({...rest}) => {
+const PrivateRoute = ({ ...rest }) => {
 
 	let auth = useAuth();
 

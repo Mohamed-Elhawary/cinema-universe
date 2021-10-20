@@ -4,7 +4,7 @@ import CustomizedSlider from "./SliderStyle";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const Slider = ({isLandscapeSlider, children}) => {
+const Slider = ({ isLandscapeSlider, children }) => {
 
     const settings = {
 		arrows: !isLandscapeSlider,
