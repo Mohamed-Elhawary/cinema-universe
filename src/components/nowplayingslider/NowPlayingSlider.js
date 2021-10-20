@@ -6,6 +6,7 @@ const NowPlayingSlider = ({ nowPlayingMovies }) => {
     
     return (
         <div className="mb-5">
+            <h5 className="slider-title mb-4 text-center">Playing Now</h5>
             <Slider isLandscapeSlider={true}>
                 {nowPlayingMovies.map(({ id, backdrop_path, title, release_date }) => (
                     <Col key={id}>
