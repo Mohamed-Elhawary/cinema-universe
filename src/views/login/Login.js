@@ -2,8 +2,7 @@ import { useEffect } from "react";
 import { Redirect } from "react-router";
 import { useHistory } from "react-router-dom";
 import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
-import { useLoginStates } from "hooks";
-import { useAuth } from "utils/use-auth";
+import { useLoginStates, useAuth } from "hooks";
 import { Form, Input, Button, SpinnerLoader, PreLoader, Error } from "ui";
 import CustomizedLogin from "./LoginStyle";
 

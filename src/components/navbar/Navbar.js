@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { Dropdown, Nav, NavDropdown, Container } from 'react-bootstrap';
 import { BsFillMoonFill, BsFillSunFill } from "react-icons/bs";
 import Cookies from 'js-cookie';
-import { useAuth } from 'utils/use-auth';
+import { useAuth } from 'hooks';
 import { switchTheme } from "actions";
 import { Logo, Button, Input } from 'ui';
 import CustomizedNavbar from './NavbarStyle';

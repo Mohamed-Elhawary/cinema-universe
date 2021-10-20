@@ -3,7 +3,7 @@ import { BrowserRouter } from "react-router-dom";
 import { connect } from 'react-redux';
 import { ThemeProvider } from "styled-components";
 import Cookies from 'js-cookie';
-import { ProvideAuth } from 'utils/use-auth';
+import { ProvideAuth } from 'hooks';
 import { switchTheme } from "actions";
 import { Layout } from "layout";
 import { Routes } from "routes";
