@@ -6,6 +6,7 @@ import SpinnerLoader from "./loaders/spinnerloader/SpinnerLoader";
 import PreLoader from "./loaders/preloader/PreLoader";
 import Logo from "./logo/Logo";
 import Slider from "./slider/Slider";
+import Modal from "./modal/Modal";
 
 export {
     Button,
@@ -15,5 +16,6 @@ export {
     SpinnerLoader,
     PreLoader,
     Logo,
-    Slider
-}
+    Slider,
+    Modal
+};
