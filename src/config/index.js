@@ -6,7 +6,9 @@ import {
     nowPlayingURL,
     popularURL,
     topRatedURL,
-    recentRatedURL
+    recentRatedURL,
+    movieDetailsURL,
+    movieVieosLinksURL
 } from "./config";
 
 export {
@@ -17,5 +19,7 @@ export {
     nowPlayingURL,
     popularURL,
     topRatedURL,
-    recentRatedURL
-}
+    recentRatedURL,
+    movieDetailsURL,
+    movieVieosLinksURL
+};

@@ -21,3 +21,7 @@ export const popularURL    = `movie/popular?api_key=${API_KEY}&language=en-US&pa
 export const topRatedURL   = `movie/top_rated?api_key=${API_KEY}&language=en-US&page=1`;
 
 export const recentRatedURL = `discover/movie?api_key=${API_KEY}&release_date.gte=${getMonthAgoDate()}&release_date.lte=${getCurrentDate()}&sort_by=popularity.desc`;
+
+export const movieDetailsURL = (id) => `movie/${id}?api_key=${API_KEY}&language=en-US`;
+
+export const movieVieosLinksURL = (id) => `movie${id}/videos?api_key=${API_KEY}&language=en-US`;
