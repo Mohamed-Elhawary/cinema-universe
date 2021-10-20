@@ -9,6 +9,7 @@ export default function favoritesReducer(favorites = {favorites: []}, action) {
         case RECEIVE_FAVORITES:
 
             return {
+                ...favorites,
                 favorites: payload.favorites
             }
         
@@ -33,4 +34,5 @@ export default function favoritesReducer(favorites = {favorites: []}, action) {
 
         default: return favorites
     }
+    
 }
