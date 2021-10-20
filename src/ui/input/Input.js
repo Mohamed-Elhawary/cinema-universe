@@ -1,4 +1,4 @@
-import CustomizedInput from "./InputStyle";
+import { CustomizedInput } from "styles";
 
 const Input = ({
     type,

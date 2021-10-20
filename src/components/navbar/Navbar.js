@@ -7,7 +7,7 @@ import Cookies from 'js-cookie';
 import { useAuth } from 'hooks';
 import { switchTheme } from "actions";
 import { Logo, Button, Input } from 'ui';
-import CustomizedNavbar from './NavbarStyle';
+import { CustomizedNavbar } from 'styles';
 
 const Navbar = ({ theme, setTheme }) => {
 

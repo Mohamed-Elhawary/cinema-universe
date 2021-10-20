@@ -7,7 +7,7 @@ import { ProvideAuth } from 'hooks';
 import { switchTheme } from "actions";
 import { Layout } from "layout";
 import { Routes } from "routes";
-import { GlobalStyles } from "./GlobalStyles";
+import { GlobalStyles } from "styles";
 import { lightTheme, darkTheme } from "./Themes";
 
 const App = ({ theme, setTheme }) => {

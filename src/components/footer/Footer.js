@@ -1,5 +1,5 @@
 import { Logo } from 'ui';
-import CustomizedFooter from './FooterStyle';
+import { CustomizedFooter } from 'styles';
 
 const Footer = () => {
 

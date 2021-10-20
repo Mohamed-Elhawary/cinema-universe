@@ -1,4 +1,4 @@
-import CustomizedForm from "./FormStyle";
+import { CustomizedForm } from "styles";
 
 const Form = ({ onSubmitCapture, children }) => {
 

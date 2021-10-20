@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const CustomizedPeLoader = styled.div`
+const CustomizedPreLoader = styled.div`
     position: fixed;
     top: 0;
     left: 0;
@@ -42,4 +42,4 @@ const CustomizedPeLoader = styled.div`
     }
 `;
 
-export default CustomizedPeLoader;
+export default CustomizedPreLoader;

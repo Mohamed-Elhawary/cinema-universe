@@ -1,5 +1,5 @@
 import { img_780, unavailableLandscape } from "config";
-import CustomizedLandscapeMovie from "./LandscapeMovieStyle";
+import { CustomizedLandscapeMovie } from "styles";
 
 const LandscapeMovie = ({
     id,

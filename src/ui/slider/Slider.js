@@ -1,6 +1,6 @@
 import chevronForward from 'assets/images/arrow-right.svg';
 import chevronBack from 'assets/images/arrow-left.svg';
-import CustomizedSlider from "./SliderStyle";
+import { CustomizedSlider } from "styles";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 

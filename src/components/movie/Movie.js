@@ -5,7 +5,7 @@ import { checkFavorite } from "utils/helpers";
 import { addFavorite, removeFavorite } from "actions";
 import { img_300, unavailablePoster } from "config";
 import star from "assets/images/star-filled.svg";
-import CustomizedMovie from "./MovieStyle";
+import { CustomizedMovie } from "styles";
 
 const Movie = ({
     favorites,

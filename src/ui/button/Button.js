@@ -1,4 +1,4 @@
-import CustomizedButton from "./ButtonStyle";
+import { CustomizedButton } from "styles";
 
 const Button = ({
     type,
