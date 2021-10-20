@@ -7,6 +7,7 @@ import CustomizedPreLoader from "./PreLoaderStyle";
 import CustomizedSpinnerLoader from "./SpinnerLoaderStyle";
 import CustomizedLogin from "./LoginStyle";
 import CustomizedSlider from "./SliderStyle";
+import CustomizedModal from "./ModalStyle";
 import CustomizedNavbar from "./NavbarStyle";
 import CustomizedFooter from "./FooterStyle";
 import CustomizedMovie from "./MovieStyle";
@@ -23,6 +24,7 @@ export {
     CustomizedSpinnerLoader,
     CustomizedLogin,
     CustomizedSlider,
+    CustomizedModal,
     CustomizedNavbar,
     CustomizedFooter,
     CustomizedMovie,

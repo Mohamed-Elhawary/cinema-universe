@@ -51,7 +51,10 @@ export const lightTheme = {
 
     box_shadow_color: color_3,
 
-    date_color: color_12
+    date_color: color_12,
+
+    modal_bg: color_7,
+    modal_title_border: color_10
 }
 
 export const darkTheme = {
@@ -93,5 +96,8 @@ export const darkTheme = {
 
     box_shadow_color: color_7,
 
-    date_color: color_12
+    date_color: color_12,
+
+    modal_bg: color_4,
+    modal_title_border: color_7
 }
