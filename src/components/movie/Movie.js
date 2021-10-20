@@ -16,16 +16,16 @@ const Movie = ({
     return (
         <CustomizedMovie id={id}>
             <div className="position-relative movie-box">
-                <img src={posterSrc ? img_300 + posterSrc : unavailablePoster} alt="poster" />
+                <img className="poster img-fluid" src={posterSrc ? img_300 + posterSrc : unavailablePoster} alt="poster" width="180" height="240" />
                 <div className="overlay">
                     <img className="favorite" src={isFav ? heartFilled : heart} alt="heart" />
-                    <div className="info">
-                        <span className="rate"><img src={star} alt="star"/> {rate}</span>
-                        <p className="overview">{overview}</p>
+                    <div className="info p-2">
+                        <span className="rate d-flex mb-2"><img className="mr-2" src={star} alt="star"/> {rate}</span>
+                        <p className="overview">{overview.length > 15 ? overview.substring(0, 55) + "..." : overview}</p>
                     </div>
                 </div>
             </div>
-            <h5 className="text-center">{title} ({date.substring(0, 4)})</h5>
+            <h6 className="text-center title mt-3">{title} <span className="date">({date.substring(0, 4)})</span></h6>
         </CustomizedMovie>
     );
 

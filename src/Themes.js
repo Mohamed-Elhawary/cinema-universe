@@ -9,7 +9,8 @@ let color_1  = '#001E3C',
     color_8  = '#EAEEF3',
     color_9  = '#fff',
     color_10 = '#46505A',
-    color_11 = '#f44336'
+    color_11 = '#f44336',
+    color_12 = "#ccc"
 
 export const lightTheme = {
     body_bg: color_9,
@@ -47,6 +48,10 @@ export const lightTheme = {
 
     footer_bg: color_9,
     footer_border: color_10, 
+
+    box_shadow_color: color_3,
+
+    date_color: color_12
 }
 
 export const darkTheme = {
@@ -85,4 +90,8 @@ export const darkTheme = {
 
     footer_bg: color_2,
     footer_border: color_7,
+
+    box_shadow_color: color_7,
+
+    date_color: color_12
 }

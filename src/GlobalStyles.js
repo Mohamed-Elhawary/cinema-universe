@@ -15,5 +15,16 @@ export const GlobalStyles = createGlobalStyle`
     .slider-title {
         color: ${({ theme }) => theme.text_color};
         font-weight: bold;
+    };
+    .overlay {
+        cursor: pointer;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 0;
+        background-color: rgba(68, 68, 68, .5);
+        opacity: 0;
+        transition: all .3s;
     }
 `;
