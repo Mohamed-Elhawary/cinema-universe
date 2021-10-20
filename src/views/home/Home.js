@@ -5,7 +5,7 @@ import Cookies from "js-cookie";
 import { checkAuth } from "utils";
 import { useAuth } from "hooks";
 import { receiveFavorites } from "actions";
-import { fetchingHomeData } from "services";
+import { fetchingHomeData, fetchingMovieData } from "services";
 import { NowPlayingSlider, PopularSlider, TopRatedSlider, RecentRatedSlider, MovieModal } from "components";
 
 const Home = ({ setFavorites }) => {
@@ -51,7 +51,7 @@ const Home = ({ setFavorites }) => {
     }, []); // eslint-disable-line
 
     useEffect(() => {
-
+        fetchingMovieData();
         let storedFavorites = Cookies.get("favorites");
 
         if(storedFavorites) setFavorites(JSON.parse(storedFavorites));
