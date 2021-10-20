@@ -1,7 +1,6 @@
 import { img_300, unavailablePoster } from "config";
+import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import star from "assets/images/star-filled.svg";
-import heart from "assets/images/heart.svg";
-import heartFilled from "assets/images/heart-filled.svg";
 import CustomizedMovie from "./MovieStyle";
 
 const Movie = ({
@@ -18,7 +17,7 @@ const Movie = ({
             <div className="position-relative movie-box">
                 <img className="poster img-fluid" src={posterSrc ? img_300 + posterSrc : unavailablePoster} alt="poster" width="180" height="240" />
                 <div className="overlay">
-                    <img className="favorite" src={isFav ? heartFilled : heart} alt="heart" />
+                    {isFav ? <AiFillHeart className="favorite filled" size={30} /> : <AiOutlineHeart className="favorite" size={30} />}
                     <div className="info p-2">
                         <span className="rate d-flex mb-2"><img className="mr-2" src={star} alt="star"/> {rate}</span>
                         <p className="overview">{overview.length > 15 ? overview.substring(0, 55) + "..." : overview}</p>
