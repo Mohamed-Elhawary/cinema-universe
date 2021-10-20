@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import Cookies from 'js-cookie';
-import { checkFavorite } from "utils/helpers";
+import { checkFavorite } from "utils";
 import { addFavorite, removeFavorite } from "actions";
 import { img_300, unavailablePoster } from "config";
 import star from "assets/images/star-filled.svg";
