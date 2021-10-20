@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { connect } from 'react-redux';
 import { img_780 } from "config";
+import { fetchingMovieData } from "services";
 import { Modal, SpinnerLoader } from "ui";
 
 const MovieModal = ({ movieModalID, movieModalOpen }) => {
@@ -15,11 +16,11 @@ const MovieModal = ({ movieModalID, movieModalOpen }) => {
 
     const [actors, setActors] = useState([]);
 
-    const [videoSrc, setVideoSrc] = useState("");
+    const [videoKey, setVideoKey] = useState("");
 
     useEffect(() => {
 
-
+        fetchingMovieData(movieModalID, )
 
     }, []); /*eslint-disable-line*/
 
@@ -42,7 +43,7 @@ const MovieModal = ({ movieModalID, movieModalOpen }) => {
                 ))}
             </div>
             <div className="video">
-                <iframe src={videoSrc} allow="fullscreen" title="trailer-video"></iframe>
+                <iframe src={"https://www.youtube.com/watch?v=" + videoKey} allow="fullscreen" title="trailer-video"></iframe>
             </div>
         </Modal>
 
