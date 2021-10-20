@@ -25,9 +25,9 @@ const CustomizedMovie = styled.div`
         right: 10px;
         top: 10px;
         transition: all .3s;
-        &:hover {
-            background: #FFCC33;
-        }
+        &:hover, &.filled {
+            color: #FFCC33;
+        };
     }
     h6.title {
         color: ${({ theme }) => theme.text_color};
