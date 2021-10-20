@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
+import { useHistory } from "react-router";
 import { connect } from 'react-redux';
 import Cookies from "js-cookie";
+import { checkAuth } from "utils";
+import { useAuth } from "hooks";
 import { receiveFavorites } from "actions";
 import { fetchingHomeData } from "services";
 import { NowPlayingSlider, PopularSlider, TopRatedSlider, RecentRatedSlider } from "components";
@@ -15,23 +18,35 @@ const Home = ({ setFavorites }) => {
 
     const [recentRatedMovies, setRecentRatedMovies] = useState([]);
 
+    let auth = useAuth();
+
+    let history = useHistory();
+
     useEffect(() => {
-        
-        fetchingHomeData(response => {
 
-            if(response.statusCode === 200) {
+        if(checkAuth()) {
 
-                setNowPlayingMovies(response.data.nowPlaying);
+            fetchingHomeData(response => {
+
+                if(response.statusCode === 200) {
+    
+                    setNowPlayingMovies(response.data.nowPlaying);
+                
+                    setPopularMovies(response.data.popular);
+                
+                    setTopRatedMovies(response.data.topRated);
+    
+                    setRecentRatedMovies(response.data.recentRated);
+    
+                }
+    
+            });
+
+        } else {
+
+            auth.logout(() => history.replace("/login"));
             
-                setPopularMovies(response.data.popular);
-            
-                setTopRatedMovies(response.data.topRated);
-
-                setRecentRatedMovies(response.data.recentRated);
-
-            }
-
-        });
+        }        
 
     }, []);
 

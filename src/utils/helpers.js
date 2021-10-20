@@ -20,6 +20,14 @@ export const removeCookies = () => {
     
 }
 
+export const checkAuth = () => {
+    
+    let cookies = getCookies();
+
+    return cookies['userName'] && cookies['password'];
+
+}
+
 export const checkFavorite = (favorites, id) => {
 
     if(favorites.length > 0) return favorites.some(fav => fav.id === id);

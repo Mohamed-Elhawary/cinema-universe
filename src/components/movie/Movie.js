@@ -1,7 +1,9 @@
 import { connect } from 'react-redux';
+import { useHistory } from "react-router";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import Cookies from 'js-cookie';
-import { checkFavorite } from "utils";
+import { checkFavorite, checkAuth } from "utils";
+import { useAuth } from "hooks";
 import { addFavorite, removeFavorite } from "actions";
 import { img_300, unavailablePoster } from "config";
 import star from "assets/images/star-filled.svg";
@@ -19,22 +21,34 @@ const Movie = ({
     rate,
     isFav}) => {
 
+    let auth = useAuth();
+
+    let history = useHistory();
+
     const favoriteIconClicked = (movieID, movieTitle) => {
 
-        let storedFavorites = Cookies.get("favorites");
+        if(checkAuth()) { 
+
+            let storedFavorites = Cookies.get("favorites");
         
-        if(checkFavorite(favorites, movieID)) {
-        
-            deleteFavorite(movieID);
-        
-            Cookies.set("favorites", JSON.stringify(JSON.parse(storedFavorites).filter(fav => fav.id !== movieID)));
-        
+            if(checkFavorite(favorites, movieID)) {
+            
+                deleteFavorite(movieID);
+            
+                Cookies.set("favorites", JSON.stringify(JSON.parse(storedFavorites).filter(fav => fav.id !== movieID)));
+            
+            } else {
+
+                setFavorite({title: movieTitle, id: movieID});
+
+                if(storedFavorites) Cookies.set("favorites", JSON.stringify(JSON.parse(storedFavorites).concat({title: movieTitle, id: movieID})));
+                else Cookies.set("favorites", JSON.stringify([{title: movieTitle, id: movieID}]));
+
+            }
+
         } else {
-
-            setFavorite({title: movieTitle, id: movieID});
-
-            if(storedFavorites) Cookies.set("favorites", JSON.stringify(JSON.parse(storedFavorites).concat({title: movieTitle, id: movieID})));
-            else Cookies.set("favorites", JSON.stringify([{title: movieTitle, id: movieID}]));
+            
+            auth.logout(() => history.replace("/login"));
 
         }
 
