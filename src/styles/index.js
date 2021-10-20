@@ -12,6 +12,7 @@ import CustomizedNavbar from "./NavbarStyle";
 import CustomizedFooter from "./FooterStyle";
 import CustomizedMovie from "./MovieStyle";
 import CustomizedLandscapeMovie from "./LandscapeMovieStyle";
+import CustomizedPerson from "./PersonStyle";
 import { GlobalStyles } from "./GlobalStyles";
 
 export {
@@ -29,5 +30,6 @@ export {
     CustomizedFooter,
     CustomizedMovie,
     CustomizedLandscapeMovie,
+    CustomizedPerson,
     GlobalStyles
 };

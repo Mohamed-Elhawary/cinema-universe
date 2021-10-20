@@ -30,5 +30,21 @@ export const GlobalStyles = createGlobalStyle`
     .overlay.landscape {
         top: initial;
         bottom: 0;
+    };
+    ::-webkit-scrollbar {
+        width: 5px;
+    }
+    ::-webkit-scrollbar-track {
+        background-color: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+        background-color: ${({ theme }) => theme.scrollbar_bg}!important;
+        border-radius: 5px;
+    }
+    ::-webkit-scrollbar-track-piece:start {
+        margin-top: 5px;
+    }
+    ::-webkit-scrollbar-track-piece:end {
+        margin-bottom: 5px;
     }
 `;
