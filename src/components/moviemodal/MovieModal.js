@@ -12,6 +12,7 @@ const MovieModal = ({ movieModalID, movieModalOpen, hideMovieModal }) => {
 
     const [movieData, setMovieData] = useState({
         title: "",
+        release_date: "",
         overview: "",
         genres: [],
         backdrop_path: "" 
@@ -40,7 +41,7 @@ const MovieModal = ({ movieModalID, movieModalOpen, hideMovieModal }) => {
 
     }, []); /*eslint-disable-line*/
 
-    const { title, overview, genres, backdrop_path } = movieData;
+    const { title, release_date, overview, genres, backdrop_path } = movieData;
 
     return (
         <Modal 
@@ -48,7 +49,7 @@ const MovieModal = ({ movieModalID, movieModalOpen, hideMovieModal }) => {
             show={movieModalOpen}
             hide={() => hideMovieModal()}
             showMovieModalLoader={showMovieModalLoader}
-            title={title}
+            title={<h5>{title} <span>({release_date.substring(0, 4)})</span></h5>}
         >
             <div className="poster"><img className="w-100 h-100" src={backdrop_path ? img_780 + backdrop_path : unavailableLandscape} alt="poster" /></div>
             <div className="genres d-flex">
