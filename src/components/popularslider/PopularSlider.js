@@ -1,4 +1,4 @@
-import { Col } from "react-bootstrap";
+import { Container, Col } from "react-bootstrap";
 import { checkFavorite } from "utils/helpers";
 import { Slider } from "ui";
 import { Movie } from "components";
@@ -7,7 +7,9 @@ const PopularSlider = ({popularMovies}) => {
     
     return (
         <div>
-            <h5>Popular Movies</h5>
+            <Container>
+                <h5 className="slider-title mb-4">Popular Movies</h5>
+            </Container>
             <Slider>
                 {popularMovies.map(({id, poster_path, title, release_date, overview, vote_average}) => (
                     <Col key={id}>
