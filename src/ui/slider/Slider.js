@@ -4,18 +4,18 @@ import { CustomizedSlider } from "styles";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const Slider = ({ isLandscapeSlider, children }) => {
+const Slider = ({ isLandscapeSlider, isMovieModalSlider, children }) => {
 
     const settings = {
 		arrows: !isLandscapeSlider,
 		autoplay: isLandscapeSlider,
 		pauseOnHover: isLandscapeSlider,
-		centerMode: true,
-		centerPadding: "120px",
-        slidesToShow: isLandscapeSlider ? 1 : 5,
+		centerMode: !isMovieModalSlider,
+		centerPadding: !isMovieModalSlider ? "120px" : 0,
+        slidesToShow: isLandscapeSlider ? 1 : isMovieModalSlider ? 4 : 5,
         slidesToScroll: 1,
         dots: false,
-        infinite: true,
+        infinite: !isMovieModalSlider,
         speed: 500,
 		autoplaySpeed: 6000,
         responsive: [
@@ -57,9 +57,9 @@ const Slider = ({ isLandscapeSlider, children }) => {
 				breakpoint: 500,
 				settings: {
 					slidesToShow: 1,
-					infinite: true,
+					infinite: !isMovieModalSlider,
 					centerMode: true,
-					centerPadding: "70px"
+					centerPadding: !isMovieModalSlider ? "70px" : 0,
 				}
             }
         ],

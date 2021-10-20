@@ -8,7 +8,7 @@ const CustomizedMovie = styled.div`
         width: 100%;
         height: 35%
     };
-    img.poster {
+    .poster {
         border-radius: 8px;
         box-shadow: 0 1px 5px 0 ${({ theme }) => theme.box_shadow_color};
         cursor: pointer;
@@ -22,7 +22,7 @@ const CustomizedMovie = styled.div`
             font-weight: bold;
             span.date {
                 font-weight: normal;
-                color: ${({ theme }) => theme.date_color};
+                color: ${({ theme }) => theme.side_text_color};
             }
         };
     };

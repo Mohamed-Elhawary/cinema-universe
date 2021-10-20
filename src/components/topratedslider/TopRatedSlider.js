@@ -11,7 +11,7 @@ const TopRatedSlider = ({ favorites, topRatedMovies }) => {
             <Container>
                 <h5 className="slider-title mb-4">Top Rated Movies</h5>
             </Container>
-            <Slider isLandscapeSlider={false}>
+            <Slider isLandscapeSlider={false} isMovieModalSlider={false}>
                 {topRatedMovies.map(({id, poster_path, title, release_date, overview, vote_average}) => (
                     <Col key={id}>
                         <Movie 

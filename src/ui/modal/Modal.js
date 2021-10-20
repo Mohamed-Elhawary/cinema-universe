@@ -17,7 +17,7 @@ const Modal = ({
             show={show}
             onHide={hide}
         >
-            {showMovieModalLoader ? <SpinnerLoader spinnerColor="dark" /> : (
+            {showMovieModalLoader ? <SpinnerLoader spinnerColor="light" style={{top: "50%"}} /> : (
                 <>
                     <CustomizedModal.Header>
                         <CustomizedModal.Title>{title}</CustomizedModal.Title>

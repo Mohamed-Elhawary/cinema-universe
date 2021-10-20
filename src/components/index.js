@@ -8,6 +8,7 @@ import MovieModalSlider from "./moviemodalslider/MovieModalSlider";
 import Movie from "./movie/Movie";
 import LandscapeMovie from "./landscapemovie/LandscapeMovie";
 import MovieModal from "./moviemodal/MovieModal";
+import Person from "./person/Person";
 
 export { 
     Navbar,
@@ -19,5 +20,6 @@ export {
     MovieModalSlider,
     Movie,
     LandscapeMovie,
-    MovieModal
+    MovieModal,
+    Person
 };

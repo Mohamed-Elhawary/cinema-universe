@@ -50,18 +50,23 @@ const MovieModal = ({ movieModalID, movieModalOpen, hideMovieModal }) => {
             show={movieModalOpen}
             hide={() => hideMovieModal()}
             showMovieModalLoader={showMovieModalLoader}
-            title={<h5>{title} <span>({release_date.substring(0, 4)})</span></h5>}
+            title={<h5 className="py-2">{title} <span className="date">({release_date.substring(0, 4)})</span></h5>}
         >
-            <div className="poster"><img className="w-100 h-100" src={backdrop_path ? img_780 + backdrop_path : unavailableLandscape} alt="poster" /></div>
-            <div className="genres d-flex">
+            <img className="poster w-100 mb-4" src={backdrop_path ? img_780 + backdrop_path : unavailableLandscape} alt="poster" height="350" />
+            <div className="genres d-flex mb-4">
                 {genres.map(genre => (
-                    <span className="genre">{genre.name}</span>
+                    <span className="genre mr-2 p-2">{genre.name}</span>
                 ))}
             </div>
-            <div className="overview">{overview}</div>
-            <MovieModalSlider isCastSlider contentArray={credits.cast} />
-            <MovieModalSlider contentArray={credits.crew} />
-            {trailerVideoKey && <YouTube videoId={trailerVideoKey} />}
+            <p className="overview mb-4">{overview}</p>
+            <MovieModalSlider isCastSlider persons={credits.cast} />
+            <MovieModalSlider persons={credits.crew} />
+            {trailerVideoKey && (
+                <>
+                    <h6 className="text-center font-weight-bold mt-3">Watch Trailer</h6>
+                    <YouTube videoId={trailerVideoKey} opts={{width: "100%"}} className="mt-4 rounded shadow" />
+                </>
+            )}
         </Modal>
     );
 
