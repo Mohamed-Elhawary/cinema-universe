@@ -1,3 +1,4 @@
+import { img_300, unavailablePoster } from "config";
 import star from "assets/images/star-filled.svg";
 import heart from "assets/images/heart.svg";
 import heartFilled from "assets/images/heart-filled.svg";
@@ -15,7 +16,7 @@ const Movie = ({
     return (
         <CustomizedMovie id={id}>
             <div className="position-relative movie-box">
-                <img src={posterSrc} alt="poster" />
+                <img src={posterSrc ? img_300 + posterSrc : unavailablePoster} alt="poster" />
                 <div className="overlay">
                     <img className="favorite" src={isFav ? heartFilled : heart} alt="heart" />
                     <div className="info">
