@@ -4,6 +4,7 @@ import { CustomizedModal } from "styles";
 const Modal = ({
     id,
     show,
+    hide,
     showMovieModalLoader,
     title,
     body,
@@ -11,8 +12,12 @@ const Modal = ({
     children }) => {
     
     return (
-        <CustomizedModal id={id} show={show}>
-            {showMovieModalLoader ? <SpinnerLoader /> : (
+        <CustomizedModal 
+            id={id} 
+            show={show}
+            onHide={hide}
+        >
+            {showMovieModalLoader ? <SpinnerLoader spinnerColor="dark" /> : (
                 <>
                     <CustomizedModal.Header>
                         <CustomizedModal.Title>{title}</CustomizedModal.Title>

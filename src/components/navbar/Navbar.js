@@ -57,6 +57,7 @@ const Navbar = ({ theme, setTheme }) => {
 			</Container>
 		</CustomizedNavbar>
     );
+    
 }
 
 const mapStateToProps = ({ theme }) => ({theme: theme.theme});

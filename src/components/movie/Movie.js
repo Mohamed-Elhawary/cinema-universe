@@ -4,7 +4,7 @@ import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import Cookies from 'js-cookie';
 import { checkFavorite, checkAuth } from "utils";
 import { useAuth } from "hooks";
-import { addFavorite, removeFavorite } from "actions";
+import { addFavorite, removeFavorite, openMovieModal } from "actions";
 import { img_300, unavailablePoster } from "config";
 import star from "assets/images/star-filled.svg";
 import { CustomizedMovie } from "styles";
@@ -13,6 +13,7 @@ const Movie = ({
     favorites,
     setFavorite,
     deleteFavorite,
+    showMovieModal,
     id,
     posterSrc,
     title,
@@ -56,7 +57,7 @@ const Movie = ({
     
     return (
         <CustomizedMovie id={id}>
-            <div className="position-relative movie-box h-100">
+            <div className="position-relative movie-box h-100" onClick={() => showMovieModal(id)}>
                 <img className="poster w-100 h-100" src={posterSrc ? img_300 + posterSrc : unavailablePoster} alt="poster" width="180" height="240" />
                 <div className="overlay">
                     <span className="favorite" onClick={() => favoriteIconClicked(id, title)}>{isFav ? <AiFillHeart className="filled" size={30} /> : <AiOutlineHeart size={30} />}</span>
@@ -77,7 +78,8 @@ const mapStateToProps = ({ favorites }) => ({favorites: favorites.favorites});
 const mapDispatchToProps = dispatch => ({
 
     setFavorite: favorite => dispatch(addFavorite(favorite)),
-    deleteFavorite: favoriteID => dispatch(removeFavorite(favoriteID))
+    deleteFavorite: favoriteID => dispatch(removeFavorite(favoriteID)),
+    showMovieModal: id => dispatch(openMovieModal(id))
     
 });
 
