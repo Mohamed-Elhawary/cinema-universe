@@ -26,3 +26,21 @@ export const checkFavorite = (favorites, id) => {
     else return false;
 
 }
+
+export const getCurrentDate = () => {
+
+    let ISOFormatDate = new Date().toISOString();
+
+    return ISOFormatDate.substring(0, ISOFormatDate.indexOf("T"));
+}
+
+export const getMonthAgoDate = () => {
+
+    let date = new Date();
+
+    date.setMonth(date.getMonth() - 1);
+
+    let monthAgoISOFormatDate = date.toISOString();
+
+    return monthAgoISOFormatDate.substring(0, monthAgoISOFormatDate.indexOf("T"));
+}
