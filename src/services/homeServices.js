@@ -10,7 +10,7 @@ export const fetchingHomeData = (callback) => {
     const requestThree = axios.get(topRatedURL);
 
     const requestFour = axios.get(recentRatedURL);
-    console.log(recentRatedURL)
+
     Promise.all([requestOne, requestTwo, requestThree, requestFour]).then(data => {
     
         callback({status: "Successed", statusCode: 200, data: {
