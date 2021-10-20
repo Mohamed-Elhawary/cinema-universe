@@ -42,17 +42,24 @@ const Slider = ({ isLandscapeSlider, children }) => {
             {
 				breakpoint: 767,
 				settings: {
-					slidesToShow: isLandscapeSlider ? 1 : 2,
-					centerPadding: "70px",
+					slidesToShow: isLandscapeSlider ? 1 : 3,
+					centerPadding: "70px" 
 				}
             },
             {
-				breakpoint: 576,
+				breakpoint: 600,
+				settings: {
+					slidesToShow: isLandscapeSlider ? 1 : 2,
+					centerPadding: "65px" 
+				}
+            },
+            {
+				breakpoint: 500,
 				settings: {
 					slidesToShow: 1,
 					infinite: true,
 					centerMode: true,
-					centerPadding: "60px"
+					centerPadding: "70px"
 				}
             }
         ],
