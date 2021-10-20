@@ -1,52 +1,86 @@
+import YouTube from 'react-youtube';
 import { useState, useEffect } from "react";
 import { connect } from 'react-redux';
-import { img_780 } from "config";
+import { closeMovieModal } from "actions";
+import { img_300, img_780, unavailableLandscape, unavailablePicture } from "config";
 import { fetchingMovieData } from "services";
-import { Modal, SpinnerLoader } from "ui";
+import { Modal } from "ui";
 
-const MovieModal = ({ movieModalID, movieModalOpen }) => {
+const MovieModal = ({ movieModalID, movieModalOpen, hideMovieModal }) => {
 
     const [showMovieModalLoader, setShowMovieModalLoader] = useState(true);
 
-    const [posterSrc, setPosterSrc] = useState("");
+    const [movieData, setMovieData] = useState({
+        title: "",
+        overview: "",
+        genres: [],
+        backdrop_path: "" 
+    });
 
-    const [title, setTitle] = useState("");
+    const [trailerVideoKey, setTrailerVideoKey] = useState("");
 
-    const [overview, setOverview] = useState("");
-
-    const [actors, setActors] = useState([]);
-
-    const [videoKey, setVideoKey] = useState("");
+    const [credits, setCredits] = useState({cast: [], crew: []});
 
     useEffect(() => {
 
-        fetchingMovieData(movieModalID, )
+        fetchingMovieData(movieModalID, response => {
+
+            if(response.statusCode === 200) {
+                
+                setMovieData(response.data.movieData);
+
+                setTrailerVideoKey(response.data.trailerVideoKey);
+                
+                setCredits(response.data.credits);
+
+                setShowMovieModalLoader(false);
+
+            }
+        });
 
     }, []); /*eslint-disable-line*/
 
-    return (
+    const { title, overview, genres, backdrop_path } = movieData;
 
+    return (
         <Modal 
             id={movieModalID}
             show={movieModalOpen}
+            hide={() => hideMovieModal()}
             showMovieModalLoader={showMovieModalLoader}
             title={title}
         >
-            <div className="poster"><img className="w-100 h-100" src={posterSrc} alt="poster" /></div>
+            <div className="poster"><img className="w-100 h-100" src={backdrop_path ? img_780 + backdrop_path : unavailableLandscape} alt="poster" /></div>
+            <div className="genres d-flex">
+                {genres.map(genre => (
+                    <span className="genre">{genre.name}</span>
+                ))}
+            </div>
             <div className="overview">{overview}</div>
-            <div className="actors d-flex flex-wrap">
-                {actors.map(actor => (
-                    <div className="actor-info">
-                        <img className="w-100 h-100 actor-photo" src={actor.photo} alt="actor_photo" />
-                        <h6 className="actor-name">{actor.name}</h6>
+            <div className="cast d-flex flex-wrap">
+                {credits.cast.map(person => (
+                    <div className="person-box">
+                        <div className="person-photo">
+                            <img className="w-100 h-100" src={person.profile_path ? img_300 + person.profile_path : unavailablePicture} alt="person_photo" />
+                        </div>
+                        <h6 className="person-name">{person.name}</h6>
+                        <span className="person-character">{person.character}</span>
                     </div>
                 ))}
             </div>
-            <div className="video">
-                <iframe src={"https://www.youtube.com/watch?v=" + videoKey} allow="fullscreen" title="trailer-video"></iframe>
+            <div className="crew d-flex flex-wrap">
+                {credits.crew.map(person => (
+                    <div className="person-box">
+                        <div className="person-photo">
+                            <img className="w-100 h-100" src={person.profile_path ? img_300 + person.profile_path : unavailablePicture} alt="person_photo" />
+                        </div>
+                        <h6 className="person-name">{person.name}</h6>
+                        <span className="person-character">{person.department}</span>
+                    </div>
+                ))}
             </div>
+            {trailerVideoKey && <YouTube videoId={trailerVideoKey} />}
         </Modal>
-
     );
 
 }
@@ -58,4 +92,6 @@ const mapStateToProps = ({ movieModal }) => ({
 
 });
 
-export default connect(mapStateToProps)(MovieModal);
+const mapDispatchToProps = dispatch => ({hideMovieModal: () => dispatch(closeMovieModal())});
+
+export default connect(mapStateToProps, mapDispatchToProps)(MovieModal);

@@ -5,10 +5,10 @@ import Cookies from "js-cookie";
 import { checkAuth } from "utils";
 import { useAuth } from "hooks";
 import { receiveFavorites } from "actions";
-import { fetchingHomeData, fetchingMovieData } from "services";
+import { fetchingHomeData } from "services";
 import { NowPlayingSlider, PopularSlider, TopRatedSlider, RecentRatedSlider, MovieModal } from "components";
 
-const Home = ({ setFavorites }) => {
+const Home = ({ movieModalOpen, setFavorites }) => {
     
     const [nowPlayingMovies, setNowPlayingMovies] = useState([]);
 
@@ -51,7 +51,7 @@ const Home = ({ setFavorites }) => {
     }, []); // eslint-disable-line
 
     useEffect(() => {
-        fetchingMovieData();
+
         let storedFavorites = Cookies.get("favorites");
 
         if(storedFavorites) setFavorites(JSON.parse(storedFavorites));
@@ -64,12 +64,14 @@ const Home = ({ setFavorites }) => {
             <PopularSlider popularMovies={popularMovies} />
             <TopRatedSlider topRatedMovies={topRatedMovies} />
             <RecentRatedSlider recentRatedMovies={recentRatedMovies} />
-            <MovieModal />
+            {movieModalOpen && <MovieModal />}
         </div>
     );
 
 }
+
+const mapStateToProps = ({ movieModal }) => ({movieModalOpen: movieModal.open});
   
 const mapDispatchToProps = dispatch => ({setFavorites: favorites => dispatch(receiveFavorites(favorites))});
 
-export default connect(null, mapDispatchToProps)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

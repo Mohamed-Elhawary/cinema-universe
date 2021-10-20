@@ -12,6 +12,8 @@ export const unavailablePoster = "https://www.movienewz.com/img/films/poster-hol
 // unavailable landscape
 export const unavailableLandscape = "https://user-images.githubusercontent.com/10515204/56117400-9a911800-5f85-11e9-878b-3f998609a6c8.jpg";
 
+// unavailable picture
+export const unavailablePicture = "https://upload.wikimedia.org/wikipedia/en/6/60/No_Picture.jpg";
 
 // App URL Requests
 export const nowPlayingURL = `movie/now_playing?api_key=${API_KEY}&language=en-US&page=1`;
