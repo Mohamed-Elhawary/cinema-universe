@@ -4,6 +4,7 @@ import NowPlayingSlider from "./nowplayingslider/NowPlayingSlider";
 import PopularSlider from "./popularslider/PopularSlider";
 import TopRatedSlider from "./topratedslider/TopRatedSlider";
 import Movie from "./movie/Movie";
+import LandscapeMovie from "./landscapemovie/LandscapeMovie";
 
 export { 
     Navbar,
@@ -11,5 +12,6 @@ export {
     NowPlayingSlider,
     PopularSlider,
     TopRatedSlider,
-    Movie
+    Movie,
+    LandscapeMovie
 };

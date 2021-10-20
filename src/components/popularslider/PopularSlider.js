@@ -10,7 +10,7 @@ const PopularSlider = ({popularMovies}) => {
             <Container>
                 <h5 className="slider-title mb-4">Popular Movies</h5>
             </Container>
-            <Slider>
+            <Slider isLandscapeSlider={false}>
                 {popularMovies.map(({id, poster_path, title, release_date, overview, vote_average}) => (
                     <Col key={id}>
                         <Movie 

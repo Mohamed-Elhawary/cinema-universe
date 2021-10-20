@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const CustomizedMovie = styled.div`
-    max-width: 500px;
+    max-width: 99%;
     height: 350px;
     .movie-box:hover .overlay {
         opacity: 1;
@@ -12,18 +12,19 @@ const CustomizedMovie = styled.div`
         border-radius: 8px;
         box-shadow: 0 1px 5px 0 ${({ theme }) => theme.box_shadow_color};
         cursor: pointer;
+        object-fit: cover;
     };
     .info {
         position: absolute;
         top: 20px;
         h6.title {
-        color: #fff;
-        font-weight: bold;
-        span.date {
-            font-weight: normal;
-            color: ${({ theme }) => theme.date_color};
-        }
-    };
+            color: #fff;
+            font-weight: bold;
+            span.date {
+                font-weight: normal;
+                color: ${({ theme }) => theme.date_color};
+            }
+        };
     };
 `;
 
