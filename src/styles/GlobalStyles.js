@@ -30,6 +30,9 @@ export const GlobalStyles = createGlobalStyle`
         opacity: 0;
         transition: all .3s;
         color: ${({ theme }) => theme.text_color};
+        @media(max-width: 1191px) {
+            display: none;
+        }
     };
     .overlay.landscape {
         top: initial;
