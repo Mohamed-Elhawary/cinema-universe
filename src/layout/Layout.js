@@ -1,4 +1,5 @@
 import { Fragment } from 'react';
+import { ToTopButton } from "ui";
 import { Navbar, Footer } from 'components';
 
 const Layout = ({ children }) => {
@@ -7,6 +8,7 @@ const Layout = ({ children }) => {
         <Fragment>
             <Navbar />
                 {children}
+                <ToTopButton />
             <Footer />
         </Fragment>
     );

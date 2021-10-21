@@ -1,4 +1,5 @@
-import Button from "./button/Button";
+import Button from "./buttons/button/Button";
+import ToTopButton from "./buttons/totopbutton/ToTopButton";
 import Error from "./error/Error";
 import Form from "./form/Form";
 import Input from "./input/Input";
@@ -11,6 +12,7 @@ import Pagination from "./pagination/Pagination";
 
 export {
     Button,
+    ToTopButton,
     Error,
     Form,
     Input,
