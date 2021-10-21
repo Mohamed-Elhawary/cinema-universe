@@ -1,10 +1,8 @@
-import { connect } from 'react-redux';
 import { Container, Col } from "react-bootstrap";
-import { checkFavorite } from "utils";
 import { Slider } from "ui";
 import { Movie } from "components";
 
-const RecentRatedSlider = ({ favorites, recentRatedMovies }) => {
+const RecentRatedSlider = ({ recentRatedMovies }) => {
     
     return (
         <div className="mb-5">
@@ -21,7 +19,6 @@ const RecentRatedSlider = ({ favorites, recentRatedMovies }) => {
                             date={release_date}
                             overview={overview}
                             rate={vote_average}
-                            isFav={checkFavorite(favorites, id)}
                         />
                     </Col>
                 ))}
@@ -31,7 +28,4 @@ const RecentRatedSlider = ({ favorites, recentRatedMovies }) => {
 
 }
 
-
-const mapStateToProps = ({ favorites }) => ({favorites: favorites.favorites});
-
-export default connect(mapStateToProps)(RecentRatedSlider);
+export default RecentRatedSlider;
