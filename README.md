@@ -10,7 +10,7 @@ Cinema Universe is a huge Database App for all movies around the world since the
 ![Screenshot](preview 3.png) 
 ## Demo
 
-https://user-images.githubusercontent.com/69651552/132402671-b64aaefb-b3e6-4f15-9af2-4f3111c0cadc.mp4
+https://user-images.githubusercontent.com/69651552/138268637-1139c182-b669-46a4-bc97-d2c4496eae08.mp4
 
 ## Instructions, Building & Getting Started  
     - 1- Fork, clone or download this repository to your local machine.
