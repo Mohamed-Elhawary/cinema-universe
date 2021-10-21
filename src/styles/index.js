@@ -13,6 +13,7 @@ import CustomizedFooter from "./FooterStyle";
 import CustomizedMovie from "./MovieStyle";
 import CustomizedLandscapeMovie from "./LandscapeMovieStyle";
 import CustomizedPerson from "./PersonStyle";
+import CustomizedPagination from "./PaginationStyle";
 import { GlobalStyles } from "./GlobalStyles";
 
 export {
@@ -31,5 +32,6 @@ export {
     CustomizedMovie,
     CustomizedLandscapeMovie,
     CustomizedPerson,
+    CustomizedPagination,
     GlobalStyles
 };

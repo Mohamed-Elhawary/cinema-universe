@@ -1,10 +1,10 @@
-import { Pagination } from 'antd';
+import { CustomizedPagination } from "styles";
 
-const Pag = ({currentPage, totalPages, onChange}) => {
+const Pagination = ({currentPage, totalPages, onChange}) => {
     
 
     return (
-        <Pagination 
+        <CustomizedPagination 
             showSizeChanger={false}
             defaultCurrent={currentPage}
             total={totalPages}
@@ -14,4 +14,4 @@ const Pag = ({currentPage, totalPages, onChange}) => {
 
 }
 
-export default Pag;
+export default Pagination;
