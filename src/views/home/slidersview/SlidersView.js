@@ -12,6 +12,7 @@ import { NowPlayingSlider, PopularSlider, TopRatedSlider, RecentRatedSlider } fr
 
 const SlidersView = ({ 
     fetchingLoaderState,
+    theme,
     setFavorites,
     setFetchingLoaderState }) => {
 
@@ -70,7 +71,7 @@ const SlidersView = ({
     }, []); // eslint-disable-line
 
     return (
-        fetchingLoaderState ? <SpinnerLoader large spinnerColor="light" style={{top: "50%", position: "absolute"}} /> : (
+        fetchingLoaderState ? <SpinnerLoader large spinnerColor={theme === "light" ? "dark" : "light"} style={{top: "50%", position: "absolute"}} /> : (
             <Fragment>
                 <NowPlayingSlider nowPlayingMovies={nowPlayingMovies} />
                 <PopularSlider popularMovies={popularMovies} />
@@ -82,7 +83,10 @@ const SlidersView = ({
 
 }
 
-const mapStateToProps = ({ fetchingLoader }) => ({fetchingLoaderState: fetchingLoader.state});
+const mapStateToProps = ({ fetchingLoader, theme }) => ({
+    fetchingLoaderState: fetchingLoader.state,
+    theme: theme.theme
+});
   
 const mapDispatchToProps = dispatch => ({
 
