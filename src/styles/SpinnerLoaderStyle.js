@@ -4,7 +4,7 @@ const CustomizedSpinnerLoader = styled.div`
     display: inline-block;
     position: relative;
     left: 50%;
-    transform: translate(50%);
+    transform: translate(-50%);
     width: 20px;
     height: 20px;
     &.dark div {
@@ -14,7 +14,14 @@ const CustomizedSpinnerLoader = styled.div`
     &.light div {
         border: 3px solid ${({ theme }) => theme.loader_color_2};
         border-color:  ${({ theme }) => theme.loader_color_2} transparent transparent transparent;
-    };    
+    }; 
+    &.large {
+        border-width: 5px;
+        div {
+            width: 50px;
+            height: 50px;
+        }
+    };   
     div {
         box-sizing: border-box;
         display: block;
