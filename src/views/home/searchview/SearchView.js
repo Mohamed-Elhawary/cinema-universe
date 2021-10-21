@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { Container, Row, Col } from "react-bootstrap";
 import { switchFetchingLoaderState } from "actions";
@@ -15,7 +15,7 @@ const SearchView = ({
 
     const pageClicked = (pageNumber) => {
 
-        getSearchMoviesData(searchText, pageNumber);
+        getSearchMoviesData(searchText, pageNumber)
 
     }
 
@@ -36,7 +36,7 @@ const SearchView = ({
         fetchingLoaderState ? <SpinnerLoader large spinnerColor="light" style={{top: "50%", position: "absolute"}} /> : 
             moviesData?.results?.length > 0 ? (
                 <Container fluid>
-                    <Row>
+                    <Row style={{minHeight: "90vh"}}>
                         {moviesData.results.map(({id, poster_path, title, release_date, overview, vote_average}) => (
                             <Col lg={3} md={4} xs={6} key={id}>
                                 <div style={{marginBottom: "120px"}}>

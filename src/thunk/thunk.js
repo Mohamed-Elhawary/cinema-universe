@@ -8,8 +8,6 @@ export const fetchingSearchMoviesData = (searchText, page) =>  dispatch => {
 
     axios.get(requestURL).then(response => {
 
-        console.log(response)
-
         dispatch(setSearchMoviesData(response.data));
 
     });
