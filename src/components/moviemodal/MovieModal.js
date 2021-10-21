@@ -4,13 +4,19 @@ import { connect } from 'react-redux';
 import YouTube from 'react-youtube';
 import { checkAuth } from "utils";
 import { useAuth } from "hooks";
-import { closeMovieModal } from "actions";
+import { closeMovieModal, switchSearchMode, setSearchMoviesData, setSearchText } from "actions";
 import { img_780, unavailableLandscape } from "config";
 import { fetchingMovieData } from "services";
 import { Modal } from "ui";
 import { MovieModalSlider } from "components";
 
-const MovieModal = ({ movieModalID, movieModalOpen, hideMovieModal }) => {
+const MovieModal = ({ 
+    movieModalID, 
+    movieModalOpen, 
+    hideMovieModal,
+    setSearchMode,
+    setSearchMoviesData,
+    setSearchText}) => {
 
     const [showMovieModalLoader, setShowMovieModalLoader] = useState(true);
 
@@ -53,6 +59,12 @@ const MovieModal = ({ movieModalID, movieModalOpen, hideMovieModal }) => {
             
             hideMovieModal();
 
+            setSearchMode(false);
+            
+            setSearchMoviesData({});
+
+            setSearchText("");
+
             auth.logout(() => history.replace("/login"));
         }
 
@@ -66,7 +78,7 @@ const MovieModal = ({ movieModalID, movieModalOpen, hideMovieModal }) => {
             show={movieModalOpen}
             hide={() => hideMovieModal()}
             showMovieModalLoader={showMovieModalLoader}
-            title={<h5 className="py-2">{title} {release_date && <span className="date">({release_date.substring(0, 4)})</span>}</h5>}
+            title={<h5 className="py-2 m-0 font-weight-bold">{title} {release_date && <span className="date">({release_date.substring(0, 4)})</span>}</h5>}
         >
             <img className="poster w-100 mb-4" src={backdrop_path ? img_780 + backdrop_path : unavailableLandscape} alt="poster" height="350" />
             <div className="genres d-flex mb-4">
@@ -79,7 +91,7 @@ const MovieModal = ({ movieModalID, movieModalOpen, hideMovieModal }) => {
             <MovieModalSlider persons={credits.crew} />
             {trailerVideoKey && (
                 <>
-                    <h6 className="text-center font-weight-bold mt-3">Watch Trailer</h6>
+                    <h6 className="text-center font-weight-bold mt-3 mb-0">Watch Trailer</h6>
                     <YouTube videoId={trailerVideoKey} opts={{width: "100%"}} className="mt-4 rounded shadow" />
                 </>
             )}
@@ -95,6 +107,13 @@ const mapStateToProps = ({ movieModal }) => ({
 
 });
 
-const mapDispatchToProps = dispatch => ({hideMovieModal: () => dispatch(closeMovieModal())});
+const mapDispatchToProps = dispatch => ({
+
+    hideMovieModal: () => dispatch(closeMovieModal()),
+    setSearchMode: mode => dispatch(switchSearchMode(mode)),
+    setSearchMoviesData: moviesData => dispatch(setSearchMoviesData(moviesData)),
+    setSearchText: (searchText) => dispatch(setSearchText(searchText))
+
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(MovieModal);

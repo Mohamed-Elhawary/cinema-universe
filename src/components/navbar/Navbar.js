@@ -6,7 +6,7 @@ import { BsFillMoonFill, BsFillSunFill } from "react-icons/bs";
 import Cookies from 'js-cookie';
 import { checkAuth } from "utils";
 import { useAuth } from 'hooks';
-import { switchTheme, switchSearchMode, setSearchMoviesData } from "actions";
+import { switchTheme, switchSearchMode, setSearchMoviesData, setSearchText } from "actions";
 import { fetchingSearchMoviesData } from "thunk";
 import { Logo, Button, Input } from 'ui';
 import { CustomizedNavbar } from 'styles';
@@ -14,10 +14,12 @@ import { CustomizedNavbar } from 'styles';
 const Navbar = ({ 
     theme,
     searchMode,
+    searchText,
     setTheme,
     setSearchMode,
     setSearchMoviesData,
-    getSearchMoviesData}) => {
+    getSearchMoviesData,
+    setSearchText }) => {
 
     let auth = useAuth();
 
@@ -42,12 +44,14 @@ const Navbar = ({
     }
 
     const signoutClicked = () => {
+        
+        setSearchMode(false);
+
+        setSearchMoviesData({});
+
+        setSearchText("");
 
         auth.logout(() => history.replace('/login'));
-        
-        setSearchMoviesData({});
-                
-        setSearchMode(false);
 
     }
 
@@ -78,6 +82,8 @@ const Navbar = ({
 
         if(checkAuth()) {
 
+            setSearchText(value);
+
             if (value) {
 
                 if(!searchMode)  setSearchMode(true);
@@ -86,17 +92,19 @@ const Navbar = ({
     
             } else {
                 
-                setSearchMoviesData({});
-                
                 setSearchMode(false);
+                
+                setSearchMoviesData({});
     
             }
 
         } else {
 
-            setSearchMoviesData({});
-                
             setSearchMode(false);
+
+            setSearchMoviesData({});    
+
+            setSearchText("");
 
             history.replace("/login");
 
@@ -108,7 +116,7 @@ const Navbar = ({
       	<CustomizedNavbar expand="lg" fixed="top">
 			<Container>
 				<CustomizedNavbar.Brand><Link to="/"><Logo /></Link></CustomizedNavbar.Brand>
-                {!auth.user && <Button className="dark mini" onClick={switchThemeButtonCliked}>{theme === "dark" ? <BsFillSunFill className="mb-1" /> : <BsFillMoonFill className="mb-1" />}</Button>}
+                {!auth.user && <Button className="dark mini" onClick={switchThemeButtonCliked}>{theme === "dark" ? <BsFillSunFill className="mb-1 position-relative" style={{right: "7px"}} /> : <BsFillMoonFill className="mb-1 position-relative" style={{right: "6px"}} />}</Button>}
 				{auth.user && (
                     <Fragment>
                         <CustomizedNavbar.Toggle aria-controls="basic-navbar-nav" />
@@ -119,8 +127,13 @@ const Navbar = ({
                                         Signout
                                     </Dropdown.Item>
                                 </NavDropdown>
-                                <Button className="dark mini mr-lg-3 mt-lg-1 my-2" onClick={switchThemeButtonCliked}>{theme === "dark" ? <BsFillSunFill className="mb-1 position-relative" style={{right: "6px"}} /> : <BsFillMoonFill className="mb-1 position-relative" style={{right: "6px"}} />}</Button>
-                                <Input placeholder="Search for a Movie" className="mb-2 mb-lg-0" onChange={(e) => searchInputValueChanged(e)}/>
+                                <Button className="dark mini mr-lg-3 mt-lg-1 my-2" onClick={switchThemeButtonCliked}>{theme === "dark" ? <BsFillSunFill className="mb-1 position-relative" style={{right: "7px"}} /> : <BsFillMoonFill className="mb-1 position-relative" style={{right: "6px"}} />}</Button>
+                                <Input 
+                                    className="mb-2 mb-lg-0" 
+                                    placeholder="Search for a Movie"
+                                    value={searchText} 
+                                    onChange={(e) => searchInputValueChanged(e)}
+                                />
                             </Nav>
                         </CustomizedNavbar.Collapse>
                     </Fragment>
@@ -134,7 +147,8 @@ const Navbar = ({
 const mapStateToProps = ({ theme, search }) => ({
 
     theme: theme.theme,
-    searchMode: search.mode
+    searchMode: search.mode,
+    searchText: search.searchText
 
 });
   
@@ -143,7 +157,8 @@ const mapDispatchToProps = dispatch => ({
     setTheme: theme => dispatch(switchTheme(theme)),
     setSearchMode: mode => dispatch(switchSearchMode(mode)),
     setSearchMoviesData: moviesData => dispatch(setSearchMoviesData(moviesData)),
-    getSearchMoviesData: (searchText, page) => dispatch(fetchingSearchMoviesData(searchText, page))
+    getSearchMoviesData: (searchText, page) => dispatch(fetchingSearchMoviesData(searchText, page)),
+    setSearchText: (searchText) => dispatch(setSearchText(searchText))
 
 });
 
