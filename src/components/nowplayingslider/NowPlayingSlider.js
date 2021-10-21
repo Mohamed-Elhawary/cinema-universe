@@ -14,7 +14,7 @@ const NowPlayingSlider = ({ nowPlayingMovies }) => {
                             id={id}
                             posterSrc={backdrop_path}
                             title={title}
-                            date={release_date}
+                            date={release_date || null}
                         />
                     </Col>
                 ))}

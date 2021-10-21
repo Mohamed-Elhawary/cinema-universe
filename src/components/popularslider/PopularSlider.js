@@ -16,7 +16,7 @@ const PopularSlider = ({ popularMovies }) => {
                             id={id}
                             posterSrc={poster_path}
                             title={title}
-                            date={release_date}
+                            date={release_date || null}
                             overview={overview}
                             rate={vote_average}
                         />

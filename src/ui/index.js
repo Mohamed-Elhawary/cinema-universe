@@ -7,6 +7,7 @@ import PreLoader from "./loaders/preloader/PreLoader";
 import Logo from "./logo/Logo";
 import Slider from "./slider/Slider";
 import Modal from "./modal/Modal";
+import Pagination from "./pagination/Pagination";
 
 export {
     Button,
@@ -17,5 +18,6 @@ export {
     PreLoader,
     Logo,
     Slider,
-    Modal
+    Modal,
+    Pagination
 };

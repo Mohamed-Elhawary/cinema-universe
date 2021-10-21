@@ -12,7 +12,7 @@ export default styled(Modal)`
         overflow: scroll;
         overflow-x: hidden;
         background: ${({ theme }) => theme.modal_bg};
-        color: ${({ theme }) => theme.text_color};
+        color: ${({ theme }) => theme.text_color}!important;
     };
     @media(max-width: 767px) {
         .modal-content {
