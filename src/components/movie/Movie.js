@@ -19,8 +19,7 @@ const Movie = ({
     title,
     date,
     overview,
-    rate,
-    isFav}) => {
+    rate}) => {
 
     let auth = useAuth();
 
@@ -62,7 +61,7 @@ const Movie = ({
             <div className="position-relative movie-box h-100" onClick={() => showMovieModal(id)}>
                 <img className="poster w-100 h-100" src={posterSrc ? img_300 + posterSrc : unavailablePoster} alt="poster" width="180" height="240" />
                 <div className="overlay">
-                    <span className="favorite" onClick={(e) => favoriteIconClicked(e, id, title)}>{isFav ? <AiFillHeart className="filled" size={30} /> : <AiOutlineHeart size={30} />}</span>
+                    <span className="favorite" onClick={(e) => favoriteIconClicked(e, id, title)}>{checkFavorite(favorites, id) ? <AiFillHeart className="filled" size={30} /> : <AiOutlineHeart size={30} />}</span>
                     <div className="info p-2">
                         <span className="rate d-flex mb-2"><img className="mr-2" src={star} alt="star"/> {rate}</span>
                         <p className="overview">{overview.length > 15 ? overview.substring(0, 55) + "..." : overview}</p>
