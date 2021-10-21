@@ -29,3 +29,5 @@ export const movieDataURL = (id) => `movie/${id}?api_key=${API_KEY}&language=en-
 export const movieVideosLinksURL = (id) => `movie/${id}/videos?api_key=${API_KEY}&language=en-US`;
 
 export const movieActorsURL = (id) => `movie/${id}/credits?api_key=${API_KEY}&language=en-US`;
+
+export const searchMoviesURL = (searchText, page) => `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${searchText}&page=${page}`;

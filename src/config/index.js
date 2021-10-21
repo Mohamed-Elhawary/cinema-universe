@@ -10,7 +10,8 @@ import {
     recentRatedURL,
     movieDataURL,
     movieVideosLinksURL,
-    movieActorsURL
+    movieActorsURL,
+    searchMoviesURL,
 } from "./config";
 
 export {
@@ -25,5 +26,6 @@ export {
     recentRatedURL,
     movieDataURL,
     movieVideosLinksURL,
-    movieActorsURL
+    movieActorsURL,
+    searchMoviesURL
 };
