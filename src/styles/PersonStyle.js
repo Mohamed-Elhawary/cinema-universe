@@ -6,6 +6,10 @@ const CustomizedPerson = styled.div`
         img {
             border-radius: 8px;
             box-shadow: 0 1px 5px 0 ${({ theme }) => theme.box_shadow_color};
+            object-fit: cover;
+            @media(max-width: 576px) {
+                height: auto!important;
+            }
         }
     };
     h6 {

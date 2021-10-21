@@ -6,7 +6,7 @@ export default styled(Modal)`
         min-width: 664px;
         height: 550px;
         padding: 20px;
-        margin-top: 5%;
+        margin-top: 15%;
         position: absolute;
         left: -18%;
         overflow: scroll;

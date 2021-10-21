@@ -5,6 +5,7 @@ const CustomizedMovie = styled.div`
     height: 350px;
     .movie-box:hover .overlay {
         opacity: 1;
+        display: initial;
         width: 100%;
         height: 35%
     };
