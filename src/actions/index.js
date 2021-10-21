@@ -1,17 +1,17 @@
-import { receiveFavorites, addFavorite, removeFavorite } from "./favorites";
+import { setFavorites, addFavorite, removeFavorite } from "./favorites";
 import { switchTheme } from "./theme";
 import { openMovieModal, closeMovieModal } from "./movieModal";
-import { receiveSearchMovies, switchSearchMode } from "./search";
+import { setSearchMovies, switchSearchMode } from "./search";
 import { switchFetchingLoaderState } from "./fetchingLoader";
 
 export { 
-    receiveFavorites,
+    setFavorites,
     addFavorite,
     removeFavorite,
     switchTheme,
     openMovieModal,
     closeMovieModal,
-    receiveSearchMovies,
+    setSearchMovies,
     switchSearchMode,
     switchFetchingLoaderState
 };

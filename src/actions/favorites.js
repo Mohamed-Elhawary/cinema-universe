@@ -1,9 +1,9 @@
-import { RECEIVE_FAVORITES, ADD_FAVORITE, REMOVE_FAVORITE } from "types";
+import { SET_FAVORITES, ADD_FAVORITE, REMOVE_FAVORITE } from "types";
 
-export function receiveFavorites(favorites) {
+export function setFavorites(favorites) {
 
     return {
-        type: RECEIVE_FAVORITES,
+        type: SET_FAVORITES,
         payload: { favorites }
     }
 
