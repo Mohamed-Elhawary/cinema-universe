@@ -1,6 +1,9 @@
-import YouTube from 'react-youtube';
 import { useState, useEffect } from "react";
+import { useHistory } from "react-router";
 import { connect } from 'react-redux';
+import YouTube from 'react-youtube';
+import { checkAuth } from "utils";
+import { useAuth } from "hooks";
 import { closeMovieModal } from "actions";
 import { img_780, unavailableLandscape } from "config";
 import { fetchingMovieData } from "services";
@@ -23,22 +26,35 @@ const MovieModal = ({ movieModalID, movieModalOpen, hideMovieModal }) => {
 
     const [credits, setCredits] = useState({cast: [], crew: []});
 
+    let auth = useAuth();
+
+    let history = useHistory();
+
     useEffect(() => {
 
-        fetchingMovieData(movieModalID, response => {
+        if(checkAuth()) {
+            
+            fetchingMovieData(movieModalID, response => {
 
-            if(response.statusCode === 200) {
-                
-                setMovieData(response.data.movieData);
+                if(response.statusCode === 200) {
+                    
+                    setMovieData(response.data.movieData);
+    
+                    setTrailerVideoKey(response.data.trailerVideoKey);
+                    
+                    setCredits(response.data.credits);
+    
+                    setShowMovieModalLoader(false);
+    
+                }
+            });
 
-                setTrailerVideoKey(response.data.trailerVideoKey);
-                
-                setCredits(response.data.credits);
+        } else {
+            
+            hideMovieModal();
 
-                setShowMovieModalLoader(false);
-
-            }
-        });
+            auth.logout(() => history.replace("/login"));
+        }
 
     }, []); /*eslint-disable-line*/
 
