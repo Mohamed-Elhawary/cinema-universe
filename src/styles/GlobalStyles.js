@@ -23,7 +23,7 @@ export const GlobalStyles = createGlobalStyle`
         left: 0;
         width: 0;
         height: 0;
-        background-color: rgba(68, 68, 68, .5);
+        background-color: ${({ theme }) => theme.overlay_bg}60;
         opacity: 0;
         transition: all .3s;
         color: ${({ theme }) => theme.text_color};

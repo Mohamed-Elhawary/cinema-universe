@@ -40,9 +40,6 @@ export default styled(Modal)`
         border-radius: 8px;
         border: 1px solid ${({ theme }) => theme.modal_title_border};
         text-align: center;
-        h5 {
-            color: ${({ theme }) => theme.text_color};
-        }
         .date {
             font-weight: normal;
             color: ${({ theme }) => theme.side_text_color};
@@ -69,5 +66,8 @@ export default styled(Modal)`
                 background-color: ${({ theme }) => theme.button_hover_bg_1};
             }
         }
+    };
+    h5, h6 {
+            color: ${({ theme }) => theme.text_color};
     }
 `;
