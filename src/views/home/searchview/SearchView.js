@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Container, Row, Col } from "react-bootstrap";
 import { switchFetchingLoaderState } from "actions";
-import { SpinnerLoader } from "ui";
+import { SpinnerLoader, Pagination } from "ui";
 import { Movie } from 'components';
 
 const SearchView = ({moviesData, fetchingLoaderState, setFetchingLoaderState}) => {
@@ -26,13 +26,13 @@ const SearchView = ({moviesData, fetchingLoaderState, setFetchingLoaderState}) =
                 <Container fluid>
                     <Row>
                         {moviesData.results.map(({id, poster_path, title, release_date, overview, vote_average}) => (
-                            <Col lg={3} md={4} xs={6}>
+                            <Col lg={3} md={4} xs={6} key={id}>
                                 <div style={{marginBottom: "120px"}}>
                                     <Movie 
                                         id={id}
                                         posterSrc={poster_path}
                                         title={title}
-                                        date={release_date}
+                                        date={release_date || null}
                                         overview={overview}
                                         rate={vote_average}
                                         style={{marginInline: "auto"}}
@@ -41,6 +41,7 @@ const SearchView = ({moviesData, fetchingLoaderState, setFetchingLoaderState}) =
                             </Col>
                         ))}
                     </Row>
+                    <Pagination currentPage={moviesData?.page} totalPages={moviesData?.total_pages} />
                 </Container>
         ) : <h2 className="no-result text-center">No Movies Found...</h2>
 

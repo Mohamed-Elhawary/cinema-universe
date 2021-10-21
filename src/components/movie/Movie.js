@@ -69,7 +69,7 @@ const Movie = ({
                     </div>
                 </div>
             </div>
-            <h6 className="text-center title mt-3">{title} <span className="date">({date.substring(0, 4)})</span></h6>
+            <h6 className="text-center title mt-3">{title} {date && <span className="date">({date.substring(0, 4)})</span>}</h6>
         </CustomizedMovie>
     );
 

@@ -119,7 +119,7 @@ const Navbar = ({
                                         Signout
                                     </Dropdown.Item>
                                 </NavDropdown>
-                                <Button className="dark mini mr-lg-3 mt-lg-1 my-2" onClick={switchThemeButtonCliked}>{theme === "dark" ? <BsFillSunFill className="mb-1" /> : <BsFillMoonFill className="mb-1" />}</Button>
+                                <Button className="dark mini mr-lg-3 mt-lg-1 my-2" onClick={switchThemeButtonCliked}>{theme === "dark" ? <BsFillSunFill className="mb-1 position-relative" style={{right: "6px"}} /> : <BsFillMoonFill className="mb-1 position-relative" style={{right: "6px"}} />}</Button>
                                 <Input placeholder="Search for a Movie" className="mb-2 mb-lg-0" onChange={(e) => searchInputValueChanged(e)}/>
                             </Nav>
                         </CustomizedNavbar.Collapse>

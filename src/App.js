@@ -9,6 +9,7 @@ import { Layout } from "layout";
 import { Routes } from "routes";
 import { GlobalStyles } from "styles";
 import { lightTheme, darkTheme } from "./Themes";
+import 'antd/dist/antd.css';
 
 const App = ({ theme, setTheme }) => {
 

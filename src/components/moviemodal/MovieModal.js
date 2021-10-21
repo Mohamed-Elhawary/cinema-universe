@@ -66,7 +66,7 @@ const MovieModal = ({ movieModalID, movieModalOpen, hideMovieModal }) => {
             show={movieModalOpen}
             hide={() => hideMovieModal()}
             showMovieModalLoader={showMovieModalLoader}
-            title={<h5 className="py-2">{title} <span className="date">({release_date.substring(0, 4)})</span></h5>}
+            title={<h5 className="py-2">{title} {release_date && <span className="date">({release_date.substring(0, 4)})</span>}</h5>}
         >
             <img className="poster w-100 mb-4" src={backdrop_path ? img_780 + backdrop_path : unavailableLandscape} alt="poster" height="350" />
             <div className="genres d-flex mb-4">
