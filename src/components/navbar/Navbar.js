@@ -41,6 +41,22 @@ const Navbar = ({
 
     }
 
+    const signoutClicked = () => {
+
+        auth.logout(() => history.replace('/login'));
+        
+        setSearchMoviesData({});
+                
+        setSearchMode(false);
+
+    }
+
+    const searchMovies = (value) => {
+        
+        getSearchMoviesData(value, 1);
+
+    }
+
     const debounce = function (callback, ms) {
         
         let timeout = null;  
@@ -52,12 +68,6 @@ const Navbar = ({
             timeout = setTimeout(() => callback(value), ms);
 
         }
-    }
-
-    const searchMovies = (value) => {
-        
-        getSearchMoviesData(value, 1);
-
     }
 
     const debouncer = useCallback(debounce(searchMovies, 1000), []); /*eslint-disable-line*/
@@ -84,6 +94,10 @@ const Navbar = ({
 
         } else {
 
+            setSearchMoviesData({});
+                
+            setSearchMode(false);
+
             history.replace("/login");
 
         }
@@ -101,7 +115,7 @@ const Navbar = ({
                         <CustomizedNavbar.Collapse id="basic-navbar-nav" style={{flexGrow: "initial"}}>
                             <Nav className="me-auto">
                                 <NavDropdown title={"Welcome, " + auth.user} className="mr-lg-3">
-                                    <Dropdown.Item onClick={() => auth.logout(() => history.replace('/login'))}>
+                                    <Dropdown.Item onClick={() => signoutClicked()}>
                                         Signout
                                     </Dropdown.Item>
                                 </NavDropdown>
