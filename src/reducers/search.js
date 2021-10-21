@@ -1,18 +1,18 @@
-import { SET_SEARCH_MOVIES, SWITCH_SEARCH_MODE } from "types";
+import { SET_SEARCH_MOVIES_DATA, SWITCH_SEARCH_MODE } from "types";
 
-export default function searchReducer(search = {movies: [], mode: false}, action) {
+export default function searchReducer(search = {moviesData: {}, mode: false}, action) {
     
     const { type, payload } = action;
 
     switch (type) {
 
-        case SET_SEARCH_MOVIES:
+        case SET_SEARCH_MOVIES_DATA:
 
-            const { movies } = payload;
+            const { moviesData } = payload;
 
             return {
                 ...search,
-                movies
+                moviesData
             }
         
         case SWITCH_SEARCH_MODE:

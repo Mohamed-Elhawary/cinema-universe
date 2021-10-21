@@ -4,12 +4,20 @@ import { connect } from 'react-redux';
 import { Dropdown, Nav, NavDropdown, Container } from 'react-bootstrap';
 import { BsFillMoonFill, BsFillSunFill } from "react-icons/bs";
 import Cookies from 'js-cookie';
+import { checkAuth } from "utils";
 import { useAuth } from 'hooks';
-import { switchTheme } from "actions";
+import { switchTheme, switchSearchMode, setSearchMoviesData } from "actions";
+import { fetchingSearchMoviesData } from "thunk";
 import { Logo, Button, Input } from 'ui';
 import { CustomizedNavbar } from 'styles';
 
-const Navbar = ({ theme, setTheme }) => {
+const Navbar = ({ 
+    theme,
+    searchMode,
+    setTheme,
+    setSearchMode,
+    setSearchMoviesData,
+    getSearchMoviesData}) => {
 
     let auth = useAuth();
 
@@ -47,7 +55,9 @@ const Navbar = ({ theme, setTheme }) => {
     }
 
     const searchMovies = (value) => {
-        console.log(value);
+        
+        getSearchMoviesData(value, 1);
+
     }
 
     const debouncer = useCallback(debounce(searchMovies, 1000), []); /*eslint-disable-line*/
@@ -56,13 +66,28 @@ const Navbar = ({ theme, setTheme }) => {
 
         let value = e.target.value;
 
-        if (value) {
+        if(checkAuth()) {
 
-            debouncer(value);
+            if (value) {
+
+                if(!searchMode)  setSearchMode(true);
+
+                debouncer(value);
+    
+            } else {
+                
+                setSearchMoviesData({});
+                
+                setSearchMode(false);
+    
+            }
 
         } else {
 
+            history.replace("/login");
+
         }
+
     }
 
     return (
@@ -92,8 +117,20 @@ const Navbar = ({ theme, setTheme }) => {
     
 }
 
-const mapStateToProps = ({ theme }) => ({theme: theme.theme});
+const mapStateToProps = ({ theme, search }) => ({
+
+    theme: theme.theme,
+    searchMode: search.mode
+
+});
   
-const mapDispatchToProps = dispatch => ({setTheme: theme => dispatch(switchTheme(theme))});
+const mapDispatchToProps = dispatch => ({
+    
+    setTheme: theme => dispatch(switchTheme(theme)),
+    setSearchMode: mode => dispatch(switchSearchMode(mode)),
+    setSearchMoviesData: moviesData => dispatch(setSearchMoviesData(moviesData)),
+    getSearchMoviesData: (searchText, page) => dispatch(fetchingSearchMoviesData(searchText, page))
+
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Navbar);

@@ -18,7 +18,7 @@ const App = ({ theme, setTheme }) => {
 
 		if(storedTheme) setTheme(storedTheme);
 
-	}, []);
+	}, []); // eslint-disable-line
 
 	return (
 		<ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
