@@ -1,7 +1,9 @@
+import { connect } from "react-redux";
 import { SpinnerLoader } from "ui";
 import { CustomizedModal } from "styles";
 
 const Modal = ({
+    theme,
     id,
     show,
     hide,
@@ -17,7 +19,7 @@ const Modal = ({
             show={show}
             onHide={hide}
         >
-            {showMovieModalLoader ? <SpinnerLoader large spinnerColor="light" style={{top: "50%"}} /> : (
+            {showMovieModalLoader ? <SpinnerLoader large spinnerColor={theme === "light" ? "dark" : "light"} style={{top: "50%"}} /> : (
                 <>
                     <CustomizedModal.Header>
                         <CustomizedModal.Title>{title}</CustomizedModal.Title>
@@ -31,4 +33,6 @@ const Modal = ({
     
 }
 
-export default Modal;
+const mapStateToProps = ({ theme }) => ({theme: theme.theme});
+
+export default connect(mapStateToProps)(Modal);

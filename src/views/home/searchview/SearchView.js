@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Container, Row, Col } from "react-bootstrap";
 import { switchFetchingLoaderState } from "actions";
@@ -7,11 +7,12 @@ import { SpinnerLoader, Pagination } from "ui";
 import { Movie } from 'components';
 
 const SearchView = ({
+    fetchingLoaderState,
+    theme,
     moviesData,
     searchText,
-    fetchingLoaderState,
     setFetchingLoaderState,
-    getSearchMoviesData }) => {
+    getSearchMoviesData}) => {
 
     const pageClicked = (pageNumber) => {
 
@@ -33,7 +34,7 @@ const SearchView = ({
     }, [moviesData]); // eslint-disable-line
 
     return (
-        fetchingLoaderState ? <SpinnerLoader large spinnerColor="light" style={{top: "50%", position: "absolute"}} /> : 
+        fetchingLoaderState ? <SpinnerLoader large spinnerColor={theme === "light" ? "dark" : "light"} style={{top: "50%", position: "absolute"}} /> : 
             moviesData?.results?.length > 0 ? (
                 <Container fluid>
                     <Row style={{minHeight: "90vh"}}>
@@ -65,11 +66,12 @@ const SearchView = ({
 
 }
 
-const mapStateToProps = ({ search, fetchingLoader }) => ({
+const mapStateToProps = ({ fetchingLoader, theme, search }) => ({
     
+    fetchingLoaderState: fetchingLoader.state,
+    theme: theme.theme,
     moviesData: search.moviesData,
-    searchText: search.searchText,
-    fetchingLoaderState: fetchingLoader.state
+    searchText: search.searchText
 
 });
 
