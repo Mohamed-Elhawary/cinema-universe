@@ -1,4 +1,4 @@
-import { Fragment } from 'react';
+import { useCallback, Fragment } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Dropdown, Nav, NavDropdown, Container } from 'react-bootstrap';
@@ -33,6 +33,38 @@ const Navbar = ({ theme, setTheme }) => {
 
     }
 
+    const debounce = function (callback, ms) {
+        
+        let timeout = null;  
+        
+        return function (value) {
+            
+            if (timeout) clearTimeout(timeout);
+            
+            timeout = setTimeout(() => callback(value), ms);
+
+        }
+    }
+
+    const searchMovies = (value) => {
+        console.log(value);
+    }
+
+    const debouncer = useCallback(debounce(searchMovies, 1000), []); /*eslint-disable-line*/
+
+    const searchInputValueChanged = (e) => {
+
+        let value = e.target.value;
+
+        if (value) {
+
+            debouncer(value);
+
+        } else {
+
+        }
+    }
+
     return (
       	<CustomizedNavbar expand="lg" fixed="top">
 			<Container>
@@ -49,7 +81,7 @@ const Navbar = ({ theme, setTheme }) => {
                                     </Dropdown.Item>
                                 </NavDropdown>
                                 <Button className="dark mini mr-lg-3 mt-lg-1 my-2" onClick={switchThemeButtonCliked}>{theme === "dark" ? <BsFillSunFill className="mb-1" /> : <BsFillMoonFill className="mb-1" />}</Button>
-                                <Input placeholder="Search for Movie" className="mb-2 mb-lg-0" />
+                                <Input placeholder="Search for a Movie" className="mb-2 mb-lg-0" onChange={(e) => searchInputValueChanged(e)}/>
                             </Nav>
                         </CustomizedNavbar.Collapse>
                     </Fragment>
