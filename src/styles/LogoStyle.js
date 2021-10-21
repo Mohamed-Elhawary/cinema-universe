@@ -9,7 +9,9 @@ const CustomizedLogo = styled.h3`
         color: ${({ theme }) => theme.text_color};
     };
     span:nth-child(2) {
-        color: ${({ theme }) => theme.error_color};
+        border-radius: 5px;
+        background: ${({ theme }) => theme.error_color};
+        color: ${({ theme }) => theme.body_bg};
     };
     svg {
         animation: rotating 2s linear infinite;
