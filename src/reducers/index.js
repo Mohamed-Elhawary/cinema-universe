@@ -6,11 +6,13 @@ import searchReducer from "./search";
 import fetchingLoaderReducer from "./fetchingLoader"
 
 const rootReducer = combineReducers({
+
     favorites: favoritesReducer,
     theme: themeReducer,
     movieModal: movieModalReducer,
     search: searchReducer,
     fetchingLoader: fetchingLoaderReducer
+    
 });
 
 export default rootReducer;
