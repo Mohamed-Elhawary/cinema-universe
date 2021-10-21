@@ -56,7 +56,9 @@ export const lightTheme = {
     modal_bg: color_7,
     modal_title_border: color_10,
 
-    scrollbar_bg: color_3
+    scrollbar_bg: color_3,
+
+    overlay_bg: color_7
 }
 
 export const darkTheme = {
@@ -103,5 +105,7 @@ export const darkTheme = {
     modal_bg: color_4,
     modal_title_border: color_7,
     
-    scrollbar_bg: color_7
+    scrollbar_bg: color_7,
+
+    overlay_bg: color_10
 }

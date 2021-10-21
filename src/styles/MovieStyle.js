@@ -16,9 +16,10 @@ const CustomizedMovie = styled.div`
     .info {
         position: absolute;
         bottom: 0;
+        font-weight: bold;
         .rate {
-            font-weight: bold;
-        };
+            font-size: 18px;
+        }
     };
     .favorite {
         position: absolute;
