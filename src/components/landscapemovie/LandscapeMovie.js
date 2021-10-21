@@ -1,14 +1,17 @@
+import { connect } from 'react-redux';
+import { openMovieModal } from "actions";
 import { img_780, unavailableLandscape } from "config";
 import { CustomizedLandscapeMovie } from "styles";
 
 const LandscapeMovie = ({
+    showMovieModal,
     id,
     posterSrc,
     title,
     date}) => {
     
     return (
-        <CustomizedLandscapeMovie id={id}>
+        <CustomizedLandscapeMovie id={id} onClick={() => showMovieModal(id)}>
             <div className="position-relative movie-box h-100">
                 <img className="poster w-100 h-100" src={posterSrc ? img_780 + posterSrc : unavailableLandscape} alt="poster" height="350" />
                 <div className="overlay landscape">
@@ -22,4 +25,7 @@ const LandscapeMovie = ({
 
 }
 
-export default LandscapeMovie;
+
+const mapDispatchToProps = dispatch => ({showMovieModal: id => dispatch(openMovieModal(id))});
+
+export default connect(null, mapDispatchToProps)(LandscapeMovie);
