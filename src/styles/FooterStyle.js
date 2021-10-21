@@ -11,6 +11,9 @@ const CustomizedFooter = styled.footer`
         font-weight: bold;
         font-style: italic;
         font-size: 14px;
+    };
+    .social a {
+        color: ${({ theme }) => theme.text_color};
     }
 `;
 
