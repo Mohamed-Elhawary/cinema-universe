@@ -1,13 +1,17 @@
+import { connect } from 'react-redux';
 import SlidersView from "./slidersview/SlidersView";
+import SearchView from "./searchview/SearchView";
 
-const Home = () => {
+const Home = ({ searchMode }) => {
 
     return (
         <div className="home-view view">
-            <SlidersView />
+            {searchMode ? <SearchView /> : <SlidersView />}
         </div>
     );
 
 }
 
-export default Home;
+const mapStateToProps = ({ search }) => ({searchMode: search.mode});
+
+export default connect(mapStateToProps)(Home);

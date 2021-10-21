@@ -19,7 +19,8 @@ const Movie = ({
     title,
     date,
     overview,
-    rate}) => {
+    rate,
+    style}) => {
 
     let auth = useAuth();
 
@@ -57,7 +58,7 @@ const Movie = ({
     }
     
     return (
-        <CustomizedMovie id={id}>
+        <CustomizedMovie id={id} style={style}>
             <div className="position-relative movie-box h-100" onClick={() => showMovieModal(id)}>
                 <img className="poster w-100 h-100" src={posterSrc ? img_300 + posterSrc : unavailablePoster} alt="poster" width="180" height="240" />
                 <div className="overlay">

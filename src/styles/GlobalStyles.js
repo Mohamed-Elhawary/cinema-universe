@@ -26,10 +26,19 @@ export const GlobalStyles = createGlobalStyle`
         background-color: rgba(68, 68, 68, .5);
         opacity: 0;
         transition: all .3s;
+        color: ${({ theme }) => theme.text_color};
     };
     .overlay.landscape {
         top: initial;
         bottom: 0;
+    };
+    .no-result {
+        font-size: 30px;
+        font-weight: bold;
+        color: ${({ theme }) => theme.text_color};
+        position: absolute;
+        top: 50%;
+        width: 100%;
     };
     ::-webkit-scrollbar {
         width: 5px;
