@@ -1,10 +1,10 @@
-import { SET_SEARCH_MOVIES, SWITCH_SEARCH_MODE } from "types";
+import { SET_SEARCH_MOVIES_DATA, SWITCH_SEARCH_MODE } from "types";
 
-export function setSearchMovies(movies) {
+export function setSearchMoviesData(moviesData) {
 
     return {
-        type: SET_SEARCH_MOVIES,
-        payload: { movies }
+        type: SET_SEARCH_MOVIES_DATA,
+        payload: { moviesData }
     }
 
 }
