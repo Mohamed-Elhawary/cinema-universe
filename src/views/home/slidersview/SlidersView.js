@@ -5,11 +5,16 @@ import { connect } from 'react-redux';
 import Cookies from "js-cookie";
 import { checkAuth } from "utils";
 import { useAuth } from "hooks";
-import { receiveFavorites } from "actions";
+import { receiveFavorites, switchFetchingLoaderState } from "actions";
 import { fetchingHomeData } from "services";
+import { SpinnerLoader } from "ui";
 import { NowPlayingSlider, PopularSlider, TopRatedSlider, RecentRatedSlider, MovieModal } from "components";
 
-const SlidersView = ({ movieModalOpen, setFavorites }) => {
+const SlidersView = ({ 
+    movieModalOpen,
+    fetchingLoaderState,
+    setFavorites,
+    setFetchingLoaderState }) => {
 
     const [nowPlayingMovies, setNowPlayingMovies] = useState([]);
 
@@ -25,6 +30,8 @@ const SlidersView = ({ movieModalOpen, setFavorites }) => {
 
     useEffect(() => {
 
+        setFetchingLoaderState(true);
+
         if(checkAuth()) {
 
             fetchingHomeData(response => {
@@ -38,12 +45,16 @@ const SlidersView = ({ movieModalOpen, setFavorites }) => {
                     setTopRatedMovies(response.data.topRated);
     
                     setRecentRatedMovies(response.data.recentRated);
+                    
+                    setFetchingLoaderState(false);
     
                 }
     
             });
 
         } else {
+
+            setFetchingLoaderState(false);
 
             auth.logout(() => history.replace("/login"));
             
@@ -60,18 +71,31 @@ const SlidersView = ({ movieModalOpen, setFavorites }) => {
     }, []); // eslint-disable-line
 
     return (
-        <Fragment>
-            <NowPlayingSlider nowPlayingMovies={nowPlayingMovies} />
-            <PopularSlider popularMovies={popularMovies} />
-            <TopRatedSlider topRatedMovies={topRatedMovies} />
-            <RecentRatedSlider recentRatedMovies={recentRatedMovies} />
-            {movieModalOpen && <MovieModal />}
-        </Fragment>        
+        fetchingLoaderState ? <SpinnerLoader large spinnerColor="light" style={{top: "50%", position: "absolute"}} /> : (
+            <Fragment>
+                <NowPlayingSlider nowPlayingMovies={nowPlayingMovies} />
+                <PopularSlider popularMovies={popularMovies} />
+                <TopRatedSlider topRatedMovies={topRatedMovies} />
+                <RecentRatedSlider recentRatedMovies={recentRatedMovies} />
+                {movieModalOpen && <MovieModal />}
+            </Fragment>     
+        )
     )
+
 }
 
-const mapStateToProps = ({ movieModal }) => ({movieModalOpen: movieModal.open});
+const mapStateToProps = ({ movieModal, fetchingLoader }) => ({
+    
+    movieModalOpen: movieModal.open,
+    fetchingLoaderState: fetchingLoader.state
+
+});
   
-const mapDispatchToProps = dispatch => ({setFavorites: favorites => dispatch(receiveFavorites(favorites))});
+const mapDispatchToProps = dispatch => ({
+
+    setFavorites: favorites => dispatch(receiveFavorites(favorites)),
+    setFetchingLoaderState: state => dispatch(switchFetchingLoaderState(state))
+
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(SlidersView);
