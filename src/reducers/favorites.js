@@ -1,4 +1,4 @@
-import { RECEIVE_FAVORITES, ADD_FAVORITE, REMOVE_FAVORITE } from "types";
+import { SET_FAVORITES, ADD_FAVORITE, REMOVE_FAVORITE } from "types";
 
 export default function favoritesReducer(favorites = {favorites: []}, action) {
     
@@ -6,7 +6,7 @@ export default function favoritesReducer(favorites = {favorites: []}, action) {
 
     switch (type) {
 
-        case RECEIVE_FAVORITES:
+        case SET_FAVORITES:
 
             return {
                 ...favorites,

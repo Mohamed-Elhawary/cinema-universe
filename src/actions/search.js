@@ -1,9 +1,9 @@
-import { RECEIVE_SEARCH_MOVIES, SWITCH_SEARCH_MODE } from "types";
+import { SET_SEARCH_MOVIES, SWITCH_SEARCH_MODE } from "types";
 
-export function receiveSearchMovies(movies) {
+export function setSearchMovies(movies) {
 
     return {
-        type: RECEIVE_SEARCH_MOVIES,
+        type: SET_SEARCH_MOVIES,
         payload: { movies }
     }
 

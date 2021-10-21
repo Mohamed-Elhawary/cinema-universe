@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import Cookies from "js-cookie";
 import { checkAuth } from "utils";
 import { useAuth } from "hooks";
-import { receiveFavorites, switchFetchingLoaderState } from "actions";
+import { setFavorites, switchFetchingLoaderState } from "actions";
 import { fetchingHomeData } from "services";
 import { SpinnerLoader } from "ui";
 import { NowPlayingSlider, PopularSlider, TopRatedSlider, RecentRatedSlider, MovieModal } from "components";
@@ -93,7 +93,7 @@ const mapStateToProps = ({ movieModal, fetchingLoader }) => ({
   
 const mapDispatchToProps = dispatch => ({
 
-    setFavorites: favorites => dispatch(receiveFavorites(favorites)),
+    setFavorites: favorites => dispatch(setFavorites(favorites)),
     setFetchingLoaderState: state => dispatch(switchFetchingLoaderState(state))
 
 });

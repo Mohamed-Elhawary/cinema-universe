@@ -1,4 +1,4 @@
-import { RECEIVE_SEARCH_MOVIES, SWITCH_SEARCH_MODE } from "types";
+import { SET_SEARCH_MOVIES, SWITCH_SEARCH_MODE } from "types";
 
 export default function searchReducer(search = {movies: [], mode: false}, action) {
     
@@ -6,7 +6,7 @@ export default function searchReducer(search = {movies: [], mode: false}, action
 
     switch (type) {
 
-        case RECEIVE_SEARCH_MOVIES:
+        case SET_SEARCH_MOVIES:
 
             const { movies } = payload;
 
