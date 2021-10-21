@@ -6,7 +6,7 @@ import { Person } from "components";
 const MovieModalSlider = ({ isCastSlider, persons }) => {
     
     return (
-        <div>
+        <div className="mb-3">
             <h5 className="slider-title mb-4 ml-2">{isCastSlider ? "Cast": "Crew"}</h5>
             <Slider isLandscapeSlider={false} isMovieModalSlider={true}>
                 {persons.map((person, i) => (

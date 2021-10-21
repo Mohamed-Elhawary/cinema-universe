@@ -14,7 +14,7 @@ const Slider = ({ isLandscapeSlider, isMovieModalSlider, children }) => {
 		centerPadding: !isMovieModalSlider ? "120px" : 0,
         slidesToShow: isLandscapeSlider ? 1 : isMovieModalSlider ? 4 : 5,
         slidesToScroll: 1,
-        dots: false,
+        dots: isLandscapeSlider,
         infinite: !isMovieModalSlider,
         speed: 500,
 		autoplaySpeed: 6000,

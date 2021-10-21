@@ -20,4 +20,20 @@ export default styled(Slider)`
         right: 55px!important;
         left: initial!important;
     };
+    .slick-dots {
+        position: initial;
+        margin-top: 15px;
+        li button {
+            cursor: pointer;
+            border-radius: 50%;
+            background-color: ${({ theme }) => theme.button_bg_1};
+            &:hover {
+                background-color: ${({ theme }) => theme.button_hover_bg_1};
+            };
+            &::before {
+                color: ${({ theme }) => theme.button_color_1};
+                line-height: 21px;
+            }
+        }
+    }
 `;
