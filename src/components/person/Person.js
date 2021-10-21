@@ -9,7 +9,7 @@ const Person = ({ isCastSlider, person }) => {
                 <div className="person-photo h-100">
                     <img className="w-100 h-100" src={person.profile_path ? img_300 + person.profile_path : unavailablePicture} alt="person_photo" width="180" height="180" />
                 </div>
-                <h6 className="person-name text-center mt-3">{person.name}</h6>
+                <h6 className="person-name text-center font-weight-bold mt-3">{person.name}</h6>
                 <span className="person-extra-data d-block text-center">({isCastSlider ? person.character : person.department})</span>
             </div>
         </CustomizedPerson>

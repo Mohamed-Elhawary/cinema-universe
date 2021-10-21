@@ -8,10 +8,9 @@ import { useAuth } from "hooks";
 import { setFavorites, switchFetchingLoaderState } from "actions";
 import { fetchingHomeData } from "services";
 import { SpinnerLoader } from "ui";
-import { NowPlayingSlider, PopularSlider, TopRatedSlider, RecentRatedSlider, MovieModal } from "components";
+import { NowPlayingSlider, PopularSlider, TopRatedSlider, RecentRatedSlider } from "components";
 
 const SlidersView = ({ 
-    movieModalOpen,
     fetchingLoaderState,
     setFavorites,
     setFetchingLoaderState }) => {
@@ -77,19 +76,13 @@ const SlidersView = ({
                 <PopularSlider popularMovies={popularMovies} />
                 <TopRatedSlider topRatedMovies={topRatedMovies} />
                 <RecentRatedSlider recentRatedMovies={recentRatedMovies} />
-                {movieModalOpen && <MovieModal />}
             </Fragment>     
         )
     )
 
 }
 
-const mapStateToProps = ({ movieModal, fetchingLoader }) => ({
-    
-    movieModalOpen: movieModal.open,
-    fetchingLoaderState: fetchingLoader.state
-
-});
+const mapStateToProps = ({ fetchingLoader }) => ({fetchingLoaderState: fetchingLoader.state});
   
 const mapDispatchToProps = dispatch => ({
 

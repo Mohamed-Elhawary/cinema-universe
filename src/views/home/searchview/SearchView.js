@@ -2,10 +2,22 @@ import { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Container, Row, Col } from "react-bootstrap";
 import { switchFetchingLoaderState } from "actions";
+import { fetchingSearchMoviesData } from "thunk";
 import { SpinnerLoader, Pagination } from "ui";
 import { Movie } from 'components';
 
-const SearchView = ({moviesData, fetchingLoaderState, setFetchingLoaderState}) => {
+const SearchView = ({
+    moviesData,
+    searchText,
+    fetchingLoaderState,
+    setFetchingLoaderState,
+    getSearchMoviesData }) => {
+
+    const pageClicked = (pageNumber) => {
+
+        getSearchMoviesData(searchText, pageNumber);
+
+    }
 
     useEffect(() => {
 
@@ -41,7 +53,11 @@ const SearchView = ({moviesData, fetchingLoaderState, setFetchingLoaderState}) =
                             </Col>
                         ))}
                     </Row>
-                    <Pagination currentPage={moviesData?.page} totalPages={moviesData?.total_pages} />
+                    <Pagination 
+                        currentPage={moviesData?.page} 
+                        totalPages={moviesData?.total_pages} 
+                        onChange={(pageNumber) => pageClicked(pageNumber)}
+                    />
                 </Container>
         ) : <h2 className="no-result text-center">No Movies Found...</h2>
 
@@ -52,13 +68,15 @@ const SearchView = ({moviesData, fetchingLoaderState, setFetchingLoaderState}) =
 const mapStateToProps = ({ search, fetchingLoader }) => ({
     
     moviesData: search.moviesData,
+    searchText: search.searchText,
     fetchingLoaderState: fetchingLoader.state
 
 });
 
 const mapDispatchToProps = dispatch => ({
 
-    setFetchingLoaderState: state => dispatch(switchFetchingLoaderState(state))
+    setFetchingLoaderState: state => dispatch(switchFetchingLoaderState(state)),
+    getSearchMoviesData: (searchText, page) => dispatch(fetchingSearchMoviesData(searchText, page))
 
 });
 
