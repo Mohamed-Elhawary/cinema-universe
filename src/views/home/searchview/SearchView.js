@@ -16,7 +16,9 @@ const SearchView = ({
 
     const pageClicked = (pageNumber) => {
 
-        getSearchMoviesData(searchText, pageNumber)
+        window.scrollTo(0, 0);
+
+        getSearchMoviesData(searchText, pageNumber);
 
     }
 
