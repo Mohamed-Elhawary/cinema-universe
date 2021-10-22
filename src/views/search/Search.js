@@ -6,7 +6,7 @@ import { fetchingSearchMoviesData } from "thunk";
 import { SpinnerLoader, Pagination } from "ui";
 import { Movie } from 'components';
 
-const SearchView = ({
+const Search = ({
     fetchingLoaderState,
     theme,
     moviesData,
@@ -37,13 +37,11 @@ const SearchView = ({
 
     }, [moviesData]); // eslint-disable-line
 
-    if(fetchingLoaderState) UI = <SpinnerLoader large spinnerColor={theme === "light" ? "dark" : "light"} style={{top: "50%", position: "absolute"}} />;
-    else if(moviesData?.results?.length > 0) {
-
-        UI = (
+    const search = (
+        <div className="view">
             <Container>
                 <Row style={{minHeight: "90vh"}}>
-                    {moviesData.results.map(({id, poster_path, title, release_date, overview, vote_average}) => (
+                    {moviesData?.results?.map(({id, poster_path, title, release_date, overview, vote_average}) => (
                         <Col 
                             key={id}
                             lg={3} 
@@ -70,9 +68,12 @@ const SearchView = ({
                     onChange={(pageNumber) => pageClicked(pageNumber)}
                 />
             </Container>
-        );
+        </div>
+    );
 
-    } else UI = <h2 className="no-result text-center">No Movies Found...</h2>;
+    if(fetchingLoaderState) UI = <div className="view"><SpinnerLoader large spinnerColor={theme === "light" ? "dark" : "light"} style={{top: "50%", position: "absolute"}} /></div>;
+    else if(moviesData?.results?.length > 0) UI = search;
+    else UI = <div className="view"><h2 className="center-text text-center">No Movies Found...</h2></div>;
 
     return UI;
 
@@ -94,4 +95,4 @@ const mapDispatchToProps = dispatch => ({
 
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchView);
+export default connect(mapStateToProps, mapDispatchToProps)(Search);

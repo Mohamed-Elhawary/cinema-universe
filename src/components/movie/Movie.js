@@ -31,12 +31,12 @@ const Movie = ({
 
     let history = useHistory();
 
-    const favoriteIconClicked = (e, movieID, movieTitle) => {
+    const favoriteIconClicked = (e, movie) => {
 
-        addOrRemoveMovieFromFavorites(e, movieID, movieTitle, favorites, favState => {
+        addOrRemoveMovieFromFavorites(e, movie, favorites, favState => {
             
-            if(favState === "isFav") deleteFavorite(movieID);
-            else if(favState === "isNotFav") setFavorite({title: movieTitle, id: movieID});
+            if(favState === "isFav") deleteFavorite(movie.id);
+            else if(favState === "isNotFav") setFavorite(movie);
             else {
 
                 resetSearchDataAction();
@@ -62,7 +62,7 @@ const Movie = ({
                 <div className="overlay">
                     <span 
                         className="favorite" 
-                        onClick={(e) => favoriteIconClicked(e, id, title)}
+                        onClick={(e) => favoriteIconClicked(e, {id, title, date, posterSrc, overview, rate})}
                     >
                         {checkFavorite(favorites, id) ? 
                             <AiFillHeart className="filled" size={30} /> : 

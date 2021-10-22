@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 import { connect } from 'react-redux';
 import { ThemeProvider } from "styled-components";
 import Cookies from 'js-cookie';
@@ -25,13 +25,13 @@ const App = ({ theme, setTheme }) => {
 		<ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
 			<GlobalStyles />
 			<ProvideAuth>
-				<BrowserRouter>
+				<Router>
 					<div className="App">
 						<Layout>
 							<Routes />
 						</Layout>
 					</div>
-				</BrowserRouter>
+				</Router>
 			</ProvideAuth>
 		</ThemeProvider>
 	);	

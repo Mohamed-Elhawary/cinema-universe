@@ -16,7 +16,10 @@ export const GlobalStyles = createGlobalStyle`
         min-height: 100vh;
         @media(max-width: 580px) {
             padding-top: 120px;
-        }
+        };
+        .view-title {
+            color: ${({ theme }) => theme.text_color};
+        };
     };
     .slider-title {
         color: ${({ theme }) => theme.text_color};
@@ -41,14 +44,57 @@ export const GlobalStyles = createGlobalStyle`
         top: initial;
         bottom: 0;
     };
-    .no-result {
+    .center-text {
         font-size: 30px;
         font-weight: bold;
         color: ${({ theme }) => theme.text_color};
         position: absolute;
         top: 50%;
         width: 100%;
+        transition: all .3s;
+        .error_404 {
+            font-size: 50px;
+            animation: fade 2s linear infinite;
+            @-webkit-keyframes fade {
+                0% {
+                    opacity: .8
+                }
+
+                50% {
+                    opacity: .6
+                }
+
+                100% {
+                    opacity: 1
+                }
+            }
+
+            @keyframes fade {
+                0% {
+                    opacity: .8
+                }
+
+                50% {
+                    opacity: .6
+                }
+
+                100% {
+                  opacity: 1;
+                }
+            }
+        }
     };
+    .cross-icon {
+        color: ${({ theme }) => theme.text_color};
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+        display: none;
+        &.show {
+            display: initial;
+        }
+    }
     ::-webkit-scrollbar {
         width: 5px;
     }
