@@ -15,7 +15,7 @@ const PrivateRoute = ({ ...rest }) => {
     else if(auth.user) UI = <LazyLoadComp />;
     else UI = <Redirect to={{pathname: "/login"}} />;
 
-    return <Route render={() => UI} />;
+    return <Route render={() => UI} exact />;
 }
 
 export default PrivateRoute;

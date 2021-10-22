@@ -45,6 +45,7 @@ export const lightTheme = {
     navbar_border: color_10, 
     navbar_toggler_bg: color_7,
     navbar_dropdown_item_color: color_3,
+    navbar_dropdown_item_hover_color: color_5,
 
     footer_bg: color_9,
     footer_border: color_10, 
@@ -94,6 +95,7 @@ export const darkTheme = {
     navbar_border: color_7,
     navbar_toggler_bg: color_7,
     navbar_dropdown_item_color: color_3,
+    navbar_dropdown_item_hover_color: color_5,
 
     footer_bg: color_2,
     footer_border: color_7,

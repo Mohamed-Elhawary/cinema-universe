@@ -71,7 +71,7 @@ const Login = () => { /*eslint-disable-line*/
     }, [userName, password]); /*eslint-disable-line*/
 
     const login = (
-        <CustomizedLogin className="login-view view">
+        <CustomizedLogin className="view">
             <Form onSubmitCapture={loginFormSubmitHandler}>
                 <h4 className="mb-4">Login to your Account</h4>
                 <div className="mb-5 mx-auto position-relative" style={{width: "fit-content"}}>

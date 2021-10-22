@@ -27,7 +27,7 @@ const Navbar = ({
     resetSearchDataAction,
     getSearchMoviesData }) => { 
 
-    const [showCrossIcon, setShowCrossIcon] = useState();
+    const [showCrossIcon, setShowCrossIcon] = useState(false);
 
     let auth = useAuth();
 
@@ -51,7 +51,7 @@ const Navbar = ({
 
     }
 
-    const crossIconClicked = () => {
+    const resetSearch = () => {
 
         resetSearchDataAction();
 
@@ -125,7 +125,7 @@ const Navbar = ({
     return (
       	<CustomizedNavbar expand="lg" fixed="top">
 			<Container fluid>
-				<CustomizedNavbar.Brand><Link to="/"><Logo /></Link></CustomizedNavbar.Brand>
+				<CustomizedNavbar.Brand><Link to="/" onClick={resetSearch}><Logo /></Link></CustomizedNavbar.Brand>
                 {!auth.user && (
                     <Button 
                         className="dark mini" 
@@ -139,19 +139,20 @@ const Navbar = ({
                 )}
 				{auth.user && (
                     <Fragment>
-                        <div className="position-relative search-area">
+                        <div className="position-relative nav-search-area">
                             <Input 
                                 className="mb-2 mb-lg-0 w-100" 
                                 placeholder="Search for a Movie"
                                 value={searchText} 
                                 onChange={(e) => searchInputValueChanged(e)}
                             />
-                            <ImCross className={[showCrossIcon ? "show" : "", "cross-icon"].join(" ")} onClick={crossIconClicked}/>
+                            <ImCross className={[showCrossIcon ? "show" : "", "cross-icon"].join(" ")} onClick={resetSearch}/>
                         </div>
                         <CustomizedNavbar.Toggle aria-controls="basic-navbar-nav" />
                         <CustomizedNavbar.Collapse id="basic-navbar-nav" style={{flexGrow: "initial"}}>
                             <Nav className="me-auto">
                                 <NavDropdown title={"Welcome, " + auth.user} className="mr-lg-3">
+                                    <Dropdown.Item><Link to="/my-favorites" onClick={resetSearch}>My Favorites</Link></Dropdown.Item>
                                     <Dropdown.Item onClick={logoutClicked}>Logout</Dropdown.Item>
                                 </NavDropdown>
                                 <Button className="dark mini mr-lg-3 mt-lg-1 my-2" onClick={switchThemeButtonCliked}>

@@ -1,6 +1,6 @@
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import { LazyLoadComponent } from 'utils';
-import { Login } from 'views';
+import { Login, NotFound } from 'views';
 import PrivateRoute from './PrivateRoute';
 
 const Routes = () => {
@@ -11,13 +11,19 @@ const Routes = () => {
     
     });
 
+    const lazyLoadMyFavorites = LazyLoadComponent(() => {
+        
+        return import('views/myfavorites/MyFavorites');
+    
+    });
+
     return (
-        <BrowserRouter>
-            <Switch>
-                <PrivateRoute exact path="/" lazyLoadComp={lazyLoadHome} />                
-                <Route path="/login" exact><Login /></Route>
-            </Switch>
-        </BrowserRouter>
+        <Switch>
+            <PrivateRoute path="/" exact lazyLoadComp={lazyLoadHome} />                
+            <PrivateRoute path="/my-favorites" exact lazyLoadComp={lazyLoadMyFavorites} />                
+            <Route path="/login"><Login /></Route>
+            <Route><NotFound /></Route>
+        </Switch>
     );
 }
 

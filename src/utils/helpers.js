@@ -35,7 +35,7 @@ export const checkFavorite = (favorites, id) => {
 
 }
 
-export const addOrRemoveMovieFromFavorites = (e, movieID, movieTitle, favorites, callback) => {
+export const addOrRemoveMovieFromFavorites = (e, movie, favorites, callback) => {
         
     e.stopPropagation();
 
@@ -43,18 +43,18 @@ export const addOrRemoveMovieFromFavorites = (e, movieID, movieTitle, favorites,
 
         let storedFavorites = Cookies.get("favorites");
     
-        if(checkFavorite(favorites, movieID)) {
+        if(checkFavorite(favorites, movie.id)) {
             
             callback("isFav");
         
-            Cookies.set("favorites", JSON.stringify(JSON.parse(storedFavorites).filter(fav => fav.id !== movieID)));
+            Cookies.set("favorites", JSON.stringify(JSON.parse(storedFavorites).filter(fav => fav.id !== movie.id)));
         
         } else {
 
             callback("isNotFav");
 
-            if(storedFavorites) Cookies.set("favorites", JSON.stringify(JSON.parse(storedFavorites).concat({title: movieTitle, id: movieID})));
-            else Cookies.set("favorites", JSON.stringify([{title: movieTitle, id: movieID}]));
+            if(storedFavorites) Cookies.set("favorites", JSON.stringify(JSON.parse(storedFavorites).concat({...movie})));
+            else Cookies.set("favorites", JSON.stringify([movie]));
 
         }
 

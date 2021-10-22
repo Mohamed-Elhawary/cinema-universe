@@ -12,9 +12,12 @@ export default styled(Navbar)`
     .nav-link {
         color: ${({ theme }) => theme.text_color}!important;
     };
-    .dropdown-item {
+    .dropdown-item, .dropdown-item a {
         background: transparent!important;
         color: ${({ theme }) => theme.navbar_dropdown_item_color}!important;
+        &:hover, a:hover {
+            color: ${({ theme }) => theme.navbar_dropdown_item_hover_color}!important;
+        }
     };
     .navbar-toggler {
         background-color: ${({ theme }) => theme.navbar_toggler_bg};
@@ -24,24 +27,13 @@ export default styled(Navbar)`
         top: 15px;
         padding: 2px 3px;
     };
-    .search-area {
+    .nav-search-area {
         @media(min-width: 581px) and (max-width: 991px) {
             left: 70px;
             transform : translateX(-50%)
         };
         @media(max-width: 580px) {
             width: 100%;
-        }
-        .cross-icon {
-            color: ${({ theme }) => theme.text_color};
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            cursor: pointer;
-            display: none;
-            &.show {
-                display: initial;
-            }
         }
     }
 `;

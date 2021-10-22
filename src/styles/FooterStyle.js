@@ -6,12 +6,17 @@ const CustomizedFooter = styled.footer`
     border-top: 1px solid ${({ theme }) => theme.footer_border};
     padding: 25px 0;
     text-align: center;
-    .author a {
-        color: ${({ theme }) => theme.error_color}!important;
-        font-weight: bold;
-        font-style: italic;
-        font-size: 14px;
-    };
+    .author {
+        div {
+            position: relative;
+            right: 45px;
+        }
+        img {
+            position: absolute;
+            bottom: -24px;
+            left: -60px;
+        }
+    }
     .social a {
         color: ${({ theme }) => theme.text_color};
     }

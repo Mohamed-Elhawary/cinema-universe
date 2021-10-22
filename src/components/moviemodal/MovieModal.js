@@ -45,12 +45,12 @@ const MovieModal = ({
 
     let history = useHistory();
 
-    const favoriteIconClicked = (e, movieID, movieTitle) => {
+    const favoriteIconClicked = (e, movie) => {
 
-        addOrRemoveMovieFromFavorites(e, movieID, movieTitle, favorites, favState => {
+        addOrRemoveMovieFromFavorites(e, movie, favorites, favState => {
             
-            if(favState === "isFav") deleteFavorite(movieID);
-            else if(favState === "isNotFav") setFavorite({title: movieTitle, id: movieID});
+            if(favState === "isFav") deleteFavorite(movie.id);
+            else if(favState === "isNotFav") setFavorite(movie);
             else {
 
                 resetSearchDataAction();
@@ -94,7 +94,7 @@ const MovieModal = ({
 
     }, []); /*eslint-disable-line*/
 
-    const { title, release_date, overview, genres, backdrop_path, vote_average } = movieData;
+    const { title, release_date, overview, genres, backdrop_path, poster_path, vote_average } = movieData;
 
     return (
         <Modal 
@@ -132,7 +132,7 @@ const MovieModal = ({
                 </span>
                 <span 
                     className="favorite" 
-                    onClick={(e) => favoriteIconClicked(e, movieModalID, title)}
+                    onClick={(e) => favoriteIconClicked(e, {id: movieModalID, title, date: release_date, posterSrc: poster_path , overview, rate: vote_average})}
                 >
                     {checkFavorite(favorites, movieModalID) ? 
                         <AiFillHeart className="filled" size={30} /> : 

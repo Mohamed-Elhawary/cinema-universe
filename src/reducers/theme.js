@@ -1,6 +1,6 @@
 import { SWITCH_THEME } from "types";
 
-export default function themeReducer(theme = "dark", action) { /*eslint-disable-line*/
+export default function themeReducer(theme = {theme: "dark"}, action) { /*eslint-disable-line*/
     
     const { type, payload } = action;
 
