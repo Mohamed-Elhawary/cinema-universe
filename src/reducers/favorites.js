@@ -1,6 +1,6 @@
 import { SET_FAVORITES, ADD_FAVORITE, REMOVE_FAVORITE } from "types";
 
-export default function favoritesReducer(favorites = {favorites: []}, action) {
+export default function favoritesReducer(favorites = {favorites: []}, action) { /*eslint-disable-line*/
     
     const { type, payload } = action;
 

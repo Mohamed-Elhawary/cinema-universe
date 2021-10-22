@@ -5,7 +5,7 @@ import { ImCross } from "react-icons/im";
 import YouTube from 'react-youtube';
 import { checkAuth } from "utils";
 import { useAuth } from "hooks";
-import { closeMovieModal, switchSearchMode, setSearchMoviesData, setSearchText } from "actions";
+import { closeMovieModal, resetSearchData } from "actions";
 import { img_780, unavailableLandscape } from "config";
 import { fetchingMovieData } from "services";
 import { Modal } from "ui";
@@ -15,9 +15,7 @@ const MovieModal = ({
     movieModalID, 
     movieModalOpen, 
     hideMovieModal,
-    setSearchMode,
-    setSearchMoviesData,
-    setSearchText}) => {
+    resetSearchDataAction}) => {
 
     const [showMovieModalLoader, setShowMovieModalLoader] = useState(true);
 
@@ -60,13 +58,10 @@ const MovieModal = ({
             
             hideMovieModal();
 
-            setSearchMode(false);
-            
-            setSearchMoviesData({});
-
-            setSearchText("");
+            resetSearchDataAction();
 
             auth.logout(() => history.replace("/login"));
+            
         }
 
     }, []); /*eslint-disable-line*/
@@ -82,12 +77,21 @@ const MovieModal = ({
             title={
                 <>
                     <ImCross className="cross-icon" onClick={() => hideMovieModal()}/>
-                    <h5 className="p-2 m-0 font-weight-bold">{title} {release_date && <span className="date">({release_date.substring(0, 4)})</span>}</h5>
+                    <h5 className="p-2 m-0 font-weight-bold">
+                        {title} 
+                        {release_date && <span className="date">({release_date.substring(0, 4)})</span>}
+                    </h5>
                 </>
             }
         >
             <div className="poster m-auto">
-                <img className="w-100 h-100" src={backdrop_path ? img_780 + backdrop_path : unavailableLandscape} alt="poster" height="350" width="780" />
+                <img 
+                    className="w-100 h-100" 
+                    src={backdrop_path ? img_780 + backdrop_path : unavailableLandscape} 
+                    alt="poster" 
+                    height="350" 
+                    width="780" 
+                />
             </div>
             <div className="genres d-flex my-4">
                 {genres.map(genre => (
@@ -100,7 +104,11 @@ const MovieModal = ({
             {trailerVideoKey && (
                 <div className="trailer">
                     <h6 className="text-center font-weight-bold mt-3 mb-0">Watch Trailer</h6>
-                    <YouTube videoId={trailerVideoKey} opts={{width: "100%"}} className="mt-4 rounded shadow" />
+                    <YouTube 
+                        className="mt-4 rounded shadow" 
+                        videoId={trailerVideoKey} 
+                        opts={{width: "100%"}} 
+                    />
                 </div>
             )}
         </Modal>
@@ -118,9 +126,7 @@ const mapStateToProps = ({ movieModal }) => ({
 const mapDispatchToProps = dispatch => ({
 
     hideMovieModal: () => dispatch(closeMovieModal()),
-    setSearchMode: mode => dispatch(switchSearchMode(mode)),
-    setSearchMoviesData: moviesData => dispatch(setSearchMoviesData(moviesData)),
-    setSearchText: (searchText) => dispatch(setSearchText(searchText))
+    resetSearchDataAction: () => dispatch(resetSearchData())
 
 });
 

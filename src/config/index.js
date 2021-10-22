@@ -11,7 +11,7 @@ import {
     movieDataURL,
     movieVideosLinksURL,
     movieActorsURL,
-    searchMoviesURL,
+    searchMoviesURL
 } from "./config";
 
 export {
