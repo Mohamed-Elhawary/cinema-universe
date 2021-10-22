@@ -42,24 +42,27 @@ const Slider = ({ isLandscapeSlider, isMovieModalSlider, children }) => {
             {
 				breakpoint: 767,
 				settings: {
-					slidesToShow: isLandscapeSlider ? 1 : 3,
-					centerPadding: "70px" 
+					slidesToShow: isLandscapeSlider ? 1 : !isMovieModalSlider ? 2 : 3,
+					centerPadding: "70px",
+					dots: false
 				}
             },
             {
 				breakpoint: 600,
 				settings: {
-					slidesToShow: isLandscapeSlider ? 1 : 2,
-					centerPadding: "65px" 
+					slidesToShow: isLandscapeSlider ? 1 : !isMovieModalSlider ? 2 : 3,
+					centerPadding: "65px",
+					dots: false 
 				}
             },
             {
 				breakpoint: 500,
 				settings: {
 					slidesToShow: 1,
-					infinite: !isMovieModalSlider,
+					infinite: true,
 					centerMode: true,
-					centerPadding: !isMovieModalSlider ? "70px" : 0,
+					centerPadding: !isMovieModalSlider ? "70px" : "82px",
+					dots: false
 				}
             }
         ],

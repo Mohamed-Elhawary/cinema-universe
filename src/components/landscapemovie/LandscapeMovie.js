@@ -12,8 +12,8 @@ const LandscapeMovie = ({
     
     return (
         <CustomizedLandscapeMovie id={id} onClick={() => showMovieModal(id)}>
-            <div className="position-relative movie-box h-100">
-                <img className="poster w-100 h-100" src={posterSrc ? img_780 + posterSrc : unavailableLandscape} alt="poster" height="350" />
+            <div className="position-relative movie-box h-100 mt-2">
+                <img className="poster w-100 h-100" src={posterSrc ? img_780 + posterSrc : unavailableLandscape} alt="poster" height="350" width="780" />
                 <div className="overlay landscape">
                     <div className="info p-2">
                         <h6 className="title">{title} {date && <span className="date">({date.substring(0, 4)})</span>}</h6>
