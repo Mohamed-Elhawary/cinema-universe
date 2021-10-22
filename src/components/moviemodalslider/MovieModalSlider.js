@@ -7,7 +7,7 @@ const MovieModalSlider = ({ isCastSlider, persons }) => {
     
     return (
         <div className="mb-3">
-            <h5 className="slider-title mb-4 ml-2">{isCastSlider ? "Cast": "Crew"}</h5>
+            <h5 className="slider-title mb-2 ml-4 ml-sm-2">{isCastSlider ? "Cast": "Crew"}</h5>
             <Slider isLandscapeSlider={false} isMovieModalSlider={true}>
                 {persons.map((person, i) => (
                     <Col key={i}>

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useHistory } from "react-router";
 import { connect } from 'react-redux';
+import { ImCross } from "react-icons/im";
 import YouTube from 'react-youtube';
 import { checkAuth } from "utils";
 import { useAuth } from "hooks";
@@ -78,10 +79,17 @@ const MovieModal = ({
             show={movieModalOpen}
             hide={() => hideMovieModal()}
             showMovieModalLoader={showMovieModalLoader}
-            title={<h5 className="py-2 m-0 font-weight-bold">{title} {release_date && <span className="date">({release_date.substring(0, 4)})</span>}</h5>}
+            title={
+                <>
+                    <ImCross className="cross-icon" onClick={() => hideMovieModal()}/>
+                    <h5 className="p-2 m-0 font-weight-bold">{title} {release_date && <span className="date">({release_date.substring(0, 4)})</span>}</h5>
+                </>
+            }
         >
-            <img className="poster w-100 mb-4" src={backdrop_path ? img_780 + backdrop_path : unavailableLandscape} alt="poster" height="350" />
-            <div className="genres d-flex mb-4">
+            <div className="poster m-auto">
+                <img className="w-100 h-100" src={backdrop_path ? img_780 + backdrop_path : unavailableLandscape} alt="poster" height="350" width="780" />
+            </div>
+            <div className="genres d-flex my-4">
                 {genres.map(genre => (
                     <span className="genre mr-2 p-2">{genre.name}</span>
                 ))}
@@ -90,10 +98,10 @@ const MovieModal = ({
             <MovieModalSlider isCastSlider persons={credits.cast} />
             <MovieModalSlider persons={credits.crew} />
             {trailerVideoKey && (
-                <>
+                <div className="trailer">
                     <h6 className="text-center font-weight-bold mt-3 mb-0">Watch Trailer</h6>
                     <YouTube videoId={trailerVideoKey} opts={{width: "100%"}} className="mt-4 rounded shadow" />
-                </>
+                </div>
             )}
         </Modal>
     );

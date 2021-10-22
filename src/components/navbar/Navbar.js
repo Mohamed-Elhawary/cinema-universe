@@ -1,8 +1,9 @@
-import { useCallback, Fragment } from 'react';
+import { useCallback, Fragment, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Dropdown, Nav, NavDropdown, Container } from 'react-bootstrap';
 import { BsFillMoonFill, BsFillSunFill } from "react-icons/bs";
+import { ImCross } from "react-icons/im";
 import Cookies from 'js-cookie';
 import { checkAuth } from "utils";
 import { useAuth } from 'hooks';
@@ -17,9 +18,11 @@ const Navbar = ({
     searchText,
     setTheme,
     setSearchMode,
-    setSearchMoviesData,
+    setSearchMoviesData, 
     getSearchMoviesData,
-    setSearchText }) => {
+    setSearchText }) => { 
+
+    const [showCrossIcon, setShowCrossIcon] = useState();
 
     let auth = useAuth();
 
@@ -43,7 +46,7 @@ const Navbar = ({
 
     }
 
-    const signoutClicked = () => {
+    const logoutClicked = () => {
         
         setSearchMode(false);
 
@@ -89,12 +92,16 @@ const Navbar = ({
                 if(!searchMode)  setSearchMode(true);
 
                 debouncer(value);
+                
+                setShowCrossIcon(true);
     
             } else {
                 
                 setSearchMode(false);
                 
                 setSearchMoviesData({});
+
+                setShowCrossIcon(false);
     
             }
 
@@ -112,6 +119,18 @@ const Navbar = ({
 
     }
 
+    const crossIconClicked = () => {
+
+        setSearchMode(false);
+
+        setSearchMoviesData({});    
+
+        setSearchText("");
+
+        setShowCrossIcon(false);
+
+    }
+
     return (
       	<CustomizedNavbar expand="lg" fixed="top">
 			<Container>
@@ -123,17 +142,18 @@ const Navbar = ({
                         <CustomizedNavbar.Collapse id="basic-navbar-nav" style={{flexGrow: "initial"}}>
                             <Nav className="me-auto">
                                 <NavDropdown title={"Welcome, " + auth.user} className="mr-lg-3">
-                                    <Dropdown.Item onClick={() => signoutClicked()}>
-                                        Signout
-                                    </Dropdown.Item>
+                                    <Dropdown.Item onClick={logoutClicked}>Logout</Dropdown.Item>
                                 </NavDropdown>
                                 <Button className="dark mini mr-lg-3 mt-lg-1 my-2" onClick={switchThemeButtonCliked}>{theme === "dark" ? <BsFillSunFill className="mb-1 position-relative" style={{right: "7px"}} /> : <BsFillMoonFill className="mb-1 position-relative" style={{right: "6px"}} />}</Button>
-                                <Input 
-                                    className="mb-2 mb-lg-0" 
-                                    placeholder="Search for a Movie"
-                                    value={searchText} 
-                                    onChange={(e) => searchInputValueChanged(e)}
-                                />
+                                <div className="position-relative">
+                                    <Input 
+                                        className="mb-2 mb-lg-0" 
+                                        placeholder="Search for a Movie"
+                                        value={searchText} 
+                                        onChange={(e) => searchInputValueChanged(e)}
+                                    />
+                                    <ImCross className={[showCrossIcon ? "show" : "", "cross-icon"].join(" ")} onClick={crossIconClicked}/>
+                                </div>
                             </Nav>
                         </CustomizedNavbar.Collapse>
                     </Fragment>

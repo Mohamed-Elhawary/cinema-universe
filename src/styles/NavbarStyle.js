@@ -20,4 +20,15 @@ export default styled(Navbar)`
         background-color: ${({ theme }) => theme.navbar_toggler_bg};
         outline: none!important
     };
+    .cross-icon {
+        color: ${({ theme }) => theme.text_color};
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+        display: none;
+        &.show {
+            display: initial;
+        }
+    }
 `;

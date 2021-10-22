@@ -2,12 +2,13 @@ import { connect } from 'react-redux';
 import { useHistory } from "react-router";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import Cookies from 'js-cookie';
+import star from "assets/images/star-filled.svg";
 import { checkFavorite, checkAuth } from "utils";
 import { useAuth } from "hooks";
 import { addFavorite, removeFavorite, openMovieModal } from "actions";
 import { img_300, unavailablePoster } from "config";
-import star from "assets/images/star-filled.svg";
 import { CustomizedMovie } from "styles";
+import { Button } from 'ui';
 
 const Movie = ({
     favorites,
@@ -59,7 +60,7 @@ const Movie = ({
     
     return (
         <CustomizedMovie id={id} style={style}>
-            <div className="position-relative movie-box h-100" onClick={() => showMovieModal(id)}>
+            <div className="position-relative movie-box h-100 mt-2" onClick={() => showMovieModal(id)}>
                 <img className="poster w-100 h-100" src={posterSrc ? img_300 + posterSrc : unavailablePoster} alt="poster" width="180" height="240" />
                 <div className="overlay">
                     <span className="favorite" onClick={(e) => favoriteIconClicked(e, id, title)}>{checkFavorite(favorites, id) ? <AiFillHeart className="filled" size={30} /> : <AiOutlineHeart size={30} />}</span>

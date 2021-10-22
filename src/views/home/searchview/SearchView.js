@@ -38,7 +38,7 @@ const SearchView = ({
     return (
         fetchingLoaderState ? <SpinnerLoader large spinnerColor={theme === "light" ? "dark" : "light"} style={{top: "50%", position: "absolute"}} /> : 
             moviesData?.results?.length > 0 ? (
-                <Container fluid>
+                <Container>
                     <Row style={{minHeight: "90vh"}}>
                         {moviesData.results.map(({id, poster_path, title, release_date, overview, vote_average}) => (
                             <Col lg={3} md={4} xs={6} key={id}>

@@ -1,8 +1,11 @@
 import styled from "styled-components";
 
 const CustomizedMovie = styled.div`
-    max-width: 99%;
+    max-width: 100%;
     height: 350px;
+    @media(max-width: 400px) {
+        height: 240px;
+    };
     .movie-box:hover .overlay {
         opacity: 1;
         display: initial;

@@ -7,7 +7,7 @@ const Footer = () => {
     return (
       	<CustomizedFooter>
 			<div className="copyright">
-                All Rights are reserved &copy; {new Date().getFullYear()}, <a href="https://github.com/Mohamed-Elhawary/cinema-universe" target="_blank"><Logo className="mini" /></a> {/* eslint-disable-line */}
+                All Rights reserved &copy; {new Date().getFullYear()}, <a href="https://github.com/Mohamed-Elhawary/cinema-universe" target="_blank"><Logo className="mini" /></a> {/* eslint-disable-line */}
                 <p className="author">Made by: <a href="https://www.linkedin.com/in/mohamed-elhawary14/" target="_blank">HaWaRy</a></p> {/* eslint-disable-line */}
                 <ul className="social list-unstyled d-flex justify-content-center">
                     <li className="mr-3"><a href="https://www.linkedin.com/in/mohamed-elhawary14/" target="_blank"><AiFillLinkedin size={30} /></a></li> {/* eslint-disable-line */}
