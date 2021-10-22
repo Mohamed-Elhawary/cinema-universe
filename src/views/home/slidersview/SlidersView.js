@@ -8,7 +8,12 @@ import { useAuth } from "hooks";
 import { setFavorites, switchFetchingLoaderState } from "actions";
 import { fetchingHomeData } from "services";
 import { SpinnerLoader } from "ui";
-import { NowPlayingSlider, PopularSlider, TopRatedSlider, RecentRatedSlider } from "components";
+import { 
+    NowPlayingSlider, 
+    PopularSlider, 
+    TopRatedSlider, 
+    RecentRatedSlider 
+} from "components";
 
 const SlidersView = ({ 
     fetchingLoaderState,

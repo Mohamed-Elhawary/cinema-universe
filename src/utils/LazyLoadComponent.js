@@ -1,4 +1,4 @@
-import {Component} from 'react';
+import { Component } from 'react';
 import PreLoader from 'ui/loaders/preloader/PreLoader';
 
 const LazyLoadComponent = (importedLazyLoadComp) => {
