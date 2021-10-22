@@ -6,7 +6,7 @@ import { useLoginStates, useAuth } from "hooks";
 import { Form, Input, Button, SpinnerLoader, PreLoader, Error } from "ui";
 import { CustomizedLogin } from "styles";
 
-const Login = () => {
+const Login = () => { /*eslint-disable-line*/
 
     const loginStates = useLoginStates();
 
@@ -28,6 +28,8 @@ const Login = () => {
     let history = useHistory();
 
     let auth = useAuth();
+
+    let UI = null;
 
     const loginFormSubmitHandler = () => {
 
@@ -59,7 +61,7 @@ const Login = () => {
         if(!password.value && password.state === "Dirty") setPasswordError("Empty Field, Please Enter a Value");
         else setPasswordError(false);
 
-    }, [userName, password]);
+    }, [userName, password]); /*eslint-disable-line*/
 
     const login = (
         <CustomizedLogin className="login-view view">
@@ -84,12 +86,15 @@ const Login = () => {
                     <span className="eye-icon" onClick={() => setSeePassword(!seePassword)}>{seePassword ? <AiFillEye /> : <AiFillEyeInvisible />}</span>
                     {passwordError && <Error>{passwordError}</Error>}
                 </div>
-                <Button type="submit" disabled={userNameError || passwordError}>{showLoginLoader ? <SpinnerLoader spinnerColor="light" style={{left: 0, transform: "initial"}}/> : "Login"}</Button>
+                <Button type="submit" disabled={userNameError || passwordError}>
+                    {showLoginLoader ? 
+                        <SpinnerLoader spinnerColor="light" style={{left: 0, transform: "initial"}}/> : 
+                        "Login"
+                    }
+                </Button>
             </Form>
         </CustomizedLogin>
     );
-
-    let UI = null;
 
     if(auth.showMainLoader) UI = <PreLoader />;
     else if(auth.user) UI = <Redirect to="/" />;

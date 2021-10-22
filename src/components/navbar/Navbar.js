@@ -7,7 +7,7 @@ import { ImCross } from "react-icons/im";
 import Cookies from 'js-cookie';
 import { checkAuth } from "utils";
 import { useAuth } from 'hooks';
-import { switchTheme, switchSearchMode, setSearchMoviesData, setSearchText } from "actions";
+import { switchTheme, switchSearchMode, setSearchText, resetSearchData } from "actions";
 import { fetchingSearchMoviesData } from "thunk";
 import { Logo, Button, Input } from 'ui';
 import { CustomizedNavbar } from 'styles';
@@ -18,9 +18,9 @@ const Navbar = ({
     searchText,
     setTheme,
     setSearchMode,
-    setSearchMoviesData, 
-    getSearchMoviesData,
-    setSearchText }) => { 
+    setSearchTextAction,
+    resetSearchDataAction,
+    getSearchMoviesData }) => { 
 
     const [showCrossIcon, setShowCrossIcon] = useState();
 
@@ -46,13 +46,17 @@ const Navbar = ({
 
     }
 
+    const crossIconClicked = () => {
+
+        resetSearchDataAction();
+
+        setShowCrossIcon(false);
+
+    }
+
     const logoutClicked = () => {
         
-        setSearchMode(false);
-
-        setSearchMoviesData({});
-
-        setSearchText("");
+        resetSearchDataAction();
 
         auth.logout(() => history.replace('/login'));
 
@@ -85,7 +89,7 @@ const Navbar = ({
 
         if(checkAuth()) {
 
-            setSearchText(value);
+            setSearchTextAction(value);
 
             if (value) {
 
@@ -97,9 +101,7 @@ const Navbar = ({
     
             } else {
                 
-                setSearchMode(false);
-                
-                setSearchMoviesData({});
+                resetSearchDataAction();
 
                 setShowCrossIcon(false);
     
@@ -107,11 +109,7 @@ const Navbar = ({
 
         } else {
 
-            setSearchMode(false);
-
-            setSearchMoviesData({});    
-
-            setSearchText("");
+            resetSearchDataAction();
 
             history.replace("/login");
 
@@ -119,23 +117,21 @@ const Navbar = ({
 
     }
 
-    const crossIconClicked = () => {
-
-        setSearchMode(false);
-
-        setSearchMoviesData({});    
-
-        setSearchText("");
-
-        setShowCrossIcon(false);
-
-    }
-
     return (
       	<CustomizedNavbar expand="lg" fixed="top">
 			<Container fluid>
 				<CustomizedNavbar.Brand><Link to="/"><Logo /></Link></CustomizedNavbar.Brand>
-                {!auth.user && <Button className="dark mini" onClick={switchThemeButtonCliked}>{theme === "dark" ? <BsFillSunFill className="mb-1 position-relative" style={{right: "7px"}} /> : <BsFillMoonFill className="mb-1 position-relative" style={{right: "6px"}} />}</Button>}
+                {!auth.user && (
+                    <Button 
+                        className="dark mini" 
+                        onClick={switchThemeButtonCliked}
+                    >
+                        {theme === "dark" ? 
+                            <BsFillSunFill className="mb-1 position-relative" style={{right: "7px"}} /> : 
+                            <BsFillMoonFill className="mb-1 position-relative" style={{right: "6px"}} />
+                        }
+                    </Button>
+                )}
 				{auth.user && (
                     <Fragment>
                         <div className="position-relative search-area">
@@ -153,7 +149,12 @@ const Navbar = ({
                                 <NavDropdown title={"Welcome, " + auth.user} className="mr-lg-3">
                                     <Dropdown.Item onClick={logoutClicked}>Logout</Dropdown.Item>
                                 </NavDropdown>
-                                <Button className="dark mini mr-lg-3 mt-lg-1 my-2" onClick={switchThemeButtonCliked}>{theme === "dark" ? <BsFillSunFill className="mb-1 position-relative" style={{right: "7px"}} /> : <BsFillMoonFill className="mb-1 position-relative" style={{right: "6px"}} />}</Button>
+                                <Button className="dark mini mr-lg-3 mt-lg-1 my-2" onClick={switchThemeButtonCliked}>
+                                    {theme === "dark" ? 
+                                        <BsFillSunFill className="mb-1 position-relative" style={{right: "7px"}} /> : 
+                                        <BsFillMoonFill className="mb-1 position-relative" style={{right: "6px"}} />
+                                    }
+                                </Button>
                             </Nav>
                         </CustomizedNavbar.Collapse>
                     </Fragment>
@@ -176,9 +177,9 @@ const mapDispatchToProps = dispatch => ({
     
     setTheme: theme => dispatch(switchTheme(theme)),
     setSearchMode: mode => dispatch(switchSearchMode(mode)),
-    setSearchMoviesData: moviesData => dispatch(setSearchMoviesData(moviesData)),
+    setSearchTextAction: (searchText) => dispatch(setSearchText(searchText)),
+    resetSearchDataAction: () => dispatch(resetSearchData()),
     getSearchMoviesData: (searchText, page) => dispatch(fetchingSearchMoviesData(searchText, page)),
-    setSearchText: (searchText) => dispatch(setSearchText(searchText))
 
 });
 

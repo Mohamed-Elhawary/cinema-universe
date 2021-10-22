@@ -1,6 +1,6 @@
 import {  SWITCH_FETCHING_LOADER_STATE } from "types";
 
-export default function fetchingLoaderReducer(state = false, action) {
+export default function fetchingLoaderReducer(state = false, action) { /*eslint-disable-line*/
     
     const { type, payload } = action;
 

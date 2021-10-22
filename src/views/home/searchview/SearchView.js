@@ -14,6 +14,8 @@ const SearchView = ({
     setFetchingLoaderState,
     getSearchMoviesData}) => {
 
+    let UI = null;
+
     const pageClicked = (pageNumber) => {
 
         window.scrollTo(0, 0);
@@ -35,36 +37,44 @@ const SearchView = ({
 
     }, [moviesData]); // eslint-disable-line
 
-    return (
-        fetchingLoaderState ? <SpinnerLoader large spinnerColor={theme === "light" ? "dark" : "light"} style={{top: "50%", position: "absolute"}} /> : 
-            moviesData?.results?.length > 0 ? (
-                <Container>
-                    <Row style={{minHeight: "90vh"}}>
-                        {moviesData.results.map(({id, poster_path, title, release_date, overview, vote_average}) => (
-                            <Col lg={3} md={4} xs={6} key={id}>
-                                <div style={{marginBottom: "120px"}}>
-                                    <Movie 
-                                        id={id}
-                                        posterSrc={poster_path}
-                                        title={title}
-                                        date={release_date || null}
-                                        overview={overview}
-                                        rate={vote_average}
-                                        style={{marginInline: "auto"}}
-                                    />
-                                </div>
-                            </Col>
-                        ))}
-                    </Row>
-                    <Pagination 
-                        currentPage={moviesData?.page} 
-                        totalPages={moviesData?.total_pages} 
-                        onChange={(pageNumber) => pageClicked(pageNumber)}
-                    />
-                </Container>
-        ) : <h2 className="no-result text-center">No Movies Found...</h2>
+    if(fetchingLoaderState) UI = <SpinnerLoader large spinnerColor={theme === "light" ? "dark" : "light"} style={{top: "50%", position: "absolute"}} />;
+    else if(moviesData?.results?.length > 0) {
 
-    );
+        UI = (
+            <Container>
+                <Row style={{minHeight: "90vh"}}>
+                    {moviesData.results.map(({id, poster_path, title, release_date, overview, vote_average}) => (
+                        <Col 
+                            key={id}
+                            lg={3} 
+                            md={4} 
+                            xs={6} 
+                        >
+                            <div style={{marginBottom: "120px"}}>
+                                <Movie 
+                                    id={id}
+                                    posterSrc={poster_path}
+                                    title={title}
+                                    date={release_date || null}
+                                    overview={overview}
+                                    rate={vote_average}
+                                    style={{marginInline: "auto"}}
+                                />
+                            </div>
+                        </Col>
+                    ))}
+                </Row>
+                <Pagination 
+                    currentPage={moviesData?.page} 
+                    totalPages={moviesData?.total_pages} 
+                    onChange={(pageNumber) => pageClicked(pageNumber)}
+                />
+            </Container>
+        );
+
+    } else UI = <h2 className="no-result text-center">No Movies Found...</h2>;
+
+    return UI;
 
 }
 

@@ -13,7 +13,7 @@ import { NowPlayingSlider, PopularSlider, TopRatedSlider, RecentRatedSlider } fr
 const SlidersView = ({ 
     fetchingLoaderState,
     theme,
-    setFavorites,
+    setFavoritesAction,
     setFetchingLoaderState }) => {
 
     const [nowPlayingMovies, setNowPlayingMovies] = useState([]);
@@ -66,12 +66,12 @@ const SlidersView = ({
 
         let storedFavorites = Cookies.get("favorites");
 
-        if(storedFavorites) setFavorites(JSON.parse(storedFavorites));
+        if(storedFavorites) setFavoritesAction(JSON.parse(storedFavorites));
         
     }, []); // eslint-disable-line
 
     return (
-        fetchingLoaderState ? <SpinnerLoader large spinnerColor={theme === "light" ? "dark" : "light"} style={{top: "50%", position: "absolute"}} /> : (
+        fetchingLoaderState ? <SpinnerLoader large spinnerColor={theme === "light" ? "dark" : "light"} style={{top: "50%", position: "absolute"}} /> : ( 
             <Fragment>
                 <NowPlayingSlider nowPlayingMovies={nowPlayingMovies} />
                 <PopularSlider popularMovies={popularMovies} />
@@ -90,7 +90,7 @@ const mapStateToProps = ({ fetchingLoader, theme }) => ({
   
 const mapDispatchToProps = dispatch => ({
 
-    setFavorites: favorites => dispatch(setFavorites(favorites)),
+    setFavoritesAction: favorites => dispatch(setFavorites(favorites)),
     setFetchingLoaderState: state => dispatch(switchFetchingLoaderState(state))
 
 });
