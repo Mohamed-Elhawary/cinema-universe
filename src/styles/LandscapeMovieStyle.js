@@ -3,6 +3,9 @@ import styled from "styled-components";
 const CustomizedMovie = styled.div`
     max-width: 100%;
     height: 350px;
+    @media(min-width: 1191px) {
+        height: 450px;
+    };
     @media(max-width: 400px) {
         height: 240px;
     };

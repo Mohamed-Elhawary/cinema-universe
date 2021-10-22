@@ -133,11 +133,20 @@ const Navbar = ({
 
     return (
       	<CustomizedNavbar expand="lg" fixed="top">
-			<Container>
+			<Container fluid>
 				<CustomizedNavbar.Brand><Link to="/"><Logo /></Link></CustomizedNavbar.Brand>
                 {!auth.user && <Button className="dark mini" onClick={switchThemeButtonCliked}>{theme === "dark" ? <BsFillSunFill className="mb-1 position-relative" style={{right: "7px"}} /> : <BsFillMoonFill className="mb-1 position-relative" style={{right: "6px"}} />}</Button>}
 				{auth.user && (
                     <Fragment>
+                        <div className="position-relative search-area">
+                            <Input 
+                                className="mb-2 mb-lg-0 w-100" 
+                                placeholder="Search for a Movie"
+                                value={searchText} 
+                                onChange={(e) => searchInputValueChanged(e)}
+                            />
+                            <ImCross className={[showCrossIcon ? "show" : "", "cross-icon"].join(" ")} onClick={crossIconClicked}/>
+                        </div>
                         <CustomizedNavbar.Toggle aria-controls="basic-navbar-nav" />
                         <CustomizedNavbar.Collapse id="basic-navbar-nav" style={{flexGrow: "initial"}}>
                             <Nav className="me-auto">
@@ -145,15 +154,6 @@ const Navbar = ({
                                     <Dropdown.Item onClick={logoutClicked}>Logout</Dropdown.Item>
                                 </NavDropdown>
                                 <Button className="dark mini mr-lg-3 mt-lg-1 my-2" onClick={switchThemeButtonCliked}>{theme === "dark" ? <BsFillSunFill className="mb-1 position-relative" style={{right: "7px"}} /> : <BsFillMoonFill className="mb-1 position-relative" style={{right: "6px"}} />}</Button>
-                                <div className="position-relative">
-                                    <Input 
-                                        className="mb-2 mb-lg-0" 
-                                        placeholder="Search for a Movie"
-                                        value={searchText} 
-                                        onChange={(e) => searchInputValueChanged(e)}
-                                    />
-                                    <ImCross className={[showCrossIcon ? "show" : "", "cross-icon"].join(" ")} onClick={crossIconClicked}/>
-                                </div>
                             </Nav>
                         </CustomizedNavbar.Collapse>
                     </Fragment>
