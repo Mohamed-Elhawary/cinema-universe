@@ -1,4 +1,9 @@
-import { AiFillLinkedin, AiFillGithub, AiFillCodepenCircle, AiFillBehanceCircle } from "react-icons/ai";
+import { 
+    AiFillLinkedin, 
+    AiFillGithub, 
+    AiFillCodepenCircle, 
+    AiFillBehanceCircle 
+} from "react-icons/ai";
 import { Logo } from 'ui';
 import { CustomizedFooter } from 'styles';
 

@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { LazyLoadComponent } from 'utils';
-import PrivateRoute from './PrivateRoute';
 import { Login } from 'views';
+import PrivateRoute from './PrivateRoute';
 
 const Routes = () => {
 

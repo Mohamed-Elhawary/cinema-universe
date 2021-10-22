@@ -6,7 +6,12 @@ import YouTube from 'react-youtube';
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { checkAuth, checkFavorite, addOrRemoveMovieFromFavorites } from "utils";
 import { useAuth } from "hooks";
-import { addFavorite, removeFavorite, closeMovieModal, resetSearchData } from "actions";
+import { 
+    addFavorite, 
+    removeFavorite, 
+    closeMovieModal, 
+    resetSearchData 
+} from "actions";
 import { img_780, unavailableLandscape } from "config";
 import { fetchingMovieData } from "services";
 import star from "assets/images/star-filled.svg";
@@ -102,7 +107,7 @@ const MovieModal = ({
                     <ImCross className="cross-icon" onClick={() => hideMovieModal()}/>
                     <h5 className="p-2 m-0 font-weight-bold">
                         {title} 
-                        {release_date && <span className="date">({release_date.substring(0, 4)})</span>}
+                        {release_date && <span className="date ml-2">({release_date.substring(0, 4)})</span>}
                     </h5>
                 </>
             }

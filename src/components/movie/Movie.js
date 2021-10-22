@@ -3,7 +3,12 @@ import { useHistory } from "react-router";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { checkFavorite, addOrRemoveMovieFromFavorites } from "utils";
 import { useAuth } from "hooks";
-import { addFavorite, removeFavorite, openMovieModal, resetSearchData } from "actions";
+import { 
+    addFavorite, 
+    removeFavorite, 
+    openMovieModal, 
+    resetSearchData 
+} from "actions";
 import { img_300, unavailablePoster } from "config";
 import star from "assets/images/star-filled.svg";
 import { CustomizedMovie } from "styles";

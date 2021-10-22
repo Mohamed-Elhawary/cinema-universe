@@ -7,7 +7,12 @@ import { ImCross } from "react-icons/im";
 import Cookies from 'js-cookie';
 import { checkAuth } from "utils";
 import { useAuth } from 'hooks';
-import { switchTheme, switchSearchMode, setSearchText, resetSearchData } from "actions";
+import { 
+    switchTheme, 
+    switchSearchMode, 
+    setSearchText, 
+    resetSearchData 
+} from "actions";
 import { fetchingSearchMoviesData } from "thunk";
 import { Logo, Button, Input } from 'ui';
 import { CustomizedNavbar } from 'styles';

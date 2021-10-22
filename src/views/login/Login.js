@@ -3,7 +3,14 @@ import { Redirect } from "react-router";
 import { useHistory } from "react-router-dom";
 import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 import { useLoginStates, useAuth } from "hooks";
-import { Form, Input, Button, SpinnerLoader, PreLoader, Error } from "ui";
+import { 
+    Form, 
+    Input, 
+    Button, 
+    SpinnerLoader, 
+    PreLoader, 
+    Error 
+} from "ui";
 import { CustomizedLogin } from "styles";
 
 const Login = () => { /*eslint-disable-line*/
