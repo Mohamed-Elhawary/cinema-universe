@@ -18,17 +18,30 @@ export default styled(Navbar)`
     };
     .navbar-toggler {
         background-color: ${({ theme }) => theme.navbar_toggler_bg};
-        outline: none!important
-    };
-    .cross-icon {
-        color: ${({ theme }) => theme.text_color};
+        outline: none!important;
         position: absolute;
-        top: 10px;
         right: 10px;
-        cursor: pointer;
-        display: none;
-        &.show {
-            display: initial;
+        top: 15px;
+        padding: 2px 3px;
+    };
+    .search-area {
+        @media(min-width: 581px) and (max-width: 991px) {
+            left: 70px;
+            transform : translateX(-50%)
+        };
+        @media(max-width: 580px) {
+            width: 100%;
+        }
+        .cross-icon {
+            color: ${({ theme }) => theme.text_color};
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            display: none;
+            &.show {
+                display: initial;
+            }
         }
     }
 `;

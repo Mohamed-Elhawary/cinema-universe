@@ -14,6 +14,9 @@ export const GlobalStyles = createGlobalStyle`
         padding-top: 70px;
         margin-top: 30px;
         min-height: 100vh;
+        @media(max-width: 580px) {
+            padding-top: 120px;
+        }
     };
     .slider-title {
         color: ${({ theme }) => theme.text_color};

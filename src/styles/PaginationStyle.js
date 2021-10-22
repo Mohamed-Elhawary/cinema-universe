@@ -7,6 +7,11 @@ export default styled(Pagination)`
     li {
         background: ${({ theme }) => theme.button_bg_1};
         color: ${({ theme }) => theme.button_color_1};
+        border-color: ${({ theme }) => theme.button_border}!important;
+        &:not(.ant-pagination-item-active):hover {
+            background: ${({ theme }) => theme.button_hover_bg_1};
+            border: none;
+        };
         &.ant-pagination-item-active {
             background: ${({ theme }) => theme.button_hover_bg_2}!important; 
             color: ${({ theme }) => theme.button_color_2}!important;
