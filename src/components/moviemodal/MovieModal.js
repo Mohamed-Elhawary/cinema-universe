@@ -3,17 +3,22 @@ import { useHistory } from "react-router";
 import { connect } from 'react-redux';
 import { ImCross } from "react-icons/im";
 import YouTube from 'react-youtube';
-import { checkAuth } from "utils";
+import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
+import { checkAuth, checkFavorite, addOrRemoveMovieFromFavorites } from "utils";
 import { useAuth } from "hooks";
-import { closeMovieModal, resetSearchData } from "actions";
+import { addFavorite, removeFavorite, closeMovieModal, resetSearchData } from "actions";
 import { img_780, unavailableLandscape } from "config";
 import { fetchingMovieData } from "services";
+import star from "assets/images/star-filled.svg";
 import { Modal } from "ui";
 import { MovieModalSlider } from "components";
 
 const MovieModal = ({ 
+    favorites,
     movieModalID, 
     movieModalOpen, 
+    setFavorite,
+    deleteFavorite,
     hideMovieModal,
     resetSearchDataAction}) => {
 
@@ -34,6 +39,24 @@ const MovieModal = ({
     let auth = useAuth();
 
     let history = useHistory();
+
+    const favoriteIconClicked = (e, movieID, movieTitle) => {
+
+        addOrRemoveMovieFromFavorites(e, movieID, movieTitle, favorites, favState => {
+            
+            if(favState === "isFav") deleteFavorite(movieID);
+            else if(favState === "isNotFav") setFavorite({title: movieTitle, id: movieID});
+            else {
+
+                resetSearchDataAction();
+            
+                auth.logout(() => history.replace("/login"));
+            
+            }
+        
+        });
+
+    }
 
     useEffect(() => {
 
@@ -66,7 +89,7 @@ const MovieModal = ({
 
     }, []); /*eslint-disable-line*/
 
-    const { title, release_date, overview, genres, backdrop_path } = movieData;
+    const { title, release_date, overview, genres, backdrop_path, vote_average } = movieData;
 
     return (
         <Modal 
@@ -93,7 +116,26 @@ const MovieModal = ({
                     width="780" 
                 />
             </div>
-            <div className="genres d-flex my-4">
+            <div className="my-4 d-flex justify-content-center info mx-auto p-2">
+                <span className="rate d-flex mr-3">
+                    <img 
+                        className="mr-2" 
+                        src={star} 
+                        alt="star"
+                    /> 
+                    {vote_average}
+                </span>
+                <span 
+                    className="favorite" 
+                    onClick={(e) => favoriteIconClicked(e, movieModalID, title)}
+                >
+                    {checkFavorite(favorites, movieModalID) ? 
+                        <AiFillHeart className="filled" size={30} /> : 
+                        <AiOutlineHeart size={30} />
+                    }
+                </span>
+            </div>
+            <div className="genres d-flex mb-4">
                 {genres.map(genre => (
                     <span className="genre mr-2 p-2">{genre.name}</span>
                 ))}
@@ -116,8 +158,8 @@ const MovieModal = ({
 
 }
 
-const mapStateToProps = ({ movieModal }) => ({
-
+const mapStateToProps = ({ favorites, movieModal }) => ({
+    favorites: favorites.favorites,
     movieModalID: movieModal.id,
     movieModalOpen: movieModal.open
 
@@ -125,6 +167,8 @@ const mapStateToProps = ({ movieModal }) => ({
 
 const mapDispatchToProps = dispatch => ({
 
+    setFavorite: favorite => dispatch(addFavorite(favorite)),
+    deleteFavorite: favoriteID => dispatch(removeFavorite(favoriteID)),
     hideMovieModal: () => dispatch(closeMovieModal()),
     resetSearchDataAction: () => dispatch(resetSearchData())
 

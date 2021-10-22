@@ -24,7 +24,7 @@ const LandscapeMovie = ({
                     <div className="info p-2">
                         <h6 className="title">
                             {title} 
-                            {date && <span className="date">({date.substring(0, 4)})</span>}
+                            {date && <span className="date ml-2">({date.substring(0, 4)})</span>}
                         </h6>
                     </div>
                 </div>

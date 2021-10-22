@@ -1,12 +1,11 @@
 import { connect } from 'react-redux';
 import { useHistory } from "react-router";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
-import Cookies from 'js-cookie';
-import star from "assets/images/star-filled.svg";
-import { checkFavorite, checkAuth } from "utils";
+import { checkFavorite, addOrRemoveMovieFromFavorites } from "utils";
 import { useAuth } from "hooks";
 import { addFavorite, removeFavorite, openMovieModal, resetSearchData } from "actions";
 import { img_300, unavailablePoster } from "config";
+import star from "assets/images/star-filled.svg";
 import { CustomizedMovie } from "styles";
 
 const Movie = ({
@@ -28,35 +27,20 @@ const Movie = ({
     let history = useHistory();
 
     const favoriteIconClicked = (e, movieID, movieTitle) => {
-        
-        e.stopPropagation();
 
-        if(checkAuth()) { 
-
-            let storedFavorites = Cookies.get("favorites");
-        
-            if(checkFavorite(favorites, movieID)) {
+        addOrRemoveMovieFromFavorites(e, movieID, movieTitle, favorites, favState => {
             
-                deleteFavorite(movieID);
+            if(favState === "isFav") deleteFavorite(movieID);
+            else if(favState === "isNotFav") setFavorite({title: movieTitle, id: movieID});
+            else {
+
+                resetSearchDataAction();
             
-                Cookies.set("favorites", JSON.stringify(JSON.parse(storedFavorites).filter(fav => fav.id !== movieID)));
+                auth.logout(() => history.replace("/login"));
             
-            } else {
-
-                setFavorite({title: movieTitle, id: movieID});
-
-                if(storedFavorites) Cookies.set("favorites", JSON.stringify(JSON.parse(storedFavorites).concat({title: movieTitle, id: movieID})));
-                else Cookies.set("favorites", JSON.stringify([{title: movieTitle, id: movieID}]));
-
             }
-
-        } else {
-
-            resetSearchDataAction();
-            
-            auth.logout(() => history.replace("/login"));
-
-        }
+        
+        });
 
     }
     
@@ -94,8 +78,8 @@ const Movie = ({
                 </div>
             </div>
             <h6 className="text-center title mt-3">
-                {title} 
-                {date && <span className="date">({date.substring(0, 4)})</span>}
+                {title}
+                {date && <span className="date ml-2">({date.substring(0, 4)})</span>}
             </h6>
         </CustomizedMovie>
     );
