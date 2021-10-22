@@ -35,6 +35,37 @@ export const checkFavorite = (favorites, id) => {
 
 }
 
+export const addOrRemoveMovieFromFavorites = (e, movieID, movieTitle, favorites, callback) => {
+        
+    e.stopPropagation();
+
+    if(checkAuth()) { 
+
+        let storedFavorites = Cookies.get("favorites");
+    
+        if(checkFavorite(favorites, movieID)) {
+            
+            callback("isFav");
+        
+            Cookies.set("favorites", JSON.stringify(JSON.parse(storedFavorites).filter(fav => fav.id !== movieID)));
+        
+        } else {
+
+            callback("isNotFav");
+
+            if(storedFavorites) Cookies.set("favorites", JSON.stringify(JSON.parse(storedFavorites).concat({title: movieTitle, id: movieID})));
+            else Cookies.set("favorites", JSON.stringify([{title: movieTitle, id: movieID}]));
+
+        }
+
+    } else {
+
+        callback("isNotAuth");
+        
+    }
+
+}
+
 export const getCurrentDate = () => {
 
     let ISOFormatDate = new Date().toISOString();

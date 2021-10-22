@@ -1,5 +1,13 @@
 import axios from "./axios-instance";
-import { getCookies, removeCookies, checkAuth, checkFavorite, getCurrentDate, getMonthAgoDate } from "./helpers";
+import { 
+    getCookies,
+    removeCookies,
+    checkAuth,
+    checkFavorite,
+    getCurrentDate,
+    getMonthAgoDate,
+    addOrRemoveMovieFromFavorites 
+} from "./helpers";
 import LazyLoadComponent from "./LazyLoadComponent";
 
 export {
@@ -10,5 +18,6 @@ export {
     checkFavorite,
     getCurrentDate,
     getMonthAgoDate,
+    addOrRemoveMovieFromFavorites,
     LazyLoadComponent
 };

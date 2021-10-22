@@ -67,6 +67,22 @@ export default styled(Modal)`
                 object-fit: cover;
             };
         };
+        .info {
+            border-radius: 8px;
+            border: 1px solid ${({ theme }) => theme.modal_title_border};
+            width: fit-content;
+            font-weight: bold;
+            .rate {
+                font-size: 18px;
+            };
+            .favorite {
+                cursor: pointer;
+                &:hover svg, svg.filled {
+                    color: #FFCC33;
+                    transition: all .3s;
+                };
+            }
+        };
         .genres, .overview {
             @media(max-width: 500px) {
                 margin-inline: 20px;
