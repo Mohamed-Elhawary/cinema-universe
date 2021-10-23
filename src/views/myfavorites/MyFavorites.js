@@ -4,17 +4,23 @@ import { connect } from 'react-redux';
 import { Container, Row, Col } from 'react-bootstrap';
 import { ImCross } from "react-icons/im";
 import { checkAuth } from "utils";
+import { useAuth } from "hooks";
+import { setFavoritesSearch } from "actions";
 import { Search } from "views";
 import { Input } from 'ui';
 import { Movie } from "components";
 
-const MyFavorites = ({ favorites, searchMode }) => {
+const MyFavorites = ({ 
+    favorites,
+    searchText,
+    searchMode,
+    setSearchText }) => {
 
     const [favoritesList, setFavoritesList] = useState(favorites);
 
-    const [searchText, setSearchText] = useState("");
-
     const [showCrossIcon, setShowCrossIcon] = useState(true);
+
+    let auth = useAuth();
 
     let history = useHistory();
 
@@ -58,7 +64,7 @@ const MyFavorites = ({ favorites, searchMode }) => {
 
         } else {
 
-            history.replace("/login");
+            auth.logout(() => history.replace("/login"));
 
         }
 
@@ -66,7 +72,14 @@ const MyFavorites = ({ favorites, searchMode }) => {
 
     useEffect(() => {
 
+        if(!checkAuth()) auth.logout(() => history.replace("/login"));
+
+    }, []); /*eslint-disable-line*/
+
+    useEffect(() => {
+
         if(searchText) {
+            console.log("sas")
 
             let filteredFavorites = filterFavorites(searchText.toLowerCase());
 
@@ -110,7 +123,7 @@ const MyFavorites = ({ favorites, searchMode }) => {
                                     />
                                 </div>
                             </Col>
-                        )) : <h2 className="center-text text-center">No Favorites Movies Found...</h2>} 
+                        )) : <Col><h2 className="center-text text-center">No Favorites Movies Found...</h2></Col>} 
                     </Row>
                 </Container>
             ) : <h2 className="center-text text-center">No Favorites Movies Yet...</h2>}
@@ -127,7 +140,11 @@ const MyFavorites = ({ favorites, searchMode }) => {
 const mapStateToProps = ({ favorites, search }) => ({
     
     favorites: favorites.favorites,
+    searchText: favorites.searchText,
     searchMode: search.mode
+
 });
 
-export default connect(mapStateToProps)(MyFavorites);
+const mapDispatchToProps = dispatch => ({setSearchText: searchText => dispatch(setFavoritesSearch(searchText))});
+
+export default connect(mapStateToProps, mapDispatchToProps)(MyFavorites);

@@ -47,7 +47,7 @@ export const addOrRemoveMovieFromFavorites = (e, movie, favorites, callback) => 
             
             callback("isFav");
         
-            Cookies.set("favorites", JSON.stringify(JSON.parse(storedFavorites).filter(fav => fav.id !== movie.id)));
+            if(storedFavorites) Cookies.set("favorites", JSON.stringify(JSON.parse(storedFavorites).filter(fav => fav.id !== movie.id)));
         
         } else {
 

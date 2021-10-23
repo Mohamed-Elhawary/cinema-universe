@@ -1,6 +1,10 @@
-import { SET_FAVORITES, ADD_FAVORITE, REMOVE_FAVORITE } from "types";
+import { 
+    SET_FAVORITES,
+    ADD_FAVORITE,
+    REMOVE_FAVORITE,
+    SET_FAVORITES_SEARCH} from "types";
 
-export default function favoritesReducer(favorites = {favorites: []}, action) { /*eslint-disable-line*/
+export default function favoritesReducer(favorites = {favorites: [], searchText: ""}, action) { /*eslint-disable-line*/
     
     const { type, payload } = action;
 
@@ -31,6 +35,14 @@ export default function favoritesReducer(favorites = {favorites: []}, action) { 
                 favorites: favorites.favorites.filter(fav => fav.id !== favoriteID)
                 
             } 
+        case SET_FAVORITES_SEARCH:
+
+        const { searchText } = payload;
+
+        return {
+            ...favorites,
+            searchText
+        }
 
         default: return favorites
     }

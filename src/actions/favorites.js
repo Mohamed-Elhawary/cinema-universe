@@ -1,4 +1,9 @@
-import { SET_FAVORITES, ADD_FAVORITE, REMOVE_FAVORITE } from "types";
+import { 
+    SET_FAVORITES,
+    ADD_FAVORITE,
+    REMOVE_FAVORITE,
+    SET_FAVORITES_SEARCH
+ } from "types";
 
 export function setFavorites(favorites) {
 
@@ -23,6 +28,15 @@ export function removeFavorite(favoriteID) {
     return {
         type: REMOVE_FAVORITE,
         payload: { favoriteID }
+    }
+    
+}
+
+export function setFavoritesSearch(searchText) {
+
+    return {
+        type: SET_FAVORITES_SEARCH,
+        payload: { searchText }
     }
     
 }
