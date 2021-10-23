@@ -34,11 +34,13 @@ function useProvideAuth() {
     
     const dispatch = useDispatch();
 
-    const login = (userName, password, callback) => {
+    const login = (userName, callback) => {
+
+        const token = '_' + Math.random().toString(36);
 
         Cookies.set("userName", userName);
 
-        Cookies.set("password", password);
+        Cookies.set("token", token);
         
         setTimeout(() => {
             
