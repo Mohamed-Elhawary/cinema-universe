@@ -38,9 +38,9 @@ function useProvideAuth() {
 
         const token = '_' + Math.random().toString(36);
 
-        Cookies.set("userName", userName);
+        localStorage.setItem("userName", userName);
 
-        Cookies.set("token", token);
+        localStorage.setItem("token", token);
         
         setTimeout(() => {
             
