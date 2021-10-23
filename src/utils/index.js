@@ -1,7 +1,7 @@
 import axios from "./axios-instance";
 import { 
-    getCookies,
-    removeCookies,
+    getTokens,
+    removeTokensAndData,
     checkAuth,
     checkFavorite,
     getCurrentDate,
@@ -12,8 +12,8 @@ import LazyLoadComponent from "./LazyLoadComponent";
 
 export {
     axios,
-    getCookies,
-    removeCookies,
+    getTokens,
+    removeTokensAndData,
     checkAuth,
     checkFavorite,
     getCurrentDate,

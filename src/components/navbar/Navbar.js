@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { Dropdown, Nav, NavDropdown, Container } from 'react-bootstrap';
 import { BsFillMoonFill, BsFillSunFill } from "react-icons/bs";
 import { ImCross } from "react-icons/im";
-import Cookies from 'js-cookie';
 import { checkAuth } from "utils";
 import { useAuth } from 'hooks';
 import { 
@@ -37,13 +36,13 @@ const Navbar = ({
 
         if(theme === "dark") {
 
-            Cookies.set("theme", "light");
+            localStorage.setItem("theme", "light");
 
             setTheme("light");
 
         } else {
 
-            Cookies.set("theme", "dark");
+            localStorage.setItem("theme", "dark");
 
             setTheme("dark");
             

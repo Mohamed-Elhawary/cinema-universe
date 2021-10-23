@@ -1,6 +1,4 @@
-import Cookies from 'js-cookie';
-
-export const getCookies = () => {
+export const getTokens = () => {
     
     let userName = localStorage.getItem("userName") || null;
 
@@ -10,21 +8,21 @@ export const getCookies = () => {
 
 }
 
-export const removeCookies = () => {
+export const removeTokensAndData = () => {
 
     localStorage.removeItem("userName");
 
     localStorage.removeItem("token");
 
-    Cookies.remove("favorites");
+    localStorage.removeItem("favorites");
     
 }
 
 export const checkAuth = () => {
     
-    let cookies = getCookies();
+    let tokens = getTokens();
 
-    return cookies['userName'] && cookies['token'];
+    return tokens['userName'] && tokens['token'];
 
 }
 
@@ -41,20 +39,20 @@ export const addOrRemoveMovieFromFavorites = (e, movie, favorites, callback) => 
 
     if(checkAuth()) { 
 
-        let storedFavorites = Cookies.get("favorites");
+        let storedFavorites = localStorage.getItem("favorites");
     
         if(checkFavorite(favorites, movie.id)) {
             
             callback("isFav");
         
-            if(storedFavorites) Cookies.set("favorites", JSON.stringify(JSON.parse(storedFavorites).filter(fav => fav.id !== movie.id)));
+            if(storedFavorites) localStorage.setItem("favorites", JSON.stringify(JSON.parse(storedFavorites).filter(fav => fav.id !== movie.id)));
         
         } else {
 
             callback("isNotFav");
 
-            if(storedFavorites) Cookies.set("favorites", JSON.stringify(JSON.parse(storedFavorites).concat({...movie})));
-            else Cookies.set("favorites", JSON.stringify([movie]));
+            if(storedFavorites) localStorage.setItem("favorites", JSON.stringify(JSON.parse(storedFavorites).concat({...movie})));
+            else localStorage.setItem("favorites", JSON.stringify([movie]));
 
         }
 

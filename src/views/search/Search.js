@@ -23,7 +23,7 @@ const Search = ({
         getSearchMoviesData(searchText, pageNumber);
 
     }
-
+console.log(moviesData)
     useEffect(() => {
 
         if(Object.keys(moviesData).length === 0) {
@@ -33,6 +33,7 @@ const Search = ({
         } else {
 
             setFetchingLoaderState(false);
+            
         }
 
     }, [moviesData]); // eslint-disable-line
@@ -71,7 +72,7 @@ const Search = ({
         </div>
     );
 
-    if(fetchingLoaderState) UI = <div className="view"><SpinnerLoader large spinnerColor={theme === "light" ? "dark" : "light"} style={{top: "50%", position: "absolute"}} /></div>;
+    if(fetchingLoaderState) UI = <div className="view"><SpinnerLoader large spinnerColor={theme === "light" ? "dark" : "light"} style={{top: "50%", left: "45%", position: "absolute"}} /></div>;
     else if(moviesData?.results?.length > 0) UI = search;
     else UI = <div className="view"><h2 className="center-text text-center">No Movies Found...</h2></div>;
 

@@ -79,7 +79,7 @@ const Home = ({
     );
 
     if(searchMode) UI = <Search />;
-    else if(fetchingLoaderState) UI = <div className="view"><SpinnerLoader large spinnerColor={theme === "light" ? "dark" : "light"} style={{top: "50%", position: "absolute"}} /></div>;
+    else if(fetchingLoaderState) UI = <div className="view"><SpinnerLoader large spinnerColor={theme === "light" ? "dark" : "light"} style={{top: "50%", left: "45%", position: "absolute"}} /></div>;
     else UI = home;
 
     return UI;

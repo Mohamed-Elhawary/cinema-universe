@@ -6,8 +6,7 @@ import
     createContext 
 } from "react";
 import { useDispatch } from "react-redux";
-import Cookies from 'js-cookie';
-import { getCookies, removeCookies, checkAuth } from "utils";
+import { getTokens, removeTokensAndData, checkAuth } from "utils";
 import { setFavorites } from "actions";
 
 const authContext = createContext();
@@ -54,7 +53,7 @@ function useProvideAuth() {
 
     const logout = (callback) => {
 
-        removeCookies();
+        removeTokensAndData();
 
         setUser(null);
 
@@ -68,15 +67,15 @@ function useProvideAuth() {
 
         setShowMainLoader(true);
 
-        const cookies = getCookies();
+        const tokens = getTokens();
 
         setTimeout(() => {
 
-            if (checkAuth()) setUser(cookies['userName']);
+            if (checkAuth()) setUser(tokens['userName']);
             
             else {
 
-                removeCookies();
+                removeTokensAndData();
 
                 setUser(null); 
             
