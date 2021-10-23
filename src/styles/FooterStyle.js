@@ -10,14 +10,14 @@ const CustomizedFooter = styled.footer`
         div {
             position: relative;
             right: 45px;
-        }
+        };
         img {
             position: absolute;
             bottom: -24px;
             left: -60px;
-        }
-    }
-    .social a {
+        };
+    };
+    .social a, .version-num a {
         color: ${({ theme }) => theme.text_color};
     }
 `;
