@@ -146,8 +146,8 @@ const MovieModal = ({
                 ))}
             </div>
             <p className="overview mb-4">{overview}</p>
-            <MovieModalSlider isCastSlider persons={credits.cast} />
-            <MovieModalSlider persons={credits.crew} />
+            {credits.cast.length > 0 && <MovieModalSlider isCastSlider persons={credits.cast} />}
+            {credits.crew.length > 0 && <MovieModalSlider persons={credits.crew} />}
             {trailerVideoKey && (
                 <div className="trailer">
                     <h6 className="text-center font-weight-bold mt-3 mb-0">Watch Trailer</h6>
