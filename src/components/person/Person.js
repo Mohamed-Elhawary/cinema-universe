@@ -15,8 +15,9 @@ const Person = ({ isCastSlider, person }) => {
                         height="180"
                     />
                 </div>
-                <h6 className="person-name text-center font-weight-bold mt-3">{person.name}</h6>
-                <span className="person-extra-data d-block text-center">({isCastSlider ? person.character : person.department})</span>
+                {person.name && <h6 className="person-name text-center font-weight-bold mt-3">{person.name}</h6>}
+                {person.character && isCastSlider && <span className="person-extra-data d-block text-center">({person.character})</span>}
+                {person.department && !isCastSlider && <span className="person-extra-data d-block text-center">({person.department})</span>}
             </div>
         </CustomizedPerson>
     );
