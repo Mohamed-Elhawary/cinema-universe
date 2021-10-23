@@ -45,6 +45,7 @@ export const GlobalStyles = createGlobalStyle`
         bottom: 0;
     };
     .center-text {
+        padding-inline: 12px;
         font-size: 30px;
         font-weight: bold;
         color: ${({ theme }) => theme.text_color};

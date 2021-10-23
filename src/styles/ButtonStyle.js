@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Button } from "antd";
 
 export default styled(Button)`
-    color: ${({ theme }) => theme.button_color_1};
+    color: ${({ theme }) => theme.button_color_1}!important;
     background-color: ${({ theme }) => theme.button_bg_1};
     height: 40px;
     min-width: 100px;

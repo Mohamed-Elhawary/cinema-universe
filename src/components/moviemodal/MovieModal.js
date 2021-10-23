@@ -140,9 +140,9 @@ const MovieModal = ({
                     }
                 </span>
             </div>
-            <div className="genres d-flex mb-4">
+            <div className="genres d-flex mb-3 flex-wrap">
                 {genres.map(genre => (
-                    <span className="genre mr-2 p-2">{genre.name}</span>
+                    <span className="genre mr-2 p-2 mb-2">{genre.name}</span>
                 ))}
             </div>
             <p className="overview mb-4">{overview}</p>
