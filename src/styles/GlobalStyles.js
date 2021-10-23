@@ -59,34 +59,6 @@ export const GlobalStyles = createGlobalStyle`
         };
         .error-404 {
             font-size: 50px;
-            animation: fade 2s linear infinite;
-            @-webkit-keyframes fade {
-                0% {
-                    opacity: .8
-                }
-
-                50% {
-                    opacity: .6
-                }
-
-                100% {
-                    opacity: 1
-                }
-            }
-
-            @keyframes fade {
-                0% {
-                    opacity: .8
-                }
-
-                50% {
-                    opacity: .6
-                }
-
-                100% {
-                  opacity: 1;
-                }
-            }
         }
     };
     .cross-icon {
@@ -99,7 +71,21 @@ export const GlobalStyles = createGlobalStyle`
         &.show {
             display: initial;
         }
-    }
+    };
+    .fade-animation {
+        animation: fade 2s linear infinite;
+        @keyframes fade {
+            0% {
+                opacity: 1;
+            };
+            50% {
+                opacity: .4;
+            };
+            100% {
+                opacity: 1;
+            }; 
+        }
+    };
     ::-webkit-scrollbar {
         width: 5px;
     }

@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import { connect } from 'react-redux';
 import { ThemeProvider } from "styled-components";
-import Cookies from 'js-cookie';
 import { ProvideAuth } from 'hooks';
 import { switchTheme, setFavorites} from "actions";
 import { Layout } from "layout";
@@ -18,7 +17,7 @@ const App = ({
 
 	useEffect(() => {
 
-		let storedTheme = Cookies.get("theme");
+		let storedTheme = localStorage.getItem("theme");
 
 		if(storedTheme) setTheme(storedTheme);
 
@@ -26,7 +25,7 @@ const App = ({
 
 	useEffect(() => {
 
-        let storedFavorites = Cookies.get("favorites");
+        let storedFavorites = localStorage.getItem("favorites");
 
         if(storedFavorites) setFavoritesAction(JSON.parse(storedFavorites));
         
