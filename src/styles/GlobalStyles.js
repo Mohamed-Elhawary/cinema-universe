@@ -47,13 +47,17 @@ export const GlobalStyles = createGlobalStyle`
     .center-text {
         padding-inline: 12px;
         font-size: 30px;
+        color: ${({ theme }) => theme.text_color};
         font-weight: bold;
-        color: #ccc;
         position: absolute;
         top: 50%;
         width: 100%;
         transition: all .3s;
-        .error_404 {
+        &.center-text:not(.error-text) {
+            opacity: .6;
+            color: ${({ theme }) => theme.side_text_color};
+        };
+        .error-404 {
             font-size: 50px;
             animation: fade 2s linear infinite;
             @-webkit-keyframes fade {

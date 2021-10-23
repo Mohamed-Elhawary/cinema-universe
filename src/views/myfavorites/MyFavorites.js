@@ -117,7 +117,7 @@ const MyFavorites = ({
                         )) : <Col><h2 className="center-text text-center">No Favorite Movies Found...</h2></Col>} 
                     </Row>
                 </Container>
-            ) : <h2 className="center-text text-center">No Favorite Movies Yet...</h2>}
+            ) : <h2 className="center-text text-center">Your Favorite Movies will be displayed here...</h2>}
         </div>
     );
 

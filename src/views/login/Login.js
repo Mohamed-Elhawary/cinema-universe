@@ -57,6 +57,17 @@ const Login = () => { /*eslint-disable-line*/
                 }
             
             });
+        } else {
+
+            if(!userNameValue && !passwordValue) {
+
+                setUserNameError("Empty Field, Please Enter a Value");
+                setPasswordError("Empty Field, Please Enter a Value");
+
+            } 
+            else if(!userNameValue) setUserNameError("Empty Field, Please Enter a Value");
+            else setPasswordError("Empty Field, Please Enter a Value");
+
         }
     };
 
@@ -77,7 +88,7 @@ const Login = () => { /*eslint-disable-line*/
                 <div className="mb-5 mx-auto position-relative" style={{width: "fit-content"}}>
                     <Input 
                         type="text"
-                        placeholder="User Name"
+                        placeholder="UserName"
                         value={userName.value}
                         onChange={(e) => setUserName({...userName, state: "Dirty", value: e.target.value})}
                     />
@@ -100,6 +111,8 @@ const Login = () => { /*eslint-disable-line*/
                     }
                 </Button>
             </Form>
+            <h6 className="text-center mt-4">Type any UserName and Password from your choice</h6>
+            <span className="alert text-center d-block">Note:- Logout from your Account means deleting your Account Data.</span>
         </CustomizedLogin>
     );
 

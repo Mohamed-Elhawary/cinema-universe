@@ -6,8 +6,8 @@ const NotFound = ({ searchMode }) => {
     return (
         searchMode ? <Search /> : (
             <div className="view">
-                <h2 className="center-text text-center">
-                    <span className="error_404 d-block">404</span>
+                <h2 className="center-text text-center error-text">
+                    <span className="error-404 d-block">404</span>
                     Page Not Found...
                 </h2>
             </div>
