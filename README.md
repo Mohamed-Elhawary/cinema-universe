@@ -4,6 +4,7 @@
 
 Cinema Universe is a large Database App for all movies around the world since the beginning of Cinema, and its Database depends on the API of TMDB Website, which is the largest Database Website for Movies and TV Shows in the World.
 
+![Screenshot](preview_0.png) 
 
 ![Screenshot](preview_1.png) 
 
@@ -34,6 +35,8 @@ https://user-images.githubusercontent.com/69651552/138268637-1139c182-b669-46a4-
 
 * Login
 * Home
+* My Favorites
+* 404 
 ## Built With
 
 * HTML
@@ -68,6 +71,10 @@ https://user-images.githubusercontent.com/69651552/138268637-1139c182-b669-46a4-
 ![Screenshot](preview_1.png) 
 
 ![Screenshot](preview_2.png) 
+
+* PWA [Progressive Web App] introduces the App with another 2 versions beside the web version. It will be in a Mobile version [Android or iPhone] and in a Desktop version for PCs, this means that you can download the app and install it in your PC or Laptop as a Desktop App or download and install it in your Mobile Phone like any App in your Phone.
+
+* Service Worker improves the User Experience for the App, as if your connection to the internet is lost so the browser will not be crashed and go to the weird [No Connection] screen, but instead of that there will be a nice screen with a proper message that shows to the user that there is no internet connection and he has to check his internet.
 ## Author
 
 * Mohamed Elhawary  
@@ -88,23 +95,25 @@ Feel Free to Deploy it with me, send Issues or a Pull Request and i'll deal with
 
 ## Notices & Overview about the App
 
-1- The App has a Simulation for the Authentication process, so you have to enter any username and any password as you choice in the login form to be able to see the home screen of the App.
+1- The App has a Simulation for the Authentication process, so you have to enter any username and any password from you choice in the login form to be able to see the home screen of the App.
 
-2- The username and password you entered are saved in the cookies as they are will be your tokens to check your Auth. before every request you perform inside the App, so don't try to delete your tokens from the cookies otherwise you will be logged out once you make any request inside the App and so you lost all your data including your saved favorites movies [will talk about it in point (3)], as the App doesn't have any backend database that saves your works in the App, it depends ONLY on the client side [Cookies] so deleting cookies here i similar to the Deleting your Account forever.
+2- The username and password you entered are saved in the cookies as they are will be your tokens to check your Auth state before every request you perform inside the App, so don't try to delete your tokens from the cookies otherwise you will be logged out once you make any request inside the App and therefore you will lost all your data including your saved favorites movies [will talk about it in point (3)], as the App doesn't have any backend database that saves your works in the App. It depends ONLY on the client side [Cookies]. So deleting cookies here or clicking on the [Logout] Link in the dropdown menu in the Navbar are similar to deleting your Account forever.
 
-3- You can choose any movie in the App as your favorite movie, by clicking on the heart icon at the top right of each movie poster, and this choice as a favorite movie will be saved in the Cookies also, so that you can retrieve all your favorite movies again if you make a reload for the App, also you can remove this favorite movie from your favorites list by clicking another click on the heart icon.
+3- You can choose any movie in the App as your favorite movie, by clicking on the heart icon at the top right of each movie poster, and this choice as a favorite movie will be saved in the Cookies also to prevent losting your favorites data if you make a reloading for the App. Also you can remove this favorite movie from your favorites list by clicking another mouse click on the heart icon again.
 
-4- The App contains in the Home Screen 4 main sliders:-
+4- You can see all your favorites Movies you choosed them before by navigating to the "My Favorites Page", in the Navbar, open the dropdown menu and click on the [My Favorites] Link to go to your favorites Movies.  
+
+4- The App contains 4 main sliders in the Home Screen:-
     - The Top Slider is for the [Now Playing Movies] in the Cinema
     - The Second Slider is for the [Popular Movies]
     - The Third Slider is for the [Top Rated Movies]
     - The Fourth is for the [Recent Rated Movies]
 
-5- If you click on any movie, a movie modal will be opened that contains all this selected movie details:- [Title, Release Date, Genres, Overview, Cast, Crew, Video Trailer]
+5- If you click on any movie, a movie modal will be opened that contains all this movie details:- [Title, Release Date, Genres, Overview, Cast, Crew, Video Trailer]
 
-6- You have the ability to search for any movie you need by just typing its name letters in the search input at the top right of the screen and then you will get huge results that match your needs.
+6- You have the ability to search for any movie you need in a large database contains millions of movies, by just typing its name letters in the search input at the top of the screen and you will get the results that match your needs.
 
-7- The App depends for its database on the TMDB Website API's, TMDB is the largest Database Website for Movies and TV Shows in the World, you can check all the API's and the URLs the this App uses it in the requests in the (config.js) file inside the (src) folder.
+7- The App depends for its database on the TMDB Website API's, TMDB is the largest Database Website for Movies and TV Shows in the World, you can check all the API's and the URLs that this App depends on them in the (config.js) file inside the (src) folder.
 ## License
 
 Licensed under the [MIT License](LICENSE)
