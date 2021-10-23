@@ -4,9 +4,9 @@ export const getCookies = () => {
     
     let userName = Cookies.get("userName") || null;
 
-    let password = Cookies.get("password") || null;
+    let token = Cookies.get("token") || null;
        
-    return {userName, password};
+    return {userName, token};
 
 }
 
@@ -14,7 +14,7 @@ export const removeCookies = () => {
 
     Cookies.remove("userName");
 
-    Cookies.remove("password");
+    Cookies.remove("token");
 
     Cookies.remove("favorites");
     
@@ -24,7 +24,7 @@ export const checkAuth = () => {
     
     let cookies = getCookies();
 
-    return cookies['userName'] && cookies['password'];
+    return cookies['userName'] && cookies['token'];
 
 }
 

@@ -48,7 +48,7 @@ const Login = () => { /*eslint-disable-line*/
 
             setShowLoginLoader(true);
 
-            auth.login(userNameValue, passwordValue, response => {
+            auth.login(userNameValue, response => {
 
                 if(response.statusCode === 200) {
 
@@ -112,7 +112,7 @@ const Login = () => { /*eslint-disable-line*/
                 </Button>
             </Form>
             <h6 className="text-center mt-4">Type any UserName and Password from your choice</h6>
-            <span className="alert text-center d-block">Note:- Logout from your Account means deleting your Account Data.</span>
+            <span className="alert text-center d-block">Note:- Logout from your Account means deleting your Account Data forever.</span>
         </CustomizedLogin>
     );
 
