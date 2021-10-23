@@ -4,14 +4,17 @@ import { connect } from 'react-redux';
 import { ThemeProvider } from "styled-components";
 import Cookies from 'js-cookie';
 import { ProvideAuth } from 'hooks';
-import { switchTheme } from "actions";
+import { switchTheme, setFavorites} from "actions";
 import { Layout } from "layout";
 import { Routes } from "routes";
 import { GlobalStyles } from "styles";
 import { lightTheme, darkTheme } from "./Themes";
 import 'antd/dist/antd.css';
 
-const App = ({ theme, setTheme }) => {
+const App = ({ 
+	theme,
+	setTheme,
+	setFavoritesAction}) => {
 
 	useEffect(() => {
 
@@ -20,6 +23,14 @@ const App = ({ theme, setTheme }) => {
 		if(storedTheme) setTheme(storedTheme);
 
 	}, []); // eslint-disable-line
+
+	useEffect(() => {
+
+        let storedFavorites = Cookies.get("favorites");
+
+        if(storedFavorites) setFavoritesAction(JSON.parse(storedFavorites));
+        
+    }, []); // eslint-disable-line
 
 	return (
 		<ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
@@ -40,6 +51,11 @@ const App = ({ theme, setTheme }) => {
 
 const mapStateToProps = ({ theme }) => ({theme: theme.theme});
   
-const mapDispatchToProps = dispatch => ({setTheme: theme => dispatch(switchTheme(theme))});
+const mapDispatchToProps = dispatch => ({
+
+	setTheme: theme => dispatch(switchTheme(theme)),
+	setFavoritesAction: favorites => dispatch(setFavorites(favorites)),
+
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

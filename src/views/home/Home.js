@@ -2,10 +2,9 @@
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router";
 import { connect } from 'react-redux';
-import Cookies from "js-cookie";
 import { checkAuth } from "utils";
 import { useAuth } from "hooks";
-import { setFavorites, switchFetchingLoaderState } from "actions";
+import { switchFetchingLoaderState } from "actions";
 import { fetchingHomeData } from "services";
 import { Search } from "views";
 import { SpinnerLoader } from "ui";
@@ -20,7 +19,6 @@ const Home = ({
     fetchingLoaderState,
     theme,
     searchMode,
-    setFavoritesAction,
     setFetchingLoaderState }) => {
 
     const [nowPlayingMovies, setNowPlayingMovies] = useState([]);
@@ -71,14 +69,6 @@ const Home = ({
 
     }, []); // eslint-disable-line
 
-    useEffect(() => {
-
-        let storedFavorites = Cookies.get("favorites");
-
-        if(storedFavorites) setFavoritesAction(JSON.parse(storedFavorites));
-        
-    }, []); // eslint-disable-line
-
     const home = (
         <div className="view">
             <NowPlayingSlider nowPlayingMovies={nowPlayingMovies} />
@@ -104,11 +94,6 @@ const mapStateToProps = ({ fetchingLoader, theme, search }) => ({
 
 });
   
-const mapDispatchToProps = dispatch => ({
-
-    setFavoritesAction: favorites => dispatch(setFavorites(favorites)),
-    setFetchingLoaderState: state => dispatch(switchFetchingLoaderState(state))
-
-});
+const mapDispatchToProps = dispatch => ({setFetchingLoaderState: state => dispatch(switchFetchingLoaderState(state))});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

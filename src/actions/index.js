@@ -1,4 +1,8 @@
-import { setFavorites, addFavorite, removeFavorite } from "./favorites";
+import { 
+    setFavorites,
+    addFavorite,
+    removeFavorite,
+    setFavoritesSearch } from "./favorites";
 import { switchTheme } from "./theme";
 import { openMovieModal, closeMovieModal } from "./movieModal";
 import { 
@@ -13,6 +17,7 @@ export {
     setFavorites,
     addFavorite,
     removeFavorite,
+    setFavoritesSearch,
     switchTheme,
     openMovieModal,
     closeMovieModal,

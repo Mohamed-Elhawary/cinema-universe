@@ -35,5 +35,8 @@ export default styled(Navbar)`
         @media(max-width: 580px) {
             width: 100%;
         }
+    };
+    svg {
+        color: ${({ theme }) => theme.text_color}!important;
     }
 `;

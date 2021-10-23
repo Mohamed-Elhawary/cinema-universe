@@ -5,8 +5,10 @@ import
     useContext, 
     createContext 
 } from "react";
+import { useDispatch } from "react-redux";
 import Cookies from 'js-cookie';
 import { getCookies, removeCookies, checkAuth } from "utils";
+import { setFavorites } from "actions";
 
 const authContext = createContext();
 
@@ -26,62 +28,63 @@ export const useAuth = () => {
 
 function useProvideAuth() {
 
-  const [user, setUser] = useState(null);
+    const [user, setUser] = useState(null);
 
-  const [showMainLoader, setShowMainLoader] = useState(true);
-  
-
-  const login = (userName, password, callback) => {
-
-    Cookies.set("userName", userName);
-
-    Cookies.set("password", password);
+    const [showMainLoader, setShowMainLoader] = useState(true);
     
-    setTimeout(() => {
+    const dispatch = useDispatch();
+
+    const login = (userName, password, callback) => {
+
+        Cookies.set("userName", userName);
+
+        Cookies.set("password", password);
         
-        setUser(userName);
+        setTimeout(() => {
+            
+            setUser(userName);
 
-        callback({status: "Successed", statusCode: 200});
+            callback({status: "Successed", statusCode: 200});
 
-    }, 300);
+        }, 300);
 
-};
+    };
 
+    const logout = (callback) => {
 
-const logout = (callback) => {
+        removeCookies();
 
-    removeCookies();
+        setUser(null);
 
-    setUser(null);
+        dispatch(setFavorites([]));
 
-    callback();
-    
-};
-
-
-useEffect(() => {
-
-    setShowMainLoader(true);
-
-    const cookies = getCookies();
-
-    setTimeout(() => {
-
-        if (checkAuth()) setUser(cookies['userName']);
+        callback();
         
-        else {
+    };
 
-            removeCookies();
+    useEffect(() => {
 
-            setUser(null); 
-         
-        }
+        setShowMainLoader(true);
 
-        setShowMainLoader(false);
+        const cookies = getCookies();
 
-    }, 300);
+        setTimeout(() => {
 
-}, []);
+            if (checkAuth()) setUser(cookies['userName']);
+            
+            else {
+
+                removeCookies();
+
+                setUser(null); 
+            
+            }
+
+            setShowMainLoader(false);
+
+        }, 300);
+
+    }, []);
 
     return {
         user,
