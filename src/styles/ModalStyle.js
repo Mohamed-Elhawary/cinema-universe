@@ -46,6 +46,14 @@ export default styled(Modal)`
             font-weight: normal;
             color: ${({ theme }) => theme.side_text_color};
         };
+        .cross-icon {
+            color: ${({ theme }) => theme.text_color};
+            position: relative;
+            top: -22px;
+            left: -50%;
+            cursor: pointer;
+            display: initial
+        }
         @media(max-width: 500px) {
             margin-inline: 20px;
         };
@@ -108,11 +116,4 @@ export default styled(Modal)`
     h5, h6 {
         color: ${({ theme }) => theme.text_color};
     };
-    .cross-icon {
-        color: ${({ theme }) => theme.text_color};
-        position: relative;
-        top: -22px;
-        left: -50%;
-        cursor: pointer;
-    }
 `;
