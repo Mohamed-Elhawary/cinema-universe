@@ -48,7 +48,7 @@ export const GlobalStyles = createGlobalStyle`
         padding-inline: 12px;
         font-size: 30px;
         font-weight: bold;
-        color: ${({ theme }) => theme.text_color};
+        color: #ccc;
         position: absolute;
         top: 50%;
         width: 100%;

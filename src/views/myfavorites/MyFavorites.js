@@ -18,8 +18,6 @@ const MyFavorites = ({
 
     const [favoritesList, setFavoritesList] = useState(favorites);
 
-    const [showCrossIcon, setShowCrossIcon] = useState(true);
-
     let auth = useAuth();
 
     let history = useHistory();
@@ -31,8 +29,6 @@ const MyFavorites = ({
         setFavoritesList(favorites);
 
         setSearchText("");
-
-        setShowCrossIcon(false);
 
     }
 
@@ -51,14 +47,10 @@ const MyFavorites = ({
                 let filteredFavorites = filterFavorites(value.toLowerCase());
 
                 setFavoritesList(filteredFavorites);
-
-                setShowCrossIcon(true);
     
             } else {
                 
                 setFavoritesList(favorites);
-
-                setShowCrossIcon(false);
     
             }
 
@@ -79,7 +71,6 @@ const MyFavorites = ({
     useEffect(() => {
 
         if(searchText) {
-            console.log("sas")
 
             let filteredFavorites = filterFavorites(searchText.toLowerCase());
 
@@ -101,7 +92,7 @@ const MyFavorites = ({
                             onChange={(e) => searchInputValueChanged(e)}
                             value={searchText}
                         />
-                        <ImCross className={[showCrossIcon ? "show" : "", "cross-icon"].join(" ")} onClick={resetSearch}/>
+                        <ImCross className={[searchText ? "show" : "", "cross-icon"].join(" ")} onClick={resetSearch}/>
                     </div>
                     <Row style={{minHeight: "90vh"}}>
                         {favoritesList.length > 0 ? favoritesList.map(({id, title, date, posterSrc, overview, rate}) => ( 
@@ -123,10 +114,10 @@ const MyFavorites = ({
                                     />
                                 </div>
                             </Col>
-                        )) : <Col><h2 className="center-text text-center">No Favorites Movies Found...</h2></Col>} 
+                        )) : <Col><h2 className="center-text text-center">No Favorite Movies Found...</h2></Col>} 
                     </Row>
                 </Container>
-            ) : <h2 className="center-text text-center">No Favorites Movies Yet...</h2>}
+            ) : <h2 className="center-text text-center">No Favorite Movies Yet...</h2>}
         </div>
     );
 
