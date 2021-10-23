@@ -11,7 +11,7 @@ Cinema Universe is a large Database App for all movies around the world since th
 ![Screenshot](preview_3.png) 
 ## Demo
 
-https://user-images.githubusercontent.com/69651552/138268637-1139c182-b669-46a4-bc97-d2c4496eae08.mp4
+https://user-images.githubusercontent.com/69651552/138542024-937ee1bd-c31c-435b-88ad-0e4435b10ce3.mp4
 
 ## Instructions, Building & Getting Started  
     - 1- Fork, clone or download this repository to your local machine.
@@ -114,6 +114,8 @@ Feel Free to Deploy it with me, send Issues or a Pull Request and i'll deal with
 6- You have the ability to search for any movie you need in a large database contains millions of movies, by just typing its name letters in the search input at the top of the screen and you will get the results that match your needs.
 
 7- The App depends for its database on the TMDB Website API's, TMDB is the largest Database Website for Movies and TV Shows in the World, you can check all the API's and the URLs that this App depends on them in the (config.js) file inside the (src) folder.
+
+8- Finally, you can take this App as a reference and strong practical & revision to understand the working logic of `redux`, `react-redux` & middlware like `redux-thunk` and how they interact with a react App.
 ## License
 
 Licensed under the [MIT License](LICENSE)
