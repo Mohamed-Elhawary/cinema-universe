@@ -2,9 +2,9 @@ import Cookies from 'js-cookie';
 
 export const getCookies = () => {
     
-    let userName = Cookies.get("userName") || null;
+    let userName = localStorage.getItem("userName") || null;
 
-    let token = Cookies.get("token") || null;
+    let token = localStorage.getItem("token") || null;
        
     return {userName, token};
 
@@ -12,9 +12,9 @@ export const getCookies = () => {
 
 export const removeCookies = () => {
 
-    Cookies.remove("userName");
+    localStorage.removeItem("userName");
 
-    Cookies.remove("token");
+    localStorage.removeItem("token");
 
     Cookies.remove("favorites");
     
