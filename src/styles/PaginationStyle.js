@@ -8,6 +8,7 @@ export default styled(Pagination)`
         background: ${({ theme }) => theme.button_bg_2};
         color: ${({ theme }) => theme.button_color_2};
         border-color: ${({ theme }) => theme.button_border}!important;
+        margin-bottom: 8px;
         &:not(.ant-pagination-item-active):hover {
             background: ${({ theme }) => theme.button_hover_bg_2};
             border: none;
