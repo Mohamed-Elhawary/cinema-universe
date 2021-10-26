@@ -1,14 +1,16 @@
 import { CustomizedPagination } from "styles";
 
 const Pagination = ({
-    currentPage,
+    defaultCurrent,
+    current,
     totalPages,
     onChange}) => {
     
 
     return (
         <CustomizedPagination 
-            defaultCurrent={currentPage}
+            defaultCurrent={defaultCurrent}
+            current={current ? current : 1}
             total={totalPages}
             showSizeChanger={false}
             onChange={onChange}

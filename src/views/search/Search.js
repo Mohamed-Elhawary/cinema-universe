@@ -64,7 +64,8 @@ console.log(moviesData)
                     ))}
                 </Row>
                 <Pagination 
-                    currentPage={moviesData?.page} 
+                    defaultCurrent={moviesData?.page} 
+                    current={moviesData?.page}
                     totalPages={moviesData?.total_pages} 
                     onChange={(pageNumber) => pageClicked(pageNumber)}
                 />
