@@ -23,7 +23,7 @@ const Search = ({
         getSearchMoviesData(searchText, pageNumber);
 
     }
-console.log(moviesData)
+    
     useEffect(() => {
 
         if(Object.keys(moviesData).length === 0) {
