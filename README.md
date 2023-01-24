@@ -30,7 +30,6 @@ https://user-images.githubusercontent.com/69651552/138542024-937ee1bd-c31c-435b-
         npm start
         ```
     - 5- Once the app server is running visit (localhost:3000) in the browser to view the app and now you can treat with it as shown above in the Demo.
-
     - 6- You can also see a live preview of the app from this Link (https://cinema-universe.netlify.app/)
 
 ## Pages
