@@ -16,6 +16,7 @@ Cinema Universe is a large Database App for all movies since the beginning of Ci
 https://user-images.githubusercontent.com/69651552/138542024-937ee1bd-c31c-435b-88ad-0e4435b10ce3.mp4
 
 ## Instructions, Building & Get Started 
+
     - 1- Fork, clone or download this repository to your local machine.
     - 2- Be sure that you install the [Node.js](https://nodejs.org/en/) environment in your machine.
     - 3- Open your terminal and be sure that you are inside the correct destination of the App, while you must be in the same path of the package.json file.
