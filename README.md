@@ -2,7 +2,7 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/78a3cf4b-6b1d-44d7-a54a-7a52b9ee1cbb/deploy-status)](https://app.netlify.com/sites/cinema-universe/deploys)
 
-Cinema Universe is a large Database app for all movies around the world since the beginning of Cinema, and its Database depends on the API of TMDB website, which is the largest Database website for Movies and TV Shows in the world.
+Cinema Universe is a large Database App for all movies around since the beginning of Cinema, and its Database depends on the API of TMDB website, which is the largest Database website for Movies and TV Shows in the world.
 
 
 ![Screenshot](preview_0.png) 
@@ -10,14 +10,15 @@ Cinema Universe is a large Database app for all movies around the world since th
 ![Screenshot](preview_1.png) 
 
 ![Screenshot](preview_3.png) 
+
 ## Demo
 
 https://user-images.githubusercontent.com/69651552/138542024-937ee1bd-c31c-435b-88ad-0e4435b10ce3.mp4
 
-## Instructions, Building & Getting Started  
+## Instructions, Building & Get Started 
     - 1- Fork, clone or download this repository to your local machine.
     - 2- Be sure that you install the [Node.js](https://nodejs.org/en/) environment in your machine.
-    - 3- Open your terminal and Be sure that you are inside the correct destination of the App, while you must be in the same path of the package.json file and the website folder.
+    - 3- Open your terminal and be sure that you are inside the correct destination of the App, while you must be in the same path of the package.json file.
     - 4- inside your terminal run these commands:-
     
         * to install dependencies.
@@ -38,6 +39,7 @@ https://user-images.githubusercontent.com/69651552/138542024-937ee1bd-c31c-435b-
 * Home
 * My Favorites
 * 404 
+
 ## Built With
 
 * HTML
@@ -75,11 +77,12 @@ https://user-images.githubusercontent.com/69651552/138542024-937ee1bd-c31c-435b-
 * PWA [Progressive Web App] introduces the App with another 2 versions beside the web version. It will be in a Mobile version [Android or iPhone] and in a Desktop version for PCs, this means that you can download the app and install it in your PC or Laptop as a Desktop App or download and install it in your Mobile Phone like any App in your Phone.
 
 * Service Worker improves the User Experience for the App, as if your connection to the internet is lost so the browser will not be crashed and go to the weird [No Connection] screen, but instead of that there will be a nice screen with a proper message that shows to the user that there is no internet connection and he has to check his internet.
+
 ## Author
 
-* Mohamed Elhawary  
+* [Mohamed Elhawary](https://www.linkedin.com/in/mohamed-elhawary14/) 
 
-## Contact Me by my Social Accounts
+## Contact me through my social accounts
 
 * Email: mohamed.k.elhawary@gmail.com  
 
@@ -88,10 +91,6 @@ https://user-images.githubusercontent.com/69651552/138542024-937ee1bd-c31c-435b-
 * [Codepen](https://codepen.io/Mohamed-ElHawary)
 
 * [Behance](https://www.behance.net/mohamed-elhawary14)
-
-## Deploy with Me
-
-Feel Free to Deploy it with me, send Issues or a Pull Request and i'll deal with you, just test it First.
 
 ## Notices & Overview about the App
 
