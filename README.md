@@ -66,6 +66,10 @@ https://user-images.githubusercontent.com/69651552/138542024-937ee1bd-c31c-435b-
 * [Antdesign](https://ant.design/)
 * [React Bootstrap](https://react-bootstrap.github.io/)
 
+## API
+
+* [TMDB](https://www.themoviedb.org/)
+
 ## Features 
 
 * Switch between Dark and Day Mode
@@ -116,7 +120,8 @@ https://user-images.githubusercontent.com/69651552/138542024-937ee1bd-c31c-435b-
 
 8- The App depends for its database on the TMDB Website API's, TMDB is the largest Database Website for Movies and TV Shows in the World, you can check all the API's and the URLs that this App depends on them in the (config.js) file inside the (src) folder.
 
-9- Finally, you can take this App as a reference and strong practical & revision to understand the working logic of `redux`, `react-redux` & middlware like `redux-thunk` and how they interact with a react App.
+9- Finally, you can consider this App as a reference and strong practical & revision to understand the working logic of `redux`, `react-redux` & middlware like `redux-thunk` and how they interact with a react App.
+
 ## License
 
 Licensed under the [MIT License](LICENSE)
