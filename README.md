@@ -4,11 +4,8 @@
 
 Cinema Universe is a large Database App for all movies since the beginning of Cinema. It depends on the API of TMDB website, which is the largest Database website for Movies and TV Shows in the world.
 
-
 ![Screenshot](preview_0.png) 
-
 ![Screenshot](preview_1.png) 
-
 ![Screenshot](preview_3.png) 
 
 ## Demo
