@@ -4,6 +4,8 @@
 
 Cinema Universe is a large Database App for all movies since the beginning of Cinema. It depends on the API of TMDB website, which is the largest Database website for Movies and TV Shows in the world.
 
+You can view the App from [here](https://cinema-universe.netlify.app/)
+
 ![Screenshot](preview_0.png) 
 ![Screenshot](preview_1.png) 
 ![Screenshot](preview_3.png) 
@@ -28,7 +30,7 @@ https://user-images.githubusercontent.com/69651552/138542024-937ee1bd-c31c-435b-
         npm start
         ```
     - 5- Once the App server is running visit (localhost:3000) in the browser to view the App and now you can treat with it as shown above in the Demo.
-    - 6- You can also see a live preview of the App from this Link (https://cinema-universe.netlify.app/)
+    - 6- You can also see a live preview of the App from this link (https://cinema-universe.netlify.app/)
 
 ## Pages
 
@@ -85,13 +87,11 @@ https://user-images.githubusercontent.com/69651552/138542024-937ee1bd-c31c-435b-
 
 ## Contact me through my social accounts
 
-* Email: mohamed.k.elhawary@gmail.com  
-
-* [Linkedin](https://www.linkedin.com/in/mohamed-elhawary14/)
-
-* [Codepen](https://codepen.io/Mohamed-ElHawary)
-
+* Email: mohamed.k.elhawary@gmail.com
+* [LinkedIn](https://www.linkedin.com/in/mohamed-elhawary14/)
+* [Github](https://github.com/Mohamed-Elhawary)  
 * [Behance](https://www.behance.net/mohamed-elhawary14)
+* [Codepen](https://codepen.io/Mohamed-ElHawary) 
 
 ## Notices & Overview about the App
 
