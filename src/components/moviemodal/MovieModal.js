@@ -128,7 +128,7 @@ const MovieModal = ({
                         src={star} 
                         alt="star"
                     /> 
-                    {vote_average}
+                    {Number(vote_average).toFixed(1)}
                 </span>
                 <span 
                     className="favorite" 

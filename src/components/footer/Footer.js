@@ -18,7 +18,7 @@ const Footer = () => {
                     <div>
                         Made by: 
                         <a className="position-relative" href="https://www.linkedin.com/in/mohamed-elhawary14/" target="_blank"> {/* eslint-disable-line */} 
-                            <img src={signature} alt="signature" width="200" height="60" />
+                            <img src={signature} alt="signature" width="100" height="40" />
                         </a>
                     </div>
                 </p> 
@@ -28,7 +28,6 @@ const Footer = () => {
                     <li className="mr-3"><a href="https://codepen.io/Mohamed-ElHawary" target="_blank"><AiFillCodepenCircle size={30} /></a></li> {/* eslint-disable-line */}
                     <li className="mr-3"><a href="https://www.behance.net/mohamed-elhawary14" target="_blank"><AiFillBehanceCircle size={30} /></a></li> {/* eslint-disable-line */}
                 </ul>
-                <span className="fade-animation version-num"><a href="https://github.com/Mohamed-Elhawary/cinema-universe/releases/tag/v1.1" target="_blank">Version 1.1</a></span> {/* eslint-disable-line */}
             </div>
 		</CustomizedFooter>
     );

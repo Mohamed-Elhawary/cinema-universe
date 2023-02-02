@@ -8,13 +8,15 @@ const CustomizedFooter = styled.footer`
     text-align: center;
     .author {
         div {
-            position: relative;
-            right: 45px;
+            display: flex;
+            justify-content: center;
         };
         img {
-            position: absolute;
-            bottom: -24px;
-            left: -60px;
+            position: relative;
+            bottom: 10px;
+            left: 10px;
+            border-radius: 12px;
+            box-shadow: 1px 2px 10px #ccc;
         };
     };
     .social a, .version-num a {
