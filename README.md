@@ -68,7 +68,7 @@ https://user-images.githubusercontent.com/69651552/138542024-937ee1bd-c31c-435b-
 ## Frameworks 
 
 * [React.js](https://reactjs.org/)  
-* [Antdesign](https://ant.design/)
+* [Ant Design](https://ant.design/)
 * [React Bootstrap](https://react-bootstrap.github.io/)
 
 ## API
@@ -105,9 +105,9 @@ https://user-images.githubusercontent.com/69651552/138542024-937ee1bd-c31c-435b-
 
 2- The username and password you entered in the login form generate a unique Token that will be saved in the browser Local Storage with the username. So this unique Token & username are your tokens to check your Auth state before every request you perform inside the App, so don't try to delete your tokens from the Local Storage otherwise you will be logged out once you make any request inside the App and therefore you will lost all your data including your saved favorites movies [will talk about it in point (3)], and will lost your chosen Theme (Dark or Day) [will talk about it in point (5)]. Because the App doesn't have any backend database that saves your works in the App. It depends ONLY on the client side >> [Local Storage]. So deleting your LocalStorage here or clicking on the [Logout] Link in the dropdown menu in the Navbar are similar to deleting your Account forever.
 
-3- You can choose any movie in the App as your favorite movie, by clicking on the heart icon at the top right of each movie poster, and this choice as a favorite movie will be saved in the Local Storage also to prevent losting your favorites data if you make a reloading for the App. Also you can remove this favorite movie from your favorites list by clicking another mouse click on the heart icon again.
+3- You can choose any movie in the App as your favorite movie, by clicking on the heart icon at the top right of each movie poster, and this choice as a favorite movie will be saved in the Local Storage also to prevent loss your favorites data if you make a reloading for the App. Also you can remove this favorite movie from your favorites list by clicking another mouse click on the heart icon again.
 
-4- You can also see all your favorites Movies you choosed before by navigating to the "My Favorites Page", in the Navbar, open the dropdown menu and click on the [My Favorites] Link to go to your favorites Movies.  
+4- You can also see all your favorites Movies you chosen before by navigating to the "My Favorites Page", in the Navbar, open the dropdown menu and click on the [My Favorites] Link to go to your favorites Movies.  
 
 5- You can choose your favorite Theme between (Dark & Day) and this choice will be saved in the Local Storage also, so your preferred Theme will not be lost after reloading the App.
 
@@ -123,7 +123,7 @@ https://user-images.githubusercontent.com/69651552/138542024-937ee1bd-c31c-435b-
 
 8- The App depends for its database on the TMDB Website API's, TMDB is the largest Database Website for Movies and TV Shows in the World, you can check all the API's and the URLs that this App depends on them in the (config.js) file inside the (src) folder.
 
-9- Finally, you can consider this App as a reference and strong practical & revision to understand the working logic of `redux`, `react-redux` & middlware like `redux-thunk` and how they interact with a react App.
+9- Finally, you can consider this App as a reference and strong practical & revision to understand the working logic of `redux`, `react-redux` & middleware like `redux-thunk` and how they interact with a react App.
 
 ## License
 
