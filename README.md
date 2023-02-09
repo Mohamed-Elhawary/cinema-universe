@@ -17,7 +17,7 @@ https://user-images.githubusercontent.com/69651552/138542024-937ee1bd-c31c-435b-
 ## Instructions, Building & Get Started 
 
     - 1- Fork, clone or download this repository to your local machine.
-    - 2- Be sure that you install the [Node.js](https://nodejs.org/en/) environment in your machine.
+    - 2- Be sure that you install the Node.js environment in your machine.
     - 3- Open your terminal and be sure that you are inside the correct destination of the App, while you must be in the same path of the package.json file.
     - 4- Create a (.env) file and add the following environment variables into it:
 
@@ -35,7 +35,7 @@ https://user-images.githubusercontent.com/69651552/138542024-937ee1bd-c31c-435b-
         ```
         npm start
         ```
-    - 6- Once the App server is running visit (localhost:3000) in the browser to view the App and now you can treat with it as shown above in the Demo.
+    - 6- Once the App server is running, visit (localhost:3000) in the browser to view the App and now you can treat with it as shown above in the Demo.
     - 7- You can also see a live preview of the App from this link (https://cinema-universe.netlify.app/)
 
 ## Pages
