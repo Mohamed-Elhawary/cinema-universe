@@ -1,10 +1,10 @@
 # Cinema Universe
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/78a3cf4b-6b1d-44d7-a54a-7a52b9ee1cbb/deploy-status)](https://app.netlify.com/sites/cinema-universe/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/78a3cf4b-6b1d-44d7-a54a-7a52b9ee1cbb/deploy-status)](https://app.netlify.com/sites/cinemauniverse/deploys)
 
 Cinema Universe is a large Database App for all movies since the beginning of Cinema. It depends on the API of TMDB website, which is the largest Database website for Movies and TV Shows in the world.
 
-You can view the App from [here](https://cinema-universe.netlify.app/)
+You can view the App from [here](https://cinemauniverse.netlify.app/)
 
 ![Screenshot](preview_0.png) 
 ![Screenshot](preview_1.png) 
@@ -36,7 +36,7 @@ https://user-images.githubusercontent.com/69651552/138542024-937ee1bd-c31c-435b-
         npm start
         ```
     - 6- Once the App server is running, visit (localhost:3000) in the browser to view the App and now you can treat with it as shown above in the Demo.
-    - 7- You can also see a live preview of the App from this link (https://cinema-universe.netlify.app/)
+    - 7- You can also see a live preview of the App from this link (https://cinemauniverse.netlify.app/)
 
 ## Pages
 
@@ -55,7 +55,6 @@ https://user-images.githubusercontent.com/69651552/138542024-937ee1bd-c31c-435b-
 
 * [Redux](https://redux.js.org/)
 * [React Redux](https://react-redux.js.org/)
-* [React Icons](https://react-icons.github.io/react-icons/)
 * [Redux Thunk](https://www.npmjs.com/package/redux-thunk)
 * [React Router](https://www.npmjs.com/package/react-router)
 * [React Router Dom](https://www.npmjs.com/package/react-router-dom)
