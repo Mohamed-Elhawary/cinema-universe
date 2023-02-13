@@ -38,6 +38,18 @@ https://user-images.githubusercontent.com/69651552/138542024-937ee1bd-c31c-435b-
     - 6- Once the App server is running, visit (localhost:3000) in the browser to view the App and now you can treat with it as shown above in the Demo.
     - 7- You can also see a live preview of the App from this link (https://cinemauniverse.netlify.app/)
 
+## Features 
+
+* Switch between Dark and Day Mode
+
+![Screenshot](preview_1.png) 
+
+![Screenshot](preview_2.png) 
+
+* PWA [Progressive Web App] introduces the App with another 2 versions beside the web version. It will be in a Mobile version [Android or iPhone] and in a Desktop version for PCs, this means that you can download the app and install it in your PC or Laptop as a Desktop App or download and install it in your Mobile Phone like any App in your Phone.
+
+* Service Worker improves the User Experience for the App, as if your connection to the internet is lost so the browser will not be crashed and go to the weird [No Connection] screen, but instead of that there will be a nice screen with a proper message that shows to the user that there is no internet connection and he has to check his internet.
+
 ## Pages
 
 * Login
@@ -45,7 +57,7 @@ https://user-images.githubusercontent.com/69651552/138542024-937ee1bd-c31c-435b-
 * My Favorites
 * 404 
 
-## Built With
+## Built with
 
 * HTML
 * CSS
@@ -66,37 +78,13 @@ https://user-images.githubusercontent.com/69651552/138542024-937ee1bd-c31c-435b-
 
 ## Frameworks 
 
-* [React.js](https://reactjs.org/)  
+* [React](https://reactjs.org/)  
 * [Ant Design](https://ant.design/)
 * [React Bootstrap](https://react-bootstrap.github.io/)
 
 ## API
 
 * [TMDB](https://www.themoviedb.org/)
-
-## Features 
-
-* Switch between Dark and Day Mode
-
-![Screenshot](preview_1.png) 
-
-![Screenshot](preview_2.png) 
-
-* PWA [Progressive Web App] introduces the App with another 2 versions beside the web version. It will be in a Mobile version [Android or iPhone] and in a Desktop version for PCs, this means that you can download the app and install it in your PC or Laptop as a Desktop App or download and install it in your Mobile Phone like any App in your Phone.
-
-* Service Worker improves the User Experience for the App, as if your connection to the internet is lost so the browser will not be crashed and go to the weird [No Connection] screen, but instead of that there will be a nice screen with a proper message that shows to the user that there is no internet connection and he has to check his internet.
-
-## Author
-
-* [Mohamed Elhawary](https://www.linkedin.com/in/mohamed-elhawary14/) 
-
-## Contact me through my social accounts
-
-* Email: mohamed.k.elhawary@gmail.com
-* [LinkedIn](https://www.linkedin.com/in/mohamed-elhawary14/)
-* [Github](https://github.com/Mohamed-Elhawary)  
-* [Behance](https://www.behance.net/mohamed-elhawary14)
-* [Codepen](https://codepen.io/Mohamed-ElHawary) 
 
 ## Notices & Overview about the App
 
@@ -123,6 +111,18 @@ https://user-images.githubusercontent.com/69651552/138542024-937ee1bd-c31c-435b-
 8- The App depends for its database on the TMDB Website API's, TMDB is the largest Database Website for Movies and TV Shows in the World, you can check all the API's and the URLs that this App depends on them in the (config.js) file inside the (src) folder.
 
 9- Finally, you can consider this App as a reference and strong practical & revision to understand the working logic of `redux`, `react-redux` & middleware like `redux-thunk` and how they interact with a react App.
+
+## Author
+
+* [Mohamed Elhawary](https://www.linkedin.com/in/mohamed-elhawary14/) 
+
+## Contact me through my social accounts
+
+* Email: mohamed.k.elhawary@gmail.com
+* [Linkedin](https://www.linkedin.com/in/mohamed-elhawary14/)
+* [Github](https://github.com/Mohamed-Elhawary)  
+* [Behance](https://www.behance.net/mohamed-elhawary14)
+* [Codepen](https://codepen.io/Mohamed-ElHawary) 
 
 ## License
 
