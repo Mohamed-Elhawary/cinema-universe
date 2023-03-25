@@ -2,7 +2,7 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/78a3cf4b-6b1d-44d7-a54a-7a52b9ee1cbb/deploy-status)](https://app.netlify.com/sites/cinemauniverse/deploys)
 
-Cinema Universe is a large Database website for all movies since the beginning of Cinema. It depends on the API of TMDB website, which is the largest database website for Movies and TV Shows in the world.
+Cinema Universe is a large database website for all movies since the beginning of Cinema. It depends on the API of TMDB website, which is the largest database website for Movies and TV Shows in the world.
 
 You can view the website from [here](https://cinemauniverse.netlify.app/)
 
